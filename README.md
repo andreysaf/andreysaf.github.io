@@ -1,2 +1,2 @@
-# BookTemplate
-A free template built on Bulma for new products.
+# GitHub Pages
+A GitHub page to go along with GitHub.
