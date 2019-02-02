@@ -51,7 +51,6 @@ p {
     color: #fff;
     width: 100%;
     text-align: center;
-    padding-top: 3em;
 }
 
 .portfolio {
@@ -64,25 +63,6 @@ p {
 
 .portfolio_item {
     margin: 1em 5em 1em 5em;
-}
-
-.card {
-    border-radius: 10px;
-    width: 225px;
-    height: 225px;
-    color: #1a1a1a;
-    background: #56ab2f;
-    padding: 20px;
-    text-align: left;
-    transition: transform .2s;
-}
-
-.card:hover{
-    transform: scale(1.1);
-}
-
-.card_desc h4,p {
-    padding-bottom: 10px;
 }
 
 .fab {
