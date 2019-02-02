@@ -72,7 +72,7 @@ p {
     height: 225px;
     color: #1a1a1a;
     background: #56ab2f;
-    padding: 2em;
+    padding: 20px;
     text-align: left;
     transition: transform .2s;
 }
