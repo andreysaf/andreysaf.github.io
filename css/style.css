@@ -87,6 +87,10 @@ a:visited {
 }
 
 @media screen and (max-width: 600px) {
+    body {
+        letter-spacing: normal;
+    }
+
     .portfolio {
         padding: 1em 0 1em 0;
     }
