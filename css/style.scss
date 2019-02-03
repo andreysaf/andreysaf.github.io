@@ -1,9 +1,13 @@
-$colors: (
+$colours: (
     greenMain: #56ab2f,
     greenLight: #a8e063,
     dark: #1a1a1a,
     white: #ffffff
 );
+
+@function colour($colour-name) {
+    @return map-get($colours, $colour-name);
+}
 
 body, html {
     height: 100vh;
@@ -12,15 +16,15 @@ body, html {
 body {
     font-family: 'PT Sans', sans-serif;
     margin: 0;
-    background: map-get($colors, dark);
-    color: map-get($colors, dark);
+    background: colour(dark);
+    color: colour( dark);
 
     #bg-container {
-        -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 92%);
-        clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 92%);
-        background: map-get($colors, greenMain);
-        background: -webkit-linear-gradient(to right, map-get($colors, greenLight), map-get($colors, greenMain)); 
-        background: linear-gradient(to right, map-get($colors, greenLight), map-get($colors, greenMain));
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+        background: colour(greenMain);
+        background: -webkit-linear-gradient(to right, colour(greenLight), colour(greenMain)); 
+        background: linear-gradient(to right, colour(greenLight), colour(greenMain));
     }
 }
 
@@ -55,7 +59,7 @@ body {
     }
 
     a {
-        color: #1a1a1a;
+        color: colour(dark);
     }
     
     a:link {
@@ -68,8 +72,8 @@ body {
 }
 
 .portfolio_section {
-    background-color: map-get($colors, dark);
-    color: map-get($colors, white);
+    background-color: colour(dark);
+    color: colour(white);
     width: 100%;
     text-align: center;
 
@@ -86,6 +90,7 @@ body {
     }
 
     h4{
+        font-size: 1.25em;
         margin-block-start: 0.1em;
         margin-block-end: 0.1em;
     }
