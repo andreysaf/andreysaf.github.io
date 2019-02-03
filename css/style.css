@@ -1,107 +1,114 @@
+body, html {
+  height: 100vh;
+}
+
 body {
-    font-family: 'PT Sans', sans-serif;
-    background: #56ab2f;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: #1a1a1a;
-    margin: 0;
+  font-family: 'PT Sans', sans-serif;
+  margin: 0;
+  background: #1a1a1a;
+  color: #1a1a1a;
 }
 
-h1 {
-    font-size: 5em;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-}
-
-h2 {
-    font-size: 4em;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-}
-
-h3 {
-    font-size: 2em;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-}
-
-h4 {
-    font-size: 2em;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-}
-
-p {
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+body #bg-container {
+  -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 92%);
+  clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 92%);
+  background: #56ab2f;
+  background: -webkit-gradient(linear, left top, right top, from(#a8e063), to(#56ab2f));
+  background: linear-gradient(to right, #a8e063, #56ab2f);
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  padding: 1em;
+}
+
+.header h1 {
+  font-size: 6em;
+  -webkit-margin-before: 0.1em;
+          margin-block-start: 0.1em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+}
+
+.header p {
+  font-size: 2em;
+  -webkit-margin-before: 0.1em;
+          margin-block-start: 0.1em;
+  -webkit-margin-after: 0.25em;
+          margin-block-end: 0.25em;
+}
+
+.header .fab {
+  margin: 0.1em;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+
+.header .fab:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.header a {
+  color: #1a1a1a;
+}
+
+.header a:link {
+  text-decoration: none;
+}
+
+.header a:visited {
+  text-decoration: none;
 }
 
 .portfolio_section {
-    background-color: #1a1a1a;
-    color: #fff;
-    width: 100%;
-    text-align: center;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
 }
 
-.portfolio {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 3em 0 3em 0;
+.portfolio_section .portfolio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3em 0 3em 0;
 }
 
-.portfolio_item {
-    margin: 1em 5em 1em 5em;
+.portfolio_section .portfolio_item {
+  margin: 0.5em 2em 0.5em 2em;
 }
 
-.fab {
-    margin: 0.1em;
-    transition: transform .2s;
+.portfolio_section h4 {
+  -webkit-margin-before: 0.1em;
+          margin-block-start: 0.1em;
+  -webkit-margin-after: 0.1em;
+          margin-block-end: 0.1em;
 }
-
-.fab:hover {
-    transform: scale(1.5);
-}
-
-a {
-    color: #1a1a1a;
-}
-
-a:link {
-    text-decoration: none;
-}
-  
-a:visited {
-    text-decoration: none;
-}
-
-@media screen and (max-width: 600px) {
-    body {
-        letter-spacing: normal;
-    }
-
-    .portfolio {
-        padding: 1em 0 1em 0;
-    }
-
-    .portfolio_item {
-        margin: 1em 2em 1em 2em;
-    }
-
-    h4 {
-        font-size: 1em;
-        margin-block-start: 0em;
-        margin-block-end: 0em;
-    }
-  }
+/*# sourceMappingURL=style.css.map */
