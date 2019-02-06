@@ -28,8 +28,8 @@ body {
     color: colour( dark);
 
     #bg-container {
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+        -webkit-clip-path: polygon(100% 0, 100% 80%, 50% 90%, 0 80%, 0 0);
+        clip-path: polygon(100% 0, 100% 80%, 50% 90%, 0 80%, 0 0);
         background: colour(greenMain);
         background: -webkit-linear-gradient(to right, colour(greenLight), colour(greenMain)); 
         background: linear-gradient(to right, colour(greenLight), colour(greenMain));
