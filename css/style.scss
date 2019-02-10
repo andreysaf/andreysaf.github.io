@@ -2,6 +2,7 @@ $colours: (greenMain: #56ab2f,
 greenLight: #a8e063,
 dark: #1a1a1a,
 lightDark: #333333,
+textGrey: #a9b1b6,
 white: #ffffff);
 
 $mobile: 600px;
@@ -409,6 +410,10 @@ body {
 
   .footer_item{
     margin: 0.5em;
+  }
+
+  .footer_item.location{
+    color: colour(textGrey);
   }
 
   .footer_item.btn {
