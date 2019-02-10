@@ -21,6 +21,28 @@ html {
   height: 100vh;
 }
 
+/* Scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: colour(dark); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: colour(greenLight); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: colour(greenMain); 
+}
+
 body {
   font-family: 'PT Sans', sans-serif;
   margin: 0;
@@ -41,6 +63,14 @@ body {
 
   a:visited {
     text-decoration: none;
+  }
+
+  hr {
+    height: 0.3rem;
+    background-color: colour(greenLight);
+    width: 6rem;
+    margin: 0.5rem auto 0 auto;
+    border: 0;
   }
 }
 
@@ -385,8 +415,9 @@ body {
     background: colour(greenMain);
     background: -webkit-linear-gradient(to right, colour(greenLight), colour(greenMain));
     background: linear-gradient(to right, colour(greenLight), colour(greenMain));
-    padding: 1em;
-    border-radius: 30px;
+    padding: 1.3em;
+    font-size: 1.1em;
+    border-radius: 50px;
     -webkit-box-shadow: 0 8px 6px -6px black;
 	   -moz-box-shadow: 0 8px 6px -6px black;
           box-shadow: 0 8px 6px -6px black;
@@ -394,7 +425,7 @@ body {
   }
 
   .footer_item.btn:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   a {
@@ -404,5 +435,9 @@ body {
 
   h1 {
     color: colour(white);
+  }
+
+  p {
+    font-size: 1.3em;
   }
 }
