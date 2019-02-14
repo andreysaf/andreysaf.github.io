@@ -2,6 +2,7 @@ $colours: (
 greenMain: #56ab2f,
 greenLight: #a8e063,
 greenDark: #08522e,
+greenSection: #1e985d,
 dark: #1a1a1a,
 black: #000000,
 border: #222,
@@ -101,7 +102,7 @@ body {
   }
 
   .green {
-    background-color: colour(greenDark);
+    background-color: colour(greenSection);
   }
 
   .border {
