@@ -87,6 +87,10 @@ body .container {
   max-width: 700px;
 }
 
+body .green {
+  background-color: #08522e;
+}
+
 body .border {
   background-color: #222;
   height: 10px;
@@ -110,6 +114,28 @@ body .border {
 }
 
 .about p {
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+.work {
+  padding: 3em;
+}
+
+.work h1 {
+  font-size: 3em;
+  font-weight: 600;
+  letter-spacing: -.009em;
+}
+
+.work h3 {
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: -.009em;
+  color: #000000;
+}
+
+.work p {
   font-size: 1.5em;
   color: #ffffff;
 }
