@@ -91,6 +91,10 @@ body .green {
   background-color: #1e985d;
 }
 
+body .grey {
+  background-color: #1a1a1a;
+}
+
 body .border {
   background-color: #222;
   height: 10px;
@@ -141,30 +145,7 @@ body .border {
 }
 
 .footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  color: #ffffff;
-  background: #1a1a1a;
   padding: 3em;
-}
-
-.footer a {
-  color: #1a1a1a;
-  font-weight: bold;
 }
 
 .footer h1 {
@@ -173,8 +154,25 @@ body .border {
   letter-spacing: -.009em;
 }
 
-.footer p {
+.footer h3 {
   font-size: 2em;
-  color: #999999;
+  font-weight: 600;
+  letter-spacing: -.009em;
+  color: #000000;
+}
+
+.footer p {
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+.footer a {
+  font-size: 1em;
+  color: #ffffff;
+  border-bottom: 3px solid #ffffff;
+}
+
+.footer a:hover {
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */

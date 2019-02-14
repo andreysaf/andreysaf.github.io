@@ -22,7 +22,6 @@ $mobile: 600px;
   }
 }
 
-
 /* Scroll bar */
 
 /* width */
@@ -105,6 +104,10 @@ body {
     background-color: colour(greenSection);
   }
 
+  .grey {
+    background-color: colour(dark);
+  }
+
   .border {
     background-color: colour(border);
     height: 10px;
@@ -155,21 +158,8 @@ body {
   }
 }
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  text-align: center;
-  color: colour(white);
-  background: colour(dark);
+.footer{
   padding: 3em;
-
-  a {
-    color: colour(dark);
-    font-weight: bold;
-  }
 
   h1 {
     font-size: 3em;
@@ -177,8 +167,25 @@ body {
     letter-spacing: -.009em;
   }
 
-  p {
+  h3 {
     font-size: 2em;
-    color: colour(textGrey);
+    font-weight: 600;
+    letter-spacing: -.009em;
+    color: colour(black);
+  }
+
+  p {
+    font-size: 1.5em;
+    color: colour(white);
+  }
+
+  a {
+    font-size: 1em;
+    color: colour(white);
+    border-bottom: 3px solid colour(white);
+  }
+  
+  a:hover {
+    font-weight: bold;
   }
 }
