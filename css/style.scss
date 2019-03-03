@@ -1,13 +1,15 @@
-$colours: (greenMain: #56ab2f,
-greenLight: #a8e063,
-greenDark: #08522e,
-greenSection: #1e985d,
-dark: #1a1a1a,
-black: #000000,
-border: #222,
-lightDark: #333333,
-textGrey: #999999,
-white: #ffffff);
+$colours: (
+  greenMain: #56ab2f,
+  greenLight: #a8e063,
+  greenDark: #08522e,
+  greenSection: #1e985d,
+  dark: #1a1a1a,
+  black: #000000,
+  border: #222,
+  lightDark: #333333,
+  textGrey: #999999,
+  white: #ffffff
+);
 
 $mobile: 600px;
 
@@ -16,7 +18,7 @@ $mobile: 600px;
 }
 
 @mixin mobile {
-  @media(max-width: #{$mobile}) {
+  @media (max-width: #{$mobile}) {
     @content;
   }
 }
@@ -43,8 +45,12 @@ $mobile: 600px;
   background: colour(greenMain);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
   margin: 0;
   background: colour(black);
   color: colour(white);
@@ -123,13 +129,13 @@ body {
   h1 {
     font-size: 3em;
     font-weight: 600;
-    letter-spacing: -.009em;
+    letter-spacing: -0.009em;
   }
 
   h3 {
     font-size: 2em;
     font-weight: 600;
-    letter-spacing: -.009em;
+    letter-spacing: -0.009em;
     color: colour(textGrey);
   }
 
@@ -145,13 +151,13 @@ body {
   h1 {
     font-size: 3em;
     font-weight: 600;
-    letter-spacing: -.009em;
+    letter-spacing: -0.009em;
   }
 
   h3 {
     font-size: 2em;
     font-weight: 600;
-    letter-spacing: -.009em;
+    letter-spacing: -0.009em;
     color: colour(black);
   }
 
@@ -167,13 +173,13 @@ body {
   h1 {
     font-size: 3em;
     font-weight: 600;
-    letter-spacing: -.009em;
+    letter-spacing: -0.009em;
   }
 
   h3 {
     font-size: 2em;
     font-weight: 600;
-    letter-spacing: -.009em;
+    letter-spacing: -0.009em;
     color: colour(black);
   }
 

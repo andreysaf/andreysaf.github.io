@@ -19,8 +19,12 @@
   background: #56ab2f;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
   margin: 0;
   background: #000000;
   color: #ffffff;
@@ -105,13 +109,13 @@ body .border {
 .about h1 {
   font-size: 3em;
   font-weight: 600;
-  letter-spacing: -.009em;
+  letter-spacing: -0.009em;
 }
 
 .about h3 {
   font-size: 2em;
   font-weight: 600;
-  letter-spacing: -.009em;
+  letter-spacing: -0.009em;
   color: #999999;
 }
 
@@ -127,13 +131,13 @@ body .border {
 .work h1 {
   font-size: 3em;
   font-weight: 600;
-  letter-spacing: -.009em;
+  letter-spacing: -0.009em;
 }
 
 .work h3 {
   font-size: 2em;
   font-weight: 600;
-  letter-spacing: -.009em;
+  letter-spacing: -0.009em;
   color: #000000;
 }
 
@@ -149,13 +153,13 @@ body .border {
 .footer h1 {
   font-size: 3em;
   font-weight: 600;
-  letter-spacing: -.009em;
+  letter-spacing: -0.009em;
 }
 
 .footer h3 {
   font-size: 2em;
   font-weight: 600;
-  letter-spacing: -.009em;
+  letter-spacing: -0.009em;
   color: #000000;
 }
 
