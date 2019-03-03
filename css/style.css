@@ -43,6 +43,7 @@ body #bg-container {
 @media (max-width: 600px) {
   body #bg-container {
     background-image: url("../res/background_mobile.jpg");
+    background-attachment: scroll;
   }
 }
 

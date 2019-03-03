@@ -66,6 +66,7 @@ body {
 
     @include mobile {
       background-image: url("../res/background_mobile.jpg");
+      background-attachment: scroll;
     }
   }
 
