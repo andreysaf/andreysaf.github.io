@@ -50,7 +50,7 @@ html {
 }
 
 body {
-  font-family: "PT Sans", sans-serif;
+  font-family:aktiv-grotesk,Helvetica,Arial,sans-serif;
   margin: 0;
   background: colour(black);
   color: colour(white);
@@ -76,7 +76,7 @@ body {
     font-size: 10vw;
     font-weight: bold;
     margin: 0 auto;
-    padding: 10px;
+    padding: 30px;
     text-align: center;
     position: absolute;
     top: 50%;
@@ -85,7 +85,7 @@ body {
     mix-blend-mode: screen;
 
     @include mobile {
-      font-size: 20vw;
+      font-size: 15vw;
     }
   }
 
@@ -128,13 +128,13 @@ body {
   padding: 3em;
 
   h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 600;
     letter-spacing: -0.009em;
   }
 
   h3 {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 600;
     letter-spacing: -0.009em;
     color: colour(textGrey);
@@ -150,13 +150,13 @@ body {
   padding: 3em;
 
   h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 600;
     letter-spacing: -0.009em;
   }
 
   h3 {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 600;
     letter-spacing: -0.009em;
     color: colour(black);
@@ -172,13 +172,13 @@ body {
   padding: 3em;
 
   h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 600;
     letter-spacing: -0.009em;
   }
 
   h3 {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 600;
     letter-spacing: -0.009em;
     color: colour(black);
@@ -191,11 +191,21 @@ body {
 
   a {
     font-size: 1em;
+    background:
+       linear-gradient(
+         to bottom, colour(greenSection) 0%,
+         colour(greenSection) 100%
+       );
+      background-position: 0 100%;
+      background-repeat: repeat-x;
+      background-size: 4px 4px;
     color: colour(white);
-    border-bottom: 3px solid colour(white);
+    text-decoration: none;
+    transition: background-size .2s;
+    padding-bottom: 5px;
   }
-
+  
   a:hover {
-    font-weight: bold;
+    background-size: 4px 50px;
   }
 }
