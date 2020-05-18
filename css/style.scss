@@ -70,7 +70,7 @@ body {
   }
 
   .text_header {
-    color: rgba(0,0,0,0.8);
+    color: rgba(255,255,255,0.9);
     font-size: 5.5vw;
     line-height: 1;
     letter-spacing: -2.7px;
@@ -87,7 +87,7 @@ body {
   }
   
   .text_subheader {
-    color: rgba(0,0,0,0.8);
+    color: rgba(255,255,255,0.8);
     font-size: calc(21px + 11*(100vw - 1440px)/1120);
     line-height: 1.33;
     letter-spacing: .3px;
