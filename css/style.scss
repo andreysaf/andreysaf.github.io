@@ -1,8 +1,6 @@
 $colours: (
-  greenMain: #56ab2f,
-  greenLight: #a8e063,
-  greenDark: #08522e,
-  greenSection: #1e985d,
+  greenNew: #37846B,
+  greenSection: #288E60,
   dark: #1a1a1a,
   black: #000000,
   border: #222,
@@ -11,6 +9,7 @@ $colours: (
   white: #ffffff
 );
 
+$tablet: 1500px;
 $mobile: 600px;
 
 @function colour($colour-name) {
@@ -19,6 +18,12 @@ $mobile: 600px;
 
 @mixin mobile {
   @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
     @content;
   }
 }
@@ -40,11 +45,6 @@ $mobile: 600px;
   background: colour(greenDark);
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: colour(greenMain);
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -56,36 +56,50 @@ body {
   color: colour(white);
 
   #bg-container {
-    background-image: url("../res/background.jpg");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    max-width: 700px;
+    margin:auto;
+  }
 
-    @include mobile {
-      background-image: url("../res/background_mobile.jpg");
-      background-attachment: scroll;
-    }
+  .header {
+    padding:3em;
   }
 
   .text_header {
-    background-color: white;
-    color: black;
-    font-size: 10vw;
-    font-weight: bold;
-    margin: 0 auto;
-    padding: 30px;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    mix-blend-mode: screen;
-
+    color: rgba(0,0,0,0.8);
+    font-size: 5.5vw;
+    line-height: 1;
+    letter-spacing: -2.7px;
+    margin-bottom: .2em;
     @include mobile {
       font-size: 15vw;
+      letter-spacing: 1px;
+    }
+
+    @include tablet {
+      font-size: 10vw;
+      letter-spacing: 1px;
+    }
+  }
+  
+  .text_subheader {
+    color: rgba(0,0,0,0.8);
+    font-size: calc(21px + 11*(100vw - 1440px)/1120);
+    line-height: 1.33;
+    letter-spacing: .3px;
+    word-spacing: .4px;
+    @include mobile {
+      font-size: 7vw;
+      letter-spacing: 1px;
+    }
+
+    @include tablet {
+      font-size: 4vw;
+      letter-spacing: 1px;
     }
   }
 
@@ -108,6 +122,10 @@ body {
   .container {
     margin: auto;
     max-width: 700px;
+  }
+
+  .greenNew {
+    background-color: colour(greenNew);
   }
 
   .green {
@@ -159,12 +177,12 @@ body {
     font-size: 1.8em;
     font-weight: 600;
     letter-spacing: -0.009em;
-    color: colour(black);
+    color: rgba(0,0,0,0.7);
   }
 
   p {
     font-size: 1.5em;
-    color: colour(white);
+    color: rgba(255, 255, 255, 0.8);
   }
 }
 
