@@ -42,7 +42,7 @@ const WebViewer = () => {
           <Heading margin="none" responsive={true} size="medium">
             PDFTron's WebViewer Redesign
           </Heading>
-          <Image fit="contain" fill="horizontal" src="/webviewer.png" />
+          <Image fit="contain" fill="horizontal" src="/webviewer.png" alt="Webviewer UI screenshoot" />
           <Heading margin="none" responsive={true} size="small">
             Background
           </Heading>
