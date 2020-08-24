@@ -11,8 +11,8 @@ import {
   Button,
 } from 'grommet';
 import { Github, Linkedin, Medium } from 'grommet-icons';
-import { isMobile } from 'react-device-detect';
 import Layout from '../components/layout';
+import Link from 'next/link'
 
 const background1 = { dark: 'light-1', light: 'dark-1' };
 const background2 = { dark: 'light-2', light: 'dark-2' };
@@ -130,6 +130,7 @@ const Home = () => {
               create an improved, modern experience based on user and
               stakeholder feedback.
             </Paragraph>
+            <Link href="/webviewer"><Anchor>Read more about the project</Anchor></Link>
           </Box>
         </Box>
       </Grommet>
