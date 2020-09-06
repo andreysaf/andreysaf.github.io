@@ -59,12 +59,14 @@ const WebViewerVideo = () => {
           </Paragraph>
           <Paragraph responsive={true} size="large" margin="none">
             Until WebViewer Video, prospects and customers would have to find a
-            different vendor to cover video format. With multiple vendors, users
-            would get different UI experiences, as well as a different set of
-            annotation tools to complete the same tasks. From the development
-            perspective, it would also mean maintaining several SDKs, different
-            backend setup for annotation storage, user roles and permission
-            management.
+            different vendor to cover video format.
+          </Paragraph>
+          <Paragraph responsive={true} size="large" margin="none">
+            With multiple vendors, users would get different UI experiences, as
+            well as a different set of annotation tools to complete the same
+            tasks. From the development perspective, it would also mean
+            maintaining several SDKs, different backend setup for annotation
+            storage, user roles and permission management.
           </Paragraph>
           <Heading margin="none" responsive={true} size="small">
             My Role
