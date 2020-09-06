@@ -27,7 +27,7 @@ const Home = () => {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="Description"
-            content="Andrey Safonov is a fullstack developer with specialization in UX/UI. BASc in Computer Engineering with minor in Business Management."
+            content="Andrey Safonov is a senior solutions engineer and a fullstack developer at PDFTron. BASc in Computer Engineering with minor in Business Management."
           />
         </Head>
 

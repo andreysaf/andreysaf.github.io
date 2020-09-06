@@ -21,11 +21,11 @@ const WebViewer = () => {
     <Layout>
       <Grommet theme={grommet}>
         <Head>
-          <title>PDFTron's WebViewer Redesign</title>
+          <title>PDFTron's WebViewer Redesign - Andrey Safonov - Product Manager</title>
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="Description"
-            content="PDFTron's WebViewer redesign project."
+            content="Andrey Safonov - technical product manager and PDFTron's WebViewer UI redesign."
           />
         </Head>
 

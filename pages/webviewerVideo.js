@@ -21,9 +21,9 @@ const WebViewerVideo = () => {
     <Layout>
       <Grommet theme={grommet}>
         <Head>
-          <title>WebViewer Video</title>
+          <title>WebViewer Video - Andrey Safonov - Product Owner</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="Description" content="WebViewer video project." />
+          <meta name="Description" content="Andrey Safonov - technical product owner and WebViewer Video." />
         </Head>
 
         <Box
