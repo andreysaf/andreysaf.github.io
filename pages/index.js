@@ -23,7 +23,7 @@ const Home = () => {
     <Layout>
       <Grommet theme={grommet}>
         <Head>
-          <title>Andrey Safonov | Solutions Engineer</title>
+          <title>Andrey Safonov - Solutions Engineer</title>
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="Description"
