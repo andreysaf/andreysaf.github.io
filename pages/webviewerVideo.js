@@ -23,7 +23,10 @@ const WebViewerVideo = () => {
         <Head>
           <title>WebViewer Video - Andrey Safonov - Product Owner</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="Description" content="Andrey Safonov - technical product owner and WebViewer Video." />
+          <meta
+            name="Description"
+            content="Andrey Safonov - technical product owner and WebViewer Video."
+          />
         </Head>
 
         <Box
@@ -52,13 +55,16 @@ const WebViewerVideo = () => {
             PDFTron offers SDKs to edit, view, and annotate PDFs, images, and MS
             Office documents. Video is quite popular format in document
             management systems, virtual data rooms as well as design and
-            marketing asset management. Until WebViewer Video, prospects and
-            customers would have to find a different vendor to cover video
-            format. With multiple vendors, users would get different UI
-            experiences, as well as a different set of annotation tools to
-            complete the same tasks. From the development perspective, it would
-            also mean maintaining several SDKs, different backend setup for
-            annotation storage, user roles and permission management.
+            marketing asset management.
+          </Paragraph>
+          <Paragraph responsive={true} size="large" margin="none">
+            Until WebViewer Video, prospects and customers would have to find a
+            different vendor to cover video format. With multiple vendors, users
+            would get different UI experiences, as well as a different set of
+            annotation tools to complete the same tasks. From the development
+            perspective, it would also mean maintaining several SDKs, different
+            backend setup for annotation storage, user roles and permission
+            management.
           </Paragraph>
           <Heading margin="none" responsive={true} size="small">
             My Role
