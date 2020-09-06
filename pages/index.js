@@ -103,6 +103,14 @@ const Home = () => {
             every day. With my customer-centric skillset, I create valuable
             relationships with my clients and development team.
           </Paragraph>
+          <Paragraph responsive={true} size="large" margin="none">
+            My day-to-day is spent helping solution architects and developers
+            build scalable applications by leveraging PDFTron's SDKs, developing
+            new features, APIs, and functionalities based on their feedback,
+            translating the feedback to other teams, and improving developer
+            experience by creating ready-to-deploy apps, samples, documentation,
+            videos and guides.
+          </Paragraph>
         </Box>
         <Box
           direction="column"
