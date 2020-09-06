@@ -12,7 +12,7 @@ import {
 } from 'grommet';
 import { Github, Linkedin, Medium } from 'grommet-icons';
 import Layout from '../components/layout';
-import Link from 'next/link'
+import Link from 'next/link';
 
 const background1 = { dark: 'light-1', light: 'dark-1' };
 const background2 = { dark: 'light-2', light: 'dark-2' };
@@ -52,27 +52,33 @@ const Home = () => {
           <Text alignSelf="center" responsive={true} size="xlarge">
             Solutions Engineer/Architect @PDFTron
           </Text>
-          <Box direction="row" pad="medium" gap="medium" alignContent="center" align="center">
-              <Box>
-                <Anchor
-                  href="https://github.com/andreysaf"
-                  label="Check out my code"
-                  margin="small"
-                  icon={<Github />}
-                />
-                <Anchor
-                  href="https://www.linkedin.com/in/andrey-safonov1/"
-                  label="Connect with me"
-                  margin="small"
-                  icon={<Linkedin />}
-                />
-                <Anchor
-                  href="https://medium.com/@safonand"
-                  label="Read my blogs"
-                  margin="small"
-                  icon={<Medium />}
-                />
-              </Box>
+          <Box
+            direction="row"
+            pad="medium"
+            gap="medium"
+            alignContent="center"
+            align="center"
+          >
+            <Box>
+              <Anchor
+                href="https://github.com/andreysaf"
+                label="Check out my code"
+                margin="small"
+                icon={<Github />}
+              />
+              <Anchor
+                href="https://www.linkedin.com/in/andrey-safonov1/"
+                label="Connect with me"
+                margin="small"
+                icon={<Linkedin />}
+              />
+              <Anchor
+                href="https://medium.com/@safonand"
+                label="Read my blogs"
+                margin="small"
+                icon={<Medium />}
+              />
+            </Box>
           </Box>
         </Box>
         <Box
@@ -130,7 +136,23 @@ const Home = () => {
               create an improved, modern experience based on user and
               stakeholder feedback.
             </Paragraph>
-            <Link href="/webviewer"><Anchor>Read more about the project</Anchor></Link>
+            <Link href="/webviewer">
+              <Anchor>Read more about the project</Anchor>
+            </Link>
+          </Box>
+          <Box>
+            <Heading margin="none" responsive={true} size="small">
+              WebViewer Video
+            </Heading>
+            <Paragraph responsive={true} size="large">
+              Product Owner for WebViewer Video. Created a new product for
+              annotating videos frame by frame. Maintaining product backlog,
+              overseeing development and collecting customer feedback to drive
+              new feature development.
+            </Paragraph>
+            <Link href="/webviewerVideo">
+              <Anchor>Read more about the project</Anchor>
+            </Link>
           </Box>
         </Box>
       </Grommet>
