@@ -98,10 +98,10 @@ const Home = () => {
             I am an energetic, enthusiastic person who creates solutions.
           </Paragraph>
           <Paragraph responsive={true} size="large" margin="none">
-            I’ve delivered multiple successful projects, using the agile
-            software development process, that are used by thousands of people
-            every day. With my customer-centric skillset, I create valuable
-            relationships with my clients and development team.
+            I am an engineer who enjoys working directly with customers to
+            understand requirements and build great applications. I constantly
+            extend my T shaped knowledge by diving deep into every aspect of
+            product creation and learning from the best in the industry.
           </Paragraph>
           <Paragraph responsive={true} size="large" margin="none">
             My day-to-day is spent helping solution architects and developers
