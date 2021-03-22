@@ -73,7 +73,7 @@ const Home = () => {
                 icon={<Linkedin />}
               />
               <Anchor
-                href="https://medium.com/@safonand"
+                href="https://andreysaf.medium.com/"
                 label="Read my blogs"
                 margin="small"
                 icon={<Medium />}
