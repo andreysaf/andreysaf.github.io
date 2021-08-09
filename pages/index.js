@@ -34,7 +34,7 @@ const Home = () => {
         <Center>
           <Stack spacing={6}>
             <Wrap>
-              <WrapItem>
+              <WrapItem pl={4}>
                 <Avatar
                   size={avatarSize}
                   name="Andrey Safonov"
@@ -44,14 +44,14 @@ const Home = () => {
             </Wrap>
             <Wrap>
               <WrapItem>
-                <Heading as="h1" size={headingSize}>
+                <Heading as="h1" size={headingSize} pl={4}>
                   Andrey Safonov
                 </Heading>
               </WrapItem>
             </Wrap>
             <Wrap>
               <WrapItem>
-                <Heading as="h2" size={subHeadingSize}>
+                <Heading as="h2" size={subHeadingSize} pl={4}>
                   Head of Product @PDFTron
                 </Heading>
               </WrapItem>
@@ -60,9 +60,9 @@ const Home = () => {
               <WrapItem>
                 <Container>
                   I am a technical product manager who started my career as a
-                  software engineer then transitioned to consulting, solution
-                  engineering and then product. I enjoy working directly with
-                  customers to understand the underlying pain and build products
+                  software engineer before transitioning to consulting, solution
+                  engineering, and then product. I enjoy working directly with
+                  customers to understand the underlying pain and building products
                   that solve that pain.
                 </Container>
               </WrapItem>
@@ -71,7 +71,7 @@ const Home = () => {
               <WrapItem>
                 <Container>
                   My day-to-day is spent listening to users, prototyping with
-                  designers, designing APIs with developers, creating great
+                  designers, designing APIs with developers, creating
                   content with marketing and enabling the sales team to deliver
                   great products at PDFTron.
                 </Container>

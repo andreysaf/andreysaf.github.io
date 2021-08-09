@@ -32,6 +32,15 @@ const WebViewerVideo = () => {
       <Navbar />
       <Container maxW={'7xl'} p="12">
         <VStack paddingTop="40px" spacing="2" alignItems="flex-start">
+          <Breadcrumb mb={4}>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">WebViewer Video</BreadcrumbLink>
+            </BreadcrumbItem>
+          </Breadcrumb>
           <Heading as="h2">Introducing WebViewer Video</Heading>
           <Image
             objectFit="cover"
@@ -44,7 +53,7 @@ const WebViewerVideo = () => {
           </Heading>
           <Text as="p" fontSize="lg">
             PDFTron offers SDKs to edit, view, and annotate PDFs, images, and MS
-            Office documents. Video is quite popular format in document
+            Office documents. Video is quite a popular format in document
             management systems, virtual data rooms as well as design and
             marketing asset management.
           </Text>
@@ -101,15 +110,6 @@ const WebViewerVideo = () => {
             application as the number of users grows.
           </Text>
         </VStack>
-        <Breadcrumb mt={8}>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">WebViewer Video</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
       </Container>
       <Footer />
     </Layout>

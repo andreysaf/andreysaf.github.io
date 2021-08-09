@@ -1,21 +1,17 @@
 import {
   Box,
-  Button,
+  SimpleGrid,
   Container,
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
-  Link
+  Heading,
+  Link,
 } from '@chakra-ui/react';
 import { Github, Linkedin, Medium, Youtube } from 'grommet-icons';
 
 const SocialButton = ({ children, label, href }) => {
-  return (
-    <Link href={href}>
-      {children}
-    </Link>
-  );
+  return <Link href={href}>{children}</Link>;
 };
 
 export default function SmallWithSocial() {
@@ -28,25 +24,57 @@ export default function SmallWithSocial() {
       <Container
         as={Stack}
         maxW={'6xl'}
-        py={4}
+        py={{ base: 4, md: 8 }}
         direction={{ base: 'column', md: 'row' }}
         spacing={4}
         justify={{ base: 'center', md: 'space-between' }}
-        align={{ base: 'center', md: 'center' }}
+        align={{ base: 'left', md: 'center' }}
       >
-        <Link href='/'><Text>Andrey Safonov</Text></Link>
+        <Stack direction={'column'}>
+          <Link href="/">
+            <Text>Andrey Safonov</Text>
+          </Link>
+        </Stack>
+
+        <Stack direction={'column'}>
+          <Heading size="xs">Products</Heading>
+          <Link href="/webviewer">
+            <Text>WebViewer</Text>
+          </Link>
+          <Link href="/webviewerVideo">
+            <Text>WebViewer Video</Text>
+          </Link>
+        </Stack>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'GitHub'} href={'https://github.com/andreysaf'}>
-            <Github color={useColorModeValue('#2d3848', 'white')} size='medium'/>
+            <Github
+              color={useColorModeValue('#2d3848', 'white')}
+              size="medium"
+            />
           </SocialButton>
-          <SocialButton label={'LinkedIn'} href={'https://www.linkedin.com/in/andrey-safonov1/'}>
-            <Linkedin color={useColorModeValue('#2d3848', 'white')} size='medium'/>
+          <SocialButton
+            label={'LinkedIn'}
+            href={'https://www.linkedin.com/in/andrey-safonov1/'}
+          >
+            <Linkedin
+              color={useColorModeValue('#2d3848', 'white')}
+              size="medium"
+            />
           </SocialButton>
           <SocialButton label={'Medium'} href={'https://andreysaf.medium.com/'}>
-            <Medium color={useColorModeValue('#2d3848', 'white')} size='medium'/>
+            <Medium
+              color={useColorModeValue('#2d3848', 'white')}
+              size="medium"
+            />
           </SocialButton>
-          <SocialButton label={'YouTube'} href={'https://www.youtube.com/c/PDFTronSDK'}>
-            <Youtube color={useColorModeValue('#2d3848', 'white')} size='medium'/>
+          <SocialButton
+            label={'YouTube'}
+            href={'https://www.youtube.com/c/PDFTronSDK'}
+          >
+            <Youtube
+              color={useColorModeValue('#2d3848', 'white')}
+              size="medium"
+            />
           </SocialButton>
         </Stack>
       </Container>

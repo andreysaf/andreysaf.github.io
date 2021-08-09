@@ -32,7 +32,16 @@ const WebViewer = () => {
       <Navbar />
       <Container maxW={'7xl'} p="12">
         <VStack paddingTop="40px" spacing="2" alignItems="flex-start">
-          <Heading as="h2">Redesigning PDFTron's flagship product</Heading>
+          <Breadcrumb mb={4}>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">WebViewer</BreadcrumbLink>
+            </BreadcrumbItem>
+          </Breadcrumb>
+          <Heading as="h1">Redesigning PDFTron's flagship product</Heading>
           <Image
             objectFit="cover"
             src="/webviewer.png"
@@ -52,7 +61,8 @@ const WebViewer = () => {
             My Role
           </Heading>
           <Text as="p" fontSize="lg">
-            - Using OKR framework, set the objective and establish key results.
+            - Using the OKR framework, set the objective and establish key
+            results.
           </Text>
           <Text as="p" fontSize="lg">
             - Reached out to customers to gather feedback from their users.
@@ -96,15 +106,6 @@ const WebViewer = () => {
             update.
           </Text>
         </VStack>
-        <Breadcrumb mt={8}>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">WebViewer</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
       </Container>
       <Footer />
     </Layout>
