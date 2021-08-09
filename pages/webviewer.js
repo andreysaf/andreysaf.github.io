@@ -26,7 +26,7 @@ const WebViewer = () => {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="Description"
-          content="Andrey Safonov - technical product manager and PDFTron's WebViewer UI redesign."
+          content="Andrey Safonov - technical product manager for PDFTron's WebViewer UI redesign."
         />
       </Head>
       <Navbar />
