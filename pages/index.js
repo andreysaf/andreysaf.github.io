@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <Layout>
       <Head>
-        <title>Andrey Safonov - Solutions Engineer</title>
+        <title>Andrey Safonov - Head of Product, Technical Product Manager</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="Description"
