@@ -44,6 +44,9 @@ export default function SmallWithSocial() {
           <Link href="/webviewerVideo">
             <Text>WebViewer Video</Text>
           </Link>
+          <Link href="/blog">
+            <Heading size="xs">Blog</Heading>
+          </Link>
         </Stack>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'GitHub'} href={'https://github.com/andreysaf'}>
