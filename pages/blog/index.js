@@ -17,9 +17,9 @@ import BlogCard from '../../components/blogCard';
 
 const blogs = [
   {
-    title: 'How to transition to product management from solution engineering?',
-    desc: 'Is product management all that different from pre-sales solution engineering? What skills carry over and what needs to be learned?',
-    date: 'August 29th, 2021',
+    title: 'How is product management different from solution engineering?',
+    desc: 'In the previous blog, we have discussed the role of a technical solution engineer as well as different career paths one can take to become one. In this blog, we will focus on one possible career path for a solutions engineer. ',
+    date: 'September 6th, 2021',
     imagePath: '/blog/transition-to-product.jpg',
     imageAlt: 'prototyping wireframe',
     readOnMedium: false,
