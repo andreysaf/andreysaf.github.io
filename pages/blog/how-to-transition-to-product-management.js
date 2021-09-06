@@ -25,7 +25,7 @@ const WebViewer = () => {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="Description"
-          content="Learn what skills carry over and where an additional training is required to transition to product management."
+          content="How is product management different from solution engineering? What is the day-to-day compares between a solution engineer and a product manager? How to transition into product management as a solution engineer."
         />
       </Head>
       <Navbar />
