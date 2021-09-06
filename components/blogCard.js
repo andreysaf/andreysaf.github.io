@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Badge, Text, Button, Flex, Link } from '@chakra-ui/react';
+import { Box, Image, useBreakpointValue, Link } from '@chakra-ui/react';
 
 const blogCard = ({
   title,
@@ -12,10 +12,10 @@ const blogCard = ({
 }) => {
   return (
     <Link href={link}>
-      <Box maxW="sm" borderWidth="1px" m={2} borderRadius="lg" overflow="hidden">
+      <Box maxW={useBreakpointValue({ base: "320px", md: "sm" })} borderWidth="1px" m={2} borderRadius="lg" overflow="hidden">
         <Image src={imagePath} alt={imageAlt} />
 
-        <Box p="6">
+        <Box p={useBreakpointValue({ base: 3, md: 6 })}>
           <Box
             mt="1"
             fontWeight="semibold"

@@ -3,7 +3,7 @@ import React from 'react';
 import {
   Heading,
   Flex,
-  Spacer,
+  useBreakpointValue,
   Container,
   VStack,
   Breadcrumb,
@@ -37,6 +37,8 @@ const blogs = [
 ];
 
 const WebViewer = () => {
+  const variant = useBreakpointValue({ base: "outline", md: "solid" })
+
   return (
     <Layout>
       <Head>
@@ -48,7 +50,7 @@ const WebViewer = () => {
         />
       </Head>
       <Navbar />
-      <Container maxW={'7xl'} p="12">
+      <Container maxW={'7xl'} p={useBreakpointValue({ base: "3", md: "12" })}>
         <VStack paddingTop="40px" spacing="2" alignItems="flex-start">
           <Breadcrumb mb={4}>
             <BreadcrumbItem>
@@ -59,7 +61,7 @@ const WebViewer = () => {
             </BreadcrumbItem>
           </Breadcrumb>
           <Heading as="h1">Blog</Heading>
-          <Flex>
+          <Flex direction={useBreakpointValue({ base: "column", md: "row" })}>
             {blogs.map((blog) => {
               return <BlogCard {...blog} />;
             })}
