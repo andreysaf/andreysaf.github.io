@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout from '../components/layout';
+import Layout from '../../components/layout';
 
 import React from 'react';
 import {
@@ -13,8 +13,8 @@ import {
   BreadcrumbLink,
   BreadcrumbSeparator,
 } from '@chakra-ui/react';
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
+import Navbar from '../../components/navbar';
+import Footer from '../../components/footer';
 
 const WebViewer = () => {
   return (
@@ -38,13 +38,17 @@ const WebViewer = () => {
             </BreadcrumbItem>
 
             <BreadcrumbItem>
+              <BreadcrumbLink href="/cases">Case Studies</BreadcrumbLink>
+            </BreadcrumbItem>
+
+            <BreadcrumbItem>
               <BreadcrumbLink href="#">WebViewer</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
           <Heading as="h1">Redesigning PDFTron's flagship product</Heading>
           <Image
             objectFit="cover"
-            src="/webviewer.png"
+            src="/cases/webviewer.png"
             alt="Webviewer UI screenshoot"
             padding={10}
           />

@@ -30,44 +30,41 @@ export default function SmallWithSocial() {
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'left', md: 'center' }}
       >
-        <Stack direction={'column'}>
-          <Link href="/">
+        <Stack direction={'column'} p={2}>
+          <Link href='/'>
             <Text>Andrey Safonov</Text>
           </Link>
         </Stack>
 
-        <Stack direction={'column'}>
-          <Heading size="xs">Products</Heading>
-          <Link href="/webviewer">
-            <Text>WebViewer</Text>
+        <Stack direction={'column'} spacing={6} p={2}>
+          <Link href='/cases'>
+            <Heading size='xs'>Case Studies</Heading>
           </Link>
-          <Link href="/webviewerVideo">
-            <Text>WebViewer Video</Text>
-          </Link>
-          <Link href="/blog">
-            <Heading size="xs">Blog</Heading>
+          <Link href='/blog'>
+            <Heading size='xs'>Blog</Heading>
           </Link>
         </Stack>
-        <Stack direction={'row'} spacing={6}>
-          <SocialButton label={'GitHub'} href={'https://github.com/andreysaf'}>
-            <Github
-              color={useColorModeValue('#2d3848', 'white')}
-              size="medium"
-            />
-          </SocialButton>
+        <Stack direction={'row'} spacing={8} p={2}>
           <SocialButton
             label={'LinkedIn'}
             href={'https://www.linkedin.com/in/andrey-safonov1/'}
           >
             <Linkedin
               color={useColorModeValue('#2d3848', 'white')}
-              size="medium"
+              size='medium'
             />
           </SocialButton>
+          <SocialButton label={'GitHub'} href={'https://github.com/andreysaf'}>
+            <Github
+              color={useColorModeValue('#2d3848', 'white')}
+              size='medium'
+            />
+          </SocialButton>
+
           <SocialButton label={'Medium'} href={'https://andreysaf.medium.com/'}>
             <Medium
               color={useColorModeValue('#2d3848', 'white')}
-              size="medium"
+              size='medium'
             />
           </SocialButton>
           <SocialButton
@@ -76,7 +73,7 @@ export default function SmallWithSocial() {
           >
             <Youtube
               color={useColorModeValue('#2d3848', 'white')}
-              size="medium"
+              size='medium'
             />
           </SocialButton>
         </Stack>

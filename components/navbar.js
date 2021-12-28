@@ -244,19 +244,8 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: 'Products',
-    children: [
-      {
-        label: 'WebViewer',
-        subLabel: "UI redesign of PDFTron's flaghip product",
-        href: '/webviewer',
-      },
-      {
-        label: 'WebViewer Video',
-        subLabel: 'Annotate videos frame-by-frame',
-        href: '/webviewerVideo',
-      },
-    ],
+    label: 'Case Studies',
+    href: '/cases',
   },
   {
     label: 'Blog',

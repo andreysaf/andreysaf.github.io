@@ -36,7 +36,7 @@ const blogs = [
   },
 ];
 
-const WebViewer = () => {
+const Blog = () => {
   const variant = useBreakpointValue({ base: "outline", md: "solid" })
 
   return (
@@ -73,4 +73,4 @@ const WebViewer = () => {
   );
 };
 
-export default WebViewer;
+export default Blog;
