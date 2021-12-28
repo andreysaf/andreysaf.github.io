@@ -23,89 +23,102 @@ const WebViewer = () => {
         <title>
           PDFTron's WebViewer Redesign - Andrey Safonov - Product Manager
         </title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel='icon' href='/favicon.ico' />
         <meta
-          name="Description"
+          name='Description'
           content="Andrey Safonov - technical product manager for PDFTron's WebViewer UI redesign."
         />
       </Head>
       <Navbar />
-      <Container maxW={'7xl'} p="12">
-        <VStack paddingTop="40px" spacing="2" alignItems="flex-start">
+      <Container maxW={'7xl'} p='12'>
+        <VStack paddingTop='40px' spacing='2' alignItems='flex-start'>
           <Breadcrumb mb={4}>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              <BreadcrumbLink href='/'>Home</BreadcrumbLink>
             </BreadcrumbItem>
 
             <BreadcrumbItem>
-              <BreadcrumbLink href="/cases">Case Studies</BreadcrumbLink>
+              <BreadcrumbLink href='/cases'>Case Studies</BreadcrumbLink>
             </BreadcrumbItem>
 
             <BreadcrumbItem>
-              <BreadcrumbLink href="#">WebViewer</BreadcrumbLink>
+              <BreadcrumbLink href='#'>WebViewer</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-          <Heading as="h1">Redesigning PDFTron's flagship product</Heading>
+          <Heading as='h1'>Redesigning PDFTron's flagship product</Heading>
           <Image
-            objectFit="cover"
-            src="/cases/webviewer.png"
-            alt="Webviewer UI screenshoot"
+            objectFit='cover'
+            src='/cases/webviewer.png'
+            alt='Webviewer UI screenshoot'
             padding={10}
           />
-          <Heading as="h3" size="md">
-            Background
+          <Heading as='h3' size='md'>
+            Context
           </Heading>
-          <Text as="p" fontSize="lg">
+          <Text as='p' fontSize='lg'>
             WebViewer is PDFtron's flagship product. The UI was not updated for
             years, and customers and prospects were becoming dissatisfied. The
             deals were consistently lost to the competition. I put together a
-            team of developers and designers to redesign WebViewer.
+            team of developers and designers to update WebViewer UI.
           </Text>
-          <Heading as="h3" size="md" pt={5}>
+          <Heading as='h3' size='md' pt={5}>
+            Objective
+          </Heading>
+          <Text as='p' fontSize='lg'>
+            Create an incremental update to WebViewer UI to make it more
+            competitive with other viewers on the market.
+          </Text>
+          <Heading as='h3' size='md' pt={5}>
             My Role
           </Heading>
-          <Text as="p" fontSize="lg">
+          <Text as='p' fontSize='lg'>
             - Using the OKR framework, set the objective and establish key
             results.
           </Text>
-          <Text as="p" fontSize="lg">
+          <Text as='p' fontSize='lg'>
             - Reached out to customers to gather feedback from their users.
           </Text>
-          <Text as="p" fontSize="lg">
+          <Text as='p' fontSize='lg'>
             - Conducted loss survey analysis into why prospects chose
             competition.
           </Text>
-          <Text as="p" fontSize="lg">
-            - Managed all internal stakeholders to agree on designs and
+          <Text as='p' fontSize='lg'>
+            - Performed competitive analysis looking at vertical and horizontal competitors.
+          </Text>
+          <Text as='p' fontSize='lg'>
+            - Got alignment from internal stakeholders to agree on designs and
             timelines.
           </Text>
-          <Text as="p" fontSize="lg">
-            - Rapidly prototyped with designers and performing demos of the
+          <Text as='p' fontSize='lg'>
+            - Rapidly prototyped with designers and performed demos of the
             wireframes to reference customers.
           </Text>
-          <Text as="p" fontSize="lg">
-            - Working together with the Product Owner to prioritize backlog
+          <Text as='p' fontSize='lg'>
+            - Working together with the Product Owner to prioritize
             items to be accepted into the development sprint.
           </Text>
-          <Text as="p" fontSize="lg">
+          <Text as='p' fontSize='lg'>
             - Held daily standups to track the progress and review the feedback.
           </Text>
-          <Text as="p" fontSize="lg">
+          <Text as='p' fontSize='lg'>
             - Helped developers with the implementation of the designs to meet
-            the deadline.
+            the deadlines.
           </Text>
-          <Heading as="h3" size="md" pt={5}>
-            Results
+          <Text as='p' fontSize='lg'>
+            - Continued to interview, gather data and ensure we have met the key results.
+          </Text>
+          <Heading as='h3' size='md' pt={5}>
+            Key Results
           </Heading>
-          <Text as="p" fontSize="lg">
+          <Text as='p' fontSize='lg'>
             - Deals were no longer lost due to dated UI and prospects preferred
             our UI over competitors.
           </Text>
-          <Text as="p" fontSize="lg">
+          <Text as='p' fontSize='lg'>
             - The new UI was rearchitected to be more lightweight, performant
-            and allowed for easier product updates and customization.
+            and allowed for easier product updates and customization in the future.
           </Text>
-          <Text as="p" fontSize="lg">
+          <Text as='p' fontSize='lg'>
             - The number of weekly downloads on npm went up by 50% after the
             update.
           </Text>

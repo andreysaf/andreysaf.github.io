@@ -53,7 +53,7 @@ const WebViewerVideo = () => {
             padding={10}
           />
           <Heading as="h3" size="md">
-            Background
+            Context
           </Heading>
           <Text as="p" fontSize="lg">
             PDFTron offers SDKs to edit, view, and annotate PDFs, images, and MS
@@ -71,6 +71,12 @@ const WebViewerVideo = () => {
             tasks. From the development perspective, it would also mean
             maintaining several SDKs, different backend setup for annotation
             storage, user roles and permission management.
+          </Text>
+          <Heading as="h3" size="md" pt={5}>
+            Objective
+          </Heading>
+          <Text as="p" fontSize="lg">
+            Expand PDFTron product portfolio to cover content creation formats.
           </Text>
           <Heading as="h3" size="md" pt={5}>
             My Role
@@ -94,18 +100,18 @@ const WebViewerVideo = () => {
             release.
           </Text>
           <Heading as="h3" size="md" pt={5}>
-            Results
+            Key Results
           </Heading>
           <Text as="p" fontSize="lg">
-            - All existing customers that deal with the video format purchased
+            - Majority of existing customers that deal with the video format purchased
             WebViewer Video addon upon renewal.
           </Text>
           <Text as="p" fontSize="lg">
-            - WebViewer Video addon is now part of all the new deals if prospect
+            - WebViewer Video paid addon is now part of all the new deals if prospect
             deals with the video format.
           </Text>
           <Text as="p" fontSize="lg">
-            - Users are now enjoying consistent behaviour across all document
+            - Users are now enjoying a consistent user experience across all document
             formats without the need to retrain themselves when switching
             between different file formats.
           </Text>
