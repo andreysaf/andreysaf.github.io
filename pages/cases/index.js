@@ -18,7 +18,7 @@ import BlogCard from '../../components/blogCard';
 const cases = [
   {
     title: `Updating PDFTron's Flagship Product UI`,
-    desc: `WebViewer is PDFTron's flagship product that allows PDF, MS Office, image, and CAD viewing. The UI has not been updated for several years, and prospects started to notice.`,
+    desc: `Updating PDFTron's flagship product's UI.`,
     imagePath: '/cases/webviewer.png',
     imageAlt: 'WebViewer screenshot',
     readOnMedium: false,
@@ -26,7 +26,7 @@ const cases = [
   },
   {
     title: 'Adding a new product to PDFTron',
-    desc: 'PDFTron has always focused on document formats. However, a lot of PDFTron customers had videos that they needed consistent UI for annotation.',
+    desc: 'Walking through how I discovered a new product opportunity for video annotation.',
     imagePath: '/cases/video.png',
     imageAlt: 'WebViewer Video screenshot',
     readOnMedium: true,
@@ -42,6 +42,7 @@ const CaseStudy = () => {
       <Head>
         <title>Case Studies</title>
         <link rel='icon' href='/favicon.ico' />
+        <link rel='canonical' href='https://andreysafonov.com/cases' />
         <meta
           name='Description'
           content="Read Andrey's case studies about product management."

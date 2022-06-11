@@ -47,7 +47,7 @@ export default function SmallWithSocial() {
         <Stack direction={'row'} spacing={8} p={2}>
           <SocialButton
             label={'LinkedIn'}
-            href={'https://www.linkedin.com/in/andrey-safonov1/'}
+            href={'https://www.linkedin.com/in/andreysaf/'}
           >
             <Linkedin
               color={useColorModeValue('#2d3848', 'white')}

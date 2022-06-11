@@ -42,8 +42,9 @@ const Blog = () => {
   return (
     <Layout>
       <Head>
-        <title>Blog</title>
+        <title>Andrey's Product Management Blogs</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel='canonical' href='https://andreysafonov.com/blog' />
         <meta
           name="Description"
           content="Read Andrey's career and tech focused blogs, articles and publications."

@@ -21,12 +21,13 @@ const WebViewer = () => {
     <Layout>
       <Head>
         <title>
-          PDFTron's WebViewer Redesign - Andrey Safonov - Product Manager
+        PDFTron's WebViewer UI & UX Update
         </title>
         <link rel='icon' href='/favicon.ico' />
+        <link rel='canonical' href='https://andreysafonov.com/cases/updating-webviewer-ui' />
         <meta
           name='Description'
-          content="Andrey Safonov - technical product manager for PDFTron's WebViewer UI redesign."
+          content="Updating PDFTron's flagship product's UI."
         />
       </Head>
       <Navbar />
@@ -45,7 +46,7 @@ const WebViewer = () => {
               <BreadcrumbLink href='#'>WebViewer</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-          <Heading as='h1'>Redesigning PDFTron's flagship product</Heading>
+          <Heading as='h1'>Updating PDFTron's flagship product's UI</Heading>
           <Image
             objectFit='cover'
             src='/cases/webviewer.png'

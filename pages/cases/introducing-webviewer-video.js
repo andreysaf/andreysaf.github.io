@@ -21,12 +21,13 @@ const WebViewerVideo = () => {
     <Layout>
       <Head>
         <title>
-          PDFTron's WebViewer Redesign - Andrey Safonov - Product Manager
+          Adding New Video Product
         </title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel='canonical' href='https://andreysafonov.com/cases/introducing-webviewer-video' />
         <meta
           name="Description"
-          content="Andrey Safonov - technical product owner and product manager for WebViewer Video."
+          content="Walking through how I discovered a new product opportunity for video annotation."
         />
       </Head>
       <Navbar />
@@ -45,7 +46,7 @@ const WebViewerVideo = () => {
               <BreadcrumbLink href="#">WebViewer Video</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-          <Heading as="h2">Introducing WebViewer Video</Heading>
+          <Heading as="h1">Introducing WebViewer Video</Heading>
           <Image
             objectFit="cover"
             src="/cases/video.png"
