@@ -46,7 +46,7 @@ const WebViewer = () => {
               <BreadcrumbLink href='#'>WebViewer</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-          <Heading as='h1'>Updating PDFTron's flagship product's UI</Heading>
+          <Heading as='h1'>Updating PDFTron's Flagship Product's UI</Heading>
           <Image
             objectFit='cover'
             src='/cases/webviewer.png'

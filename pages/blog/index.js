@@ -17,6 +17,15 @@ import BlogCard from '../../components/blogCard';
 
 const blogs = [
   {
+    title: `Product Manager's Guide to Writing OKRs`,
+    desc: 'I will share my tips and tricks that I use everyday when writing OKRs.',
+    date: 'June 11th, 2022',
+    imagePath: '/blog/objective.jpg',
+    imageAlt: 'objective of a photo camera',
+    readOnMedium: false,
+    link: '/blog/product-manager-guide-to-okrs',
+  },
+  {
     title: 'How is product management different from solution engineering?',
     desc: 'In the previous blog, we have discussed the role of a technical solution engineer as well as different career paths one can take to become one. In this blog, we will focus on one possible career path for a solutions engineer. ',
     date: 'September 6th, 2021',
