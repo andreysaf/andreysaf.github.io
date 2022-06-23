@@ -57,27 +57,17 @@ const Home = () => {
             <Wrap>
               <WrapItem>
                 <Heading as='h2' size={subHeadingSize} pl={4}>
-                  Head of Product @PDFTron
+                  Director of Product @PDFTron
                 </Heading>
               </WrapItem>
             </Wrap>
             <Wrap>
               <WrapItem>
                 <Container>
-                  I am a product manager who started my career as a software
-                  engineer before transitioning to consulting, solution
-                  engineering, and then product. I enjoy working directly with
-                  users to understand the underlying pain and building products
-                  that solve that pain.
-                </Container>
-              </WrapItem>
-            </Wrap>
-            <Wrap>
-              <WrapItem>
-                <Container>
-                  My day-to-day is spent listening to users, prototyping with
-                  designers, designing APIs with developers, creating content
-                  with marketing and enabling the sales team.
+                  I am a B2B2C product manager who started my career as a
+                  software engineer then transitioned to consulting, sales
+                  engineering and then product. I manage a portfolio of products
+                  and lead a team of five talented product managers at PDFTron.
                 </Container>
               </WrapItem>
             </Wrap>
