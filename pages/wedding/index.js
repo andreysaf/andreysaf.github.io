@@ -130,6 +130,7 @@ const Wedding = () => {
                     fontWeight='400'
                     textColor='#846D00'
                     fontSize={{ base: '12px', md: '18px' }}
+                    whiteSpace='nowrap'
                   >
                     January 1
                   </Th>
@@ -163,8 +164,8 @@ const Wedding = () => {
                     fontWeight='400'
                     textColor='#846D00'
                     fontSize={{ base: '12px', md: '18px' }}
+                    whiteSpace='nowrap'
                   >
-                    <br></br>
                     January 2
                   </Th>
                 </Tr>
@@ -210,6 +211,7 @@ const Wedding = () => {
                     fontWeight='400'
                     textColor='#846D00'
                     fontSize={{ base: '12px', md: '18px' }}
+                    whiteSpace='nowrap'
                   >
                     January 3
                   </Th>
