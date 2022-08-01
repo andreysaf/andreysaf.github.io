@@ -80,16 +80,14 @@ const Wedding = () => {
           >
             Invite you to celebrate their impending marriage
           </Heading>
-          <Heading
-            as='h2'
+          <Text
+            as='p'
+            fontSize='lg'
             textTransform='uppercase'
-            fontFamily='playfair-display, serif'
-            padding='10px'
+            padding='5px'
+            textAlign={'center'}
           >
             January 2, 2023 | Canmore, AB
-          </Heading>
-          <Text as='p' fontSize='lg' textTransform='uppercase' padding='5px'>
-            4:00 PM | Bear & Bison Inn | 705 Benchlands Trail
           </Text>
           <Link
             href='https://forms.gle/vSQCbgmoTq1443RH9'
@@ -101,7 +99,7 @@ const Wedding = () => {
               textColor='#fff'
               fontFamily='playfair-display, serif'
               fontWeight='400'
-              fontSize='24px'
+              fontSize='20px'
             >
               RSVP
             </Button>
@@ -131,9 +129,9 @@ const Wedding = () => {
                     fontFamily='playfair-display, serif'
                     fontWeight='400'
                     textColor='#846D00'
-                    fontSize='18px'
+                    fontSize={{ base: '12px', md: '18px' }}
                   >
-                    January 1, 2023
+                    January 1
                   </Th>
                 </Tr>
               </Thead>
@@ -164,10 +162,10 @@ const Wedding = () => {
                     fontFamily='playfair-display, serif'
                     fontWeight='400'
                     textColor='#846D00'
-                    fontSize='18px'
+                    fontSize={{ base: '12px', md: '18px' }}
                   >
                     <br></br>
-                    January 2, 2023
+                    January 2
                   </Th>
                 </Tr>
               </Thead>
@@ -211,10 +209,9 @@ const Wedding = () => {
                     fontFamily='playfair-display, serif'
                     fontWeight='400'
                     textColor='#846D00'
-                    fontSize='18px'
+                    fontSize={{ base: '12px', md: '18px' }}
                   >
-                    <br></br>
-                    January 3, 2023
+                    January 3
                   </Th>
                 </Tr>
               </Thead>
