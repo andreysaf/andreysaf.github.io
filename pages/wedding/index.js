@@ -53,7 +53,8 @@ const Wedding = () => {
           alignItems='center'
           justifyContent='center'
           height='100vh'
-          backgroundImage='/wedding/wedding_background.png'
+          backgroundImage="linear-gradient(to bottom, rgba(222, 218, 215, 0.3), rgba(222, 218, 215, 1)),
+    url('/wedding/wedding_background.png')"
           backgroundSize='100%'
           backgroundRepeat={'no-repeat'}
         >
@@ -87,16 +88,20 @@ const Wedding = () => {
           >
             January 2, 2023 | Canmore, AB
           </Heading>
-          <Text as='p' fontSize='lg' textTransform='uppercase'>
+          <Text as='p' fontSize='lg' textTransform='uppercase' padding='5px'>
             4:00 PM | Bear & Bison Inn | 705 Benchlands Trail
           </Text>
-          <Link href='https://forms.gle/2XjUeGw2TswFSS6y9' isExternal paddingTop='30px'>
+          <Link
+            href='https://forms.gle/vSQCbgmoTq1443RH9'
+            isExternal
+            paddingTop='30px'
+          >
             <Button
               backgroundColor='#A18607'
               textColor='#fff'
               fontFamily='playfair-display, serif'
               fontWeight='400'
-              fontSize='24px'    
+              fontSize='24px'
             >
               RSVP
             </Button>
@@ -161,6 +166,7 @@ const Wedding = () => {
                     textColor='#846D00'
                     fontSize='18px'
                   >
+                    <br></br>
                     January 2, 2023
                   </Th>
                 </Tr>
@@ -169,10 +175,6 @@ const Wedding = () => {
                 <Tr>
                   <Td>9:00</Td>
                   <Td>Breakfast</Td>
-                </Tr>
-                <Tr>
-                  <Td>11:00</Td>
-                  <Td>Spa Day OR Winter Hike</Td>
                 </Tr>
                 <Tr>
                   <Td>14:30</Td>
@@ -211,13 +213,14 @@ const Wedding = () => {
                     textColor='#846D00'
                     fontSize='18px'
                   >
+                    <br></br>
                     January 3, 2023
                   </Th>
                 </Tr>
               </Thead>
               <Tbody>
                 <Tr>
-                  <Td>9:30</Td>
+                  <Td>9:00</Td>
                   <Td>Breakfast</Td>
                 </Tr>
               </Tbody>
@@ -261,16 +264,16 @@ const Wedding = () => {
             Gifts
           </Text>
           <Text fontSize='md'>
-            We do not have a registry: your presence and well wishes are present
-            enough. Sentimental cards will be gratefully accepted.
+            We do not have a registry or honeymoon fund. Your presence and well
+            wishes are present enough. Sentimental cards will be gratefully
+            accepted.
           </Text>
           <Text fontSize='lg' textTransform='uppercase'>
             Accomodation
           </Text>
           <Text fontSize='md'>
-            If you travel to Canmore in the winter for us, we will do our best
-            to host you. Accommodation at or near the venue will be on us, for
-            the nights before and after the wedding. Please RSVP accordingly.
+            Accommodation at or near the venue will be on us, for the nights
+            before and after the wedding. Please RSVP accordingly.
           </Text>
           <Text fontSize='lg' textTransform='uppercase'>
             Getting there
