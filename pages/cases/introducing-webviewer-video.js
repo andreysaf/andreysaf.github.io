@@ -104,7 +104,10 @@ const WebViewerVideo = () => {
             Key Results
           </Heading>
           <Text as="p" fontSize="lg">
-            - Majority of existing customers that deal with the video format purchased
+            - Generated 1M ARR in the 1st year.
+          </Text>
+          <Text as="p" fontSize="lg">
+            - Existing customers that deal with the video format purchased
             WebViewer Video addon upon renewal.
           </Text>
           <Text as="p" fontSize="lg">
@@ -115,10 +118,6 @@ const WebViewerVideo = () => {
             - Users are now enjoying a consistent user experience across all document
             formats without the need to retrain themselves when switching
             between different file formats.
-          </Text>
-          <Text as="p" fontSize="lg">
-            - It is easier to maintain annotation storage and scale the
-            application as the number of users grows.
           </Text>
         </VStack>
       </Container>

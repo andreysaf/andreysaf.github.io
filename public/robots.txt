@@ -1,0 +1,7 @@
+# Block all crawlers for /wedding
+User-agent: *
+Disallow: /wedding
+
+# Allow all crawlers
+User-agent: *
+Allow: /
