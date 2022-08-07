@@ -272,7 +272,7 @@ const Wedding = () => {
           </Text>
           <Text fontSize='md'>
             Accommodation at or near the venue will be on us, for the nights
-            before and after the wedding. Please RSVP accordingly.
+            before and after the wedding.
           </Text>
           <Text fontSize='lg' textTransform='uppercase'>
             Getting there
@@ -299,8 +299,7 @@ const Wedding = () => {
           <Text fontSize='md'>
             You are welcome to take photos anytime you like, however, we ask
             that you please avoid obstructing our professional photographers,
-            Cat and Alex. Wedding and photo booth photos will be posted on this
-            website once available!
+            Cat and Alex.
           </Text>
         </VStack>
       </Container>
