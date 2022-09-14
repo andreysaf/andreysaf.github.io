@@ -37,9 +37,9 @@ export default function SmallWithSocial() {
         </Stack>
 
         <Stack direction={'column'} spacing={6} p={2}>
-          <Link href='/cases'>
+          {/* <Link href='/cases'>
             <Heading size='xs'>Case Studies</Heading>
-          </Link>
+          </Link> */}
           <Link href='/blog'>
             <Heading size='xs'>Blog</Heading>
           </Link>

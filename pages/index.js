@@ -74,13 +74,9 @@ const Home = () => {
             <Wrap>
               <WrapItem>
                 <Container>
-                  Explore some of the{' '}
-                  <Link href='/cases' style={{ textDecoration: 'underline' }}>
-                    example initiatives
-                  </Link>{' '}
-                  that I have delivered or{' '}
+                  Check out some of my{' '}
                   <Link href='/blog' style={{ textDecoration: 'underline' }}>
-                    read blogs
+                    blogs
                   </Link>{' '}
                   about product management.
                 </Container>

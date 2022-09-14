@@ -243,10 +243,10 @@ const MobileNavItem = ({ label, children, href }) => {
 };
 
 const NAV_ITEMS = [
-  {
-    label: 'Case Studies',
-    href: '/cases',
-  },
+  // {
+  //   label: 'Case Studies',
+  //   href: '/cases',
+  // },
   {
     label: 'Blog',
     href: '/blog',
