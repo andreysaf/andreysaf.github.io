@@ -7,6 +7,19 @@ h1 {
     font-size: 36px!important;
 }
 
+h1.headline {
+    font-weight: 800!important;
+    font-size: 87px!important;
+    color: white;
+}
+
+
+p.headline {
+    font-weight: 600!important;
+    font-size: 36px!important;
+    color:white;
+}
+
 h2 {
     font-weight: 400!important;
     font-size: 24px!important;
