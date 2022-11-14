@@ -53,57 +53,25 @@ const Wedding = () => {
           alignItems='center'
           justifyContent='center'
           height='100vh'
-          backgroundImage="linear-gradient(to bottom, rgba(222, 218, 215, 0.3), rgba(222, 218, 215, 1)),
-    url('/wedding/wedding_background.png')"
-          backgroundSize='100%'
+          backgroundImage="linear-gradient(to bottom, rgba(222, 218, 215, 0.1), rgba(222, 218, 215, 1)),
+    url('/wedding/background.jpg')"
+          backgroundSize='cover'
+          backgroundPosition='center center'
           backgroundRepeat={'no-repeat'}
         >
-          <Image
-            objectFit='cover'
-            src='/wedding/logo.svg'
-            alt='Logo of the wedding'
-            padding={10}
-          />
           <Heading
             as='h1'
+            className='headline'
             textTransform='uppercase'
+            textAlign='center'
+            fontSize='8xl'
             fontFamily='playfair-display, serif'
           >
             Andrey & Donna
           </Heading>
-          <Heading
-            as='h2'
-            textTransform='uppercase'
-            fontFamily='playfair-display, serif'
-            padding='5px'
-            textAlign={'center'}
-          >
-            Invite you to celebrate their impending marriage
-          </Heading>
-          <Text
-            as='p'
-            fontSize='lg'
-            textTransform='uppercase'
-            padding='5px'
-            textAlign={'center'}
-          >
+          <Text as='p' className='headline' fontSize='lg' padding='5px' textAlign={'center'}>
             January 2, 2023 | Canmore, AB
           </Text>
-          <Link
-            href='https://forms.gle/vSQCbgmoTq1443RH9'
-            isExternal
-            paddingTop='30px'
-          >
-            <Button
-              backgroundColor='#A18607'
-              textColor='#fff'
-              fontFamily='playfair-display, serif'
-              fontWeight='400'
-              fontSize='20px'
-            >
-              RSVP
-            </Button>
-          </Link>
         </VStack>
       </Container>
       <Container
@@ -113,7 +81,20 @@ const Wedding = () => {
         textColor='#846D00'
         backgroundColor='#DEDAD7'
       >
-        <VStack paddingTop='40px' spacing='2' alignItems='flex-start'>
+         <VStack paddingTop='80px' spacing='2' alignItems='flex-start'>
+          <Heading
+            as='h1'
+            textTransform='uppercase'
+            fontFamily='playfair-display, serif'
+          >
+            Location
+          </Heading>
+          <Link href='https://goo.gl/maps/bfCjxLY8fx3mipwB7' isExternal paddingTop='20px'>
+            <Text fontSize='lg'>A Bear & Bison Canadian Country Inn</Text>
+            <Text fontSize='md'>705 Benchlands Trail, Canmore, AB T1W 3G9</Text>
+          </Link>
+        </VStack>
+        <VStack paddingTop='80px' spacing='2' alignItems='flex-start'>
           <Heading
             as='h1'
             textTransform='uppercase'
@@ -121,7 +102,7 @@ const Wedding = () => {
           >
             Schedule
           </Heading>
-          <TableContainer width='100%' whiteSpace='unset'>
+          <TableContainer width='100%' whiteSpace='unset' paddingTop='20px'>
             <Table variant='simple' border='none'>
               <Thead>
                 <Tr>
@@ -148,13 +129,7 @@ const Wedding = () => {
                 </Tr>
                 <Tr>
                   <Td>18:00</Td>
-                  <Td>
-                    Welcome Dinner{' '}
-                    <Text fontSize='sm'>
-                      We welcome you to join us for a casual meal in our
-                      townhome at 21-1022 Rundleview Drive.
-                    </Text>
-                  </Td>
+                  <Td>Welcome Dinner </Td>
                 </Tr>
               </Tbody>
               <Thead>
@@ -193,14 +168,19 @@ const Wedding = () => {
                 </Tr>
                 <Tr>
                   <Td>16:00</Td>
-                  <Td>Ceremony</Td>
+                  <Td>
+                    Ceremony
+                    <Text fontSize='sm'>
+                      Please dress appropriately for 10 to 15 minutes of sitting outdoors. Blankets, shawls, and hand warmers will be provided.
+                    </Text>
+                  </Td>
                 </Tr>
                 <Tr>
                   <Td>17:00</Td>
                   <Td>Cocktails</Td>
                 </Tr>
                 <Tr>
-                  <Td>18:00</Td>
+                  <Td>17:30</Td>
                   <Td>Reception</Td>
                 </Tr>
               </Tbody>
@@ -226,21 +206,8 @@ const Wedding = () => {
             </Table>
           </TableContainer>
         </VStack>
-        <VStack paddingTop='40px' spacing='2' alignItems='flex-start'>
-          <Heading
-            as='h1'
-            textTransform='uppercase'
-            fontFamily='playfair-display, serif'
-          >
-            Location
-          </Heading>
-          <Link href='https://goo.gl/maps/bfCjxLY8fx3mipwB7' isExternal>
-            <Text fontSize='lg'>A Bear & Bison Canadian Country Inn</Text>
-            <Text fontSize='md'>705 Benchlands Trail, Canmore, AB T1W 3G9</Text>
-          </Link>
-        </VStack>
         <VStack
-          paddingTop='40px'
+          paddingTop='80px'
           spacing='2'
           alignItems='flex-start'
           paddingBottom='40px'
@@ -252,7 +219,7 @@ const Wedding = () => {
           >
             FAQ
           </Heading>
-          <Text fontSize='lg' textTransform='uppercase'>
+          <Text fontSize='lg' textTransform='uppercase' paddingTop='20px'>
             Dresscode
           </Text>
           <Text fontSize='md'>
@@ -300,6 +267,12 @@ const Wedding = () => {
             You are welcome to take photos anytime you like, however, we ask
             that you please avoid obstructing our professional photographers,
             Cat and Alex.
+          </Text>
+          <Text fontSize='lg' textTransform='uppercase'>
+            Perfume
+          </Text>
+          <Text fontSize='md'>
+            Please refrain from use of heavily scented products.
           </Text>
         </VStack>
       </Container>
