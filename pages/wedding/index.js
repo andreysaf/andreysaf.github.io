@@ -6,24 +6,18 @@ import {
   Text,
   Container,
   VStack,
-  Button,
-  ButtonGroup,
-  UnorderedList,
-  ListItem,
+  Flex,
+  Box,
   Link,
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
-  TableCaption,
   TableContainer,
 } from '@chakra-ui/react';
 import Layout from '../../components/layout';
-import Navbar from '../../components/navbar';
-import Footer from '../../components/footer';
 
 const Wedding = () => {
   return (
@@ -69,7 +63,13 @@ const Wedding = () => {
           >
             Andrey & Donna
           </Heading>
-          <Text as='p' className='headline' fontSize='lg' padding='5px' textAlign={'center'}>
+          <Text
+            as='p'
+            className='headline'
+            fontSize='lg'
+            padding='5px'
+            textAlign={'center'}
+          >
             January 2, 2023 | Canmore, AB
           </Text>
         </VStack>
@@ -81,7 +81,7 @@ const Wedding = () => {
         textColor='#846D00'
         backgroundColor='#DEDAD7'
       >
-         <VStack paddingTop='80px' spacing='2' alignItems='flex-start'>
+        <VStack paddingTop='80px' spacing='2' alignItems='flex-start'>
           <Heading
             as='h1'
             textTransform='uppercase'
@@ -89,7 +89,11 @@ const Wedding = () => {
           >
             Location
           </Heading>
-          <Link href='https://goo.gl/maps/bfCjxLY8fx3mipwB7' isExternal paddingTop='20px'>
+          <Link
+            href='https://goo.gl/maps/bfCjxLY8fx3mipwB7'
+            isExternal
+            paddingTop='20px'
+          >
             <Text fontSize='lg'>A Bear & Bison Canadian Country Inn</Text>
             <Text fontSize='md'>705 Benchlands Trail, Canmore, AB T1W 3G9</Text>
           </Link>
@@ -123,7 +127,7 @@ const Wedding = () => {
                   <Td>
                     Hotel Check-in{' '}
                     <Text fontSize='sm'>
-                      Check-in is available from 4 PM onwards.
+                      Available from 4 PM onwards.
                     </Text>
                   </Td>
                 </Tr>
@@ -154,16 +158,12 @@ const Wedding = () => {
                   <Td>14:30</Td>
                   <Td>
                     Local Tastings
-                    <Text fontSize='sm'>Beer, whiskey, and charcuterie.</Text>
                   </Td>
                 </Tr>
                 <Tr>
                   <Td>15:15</Td>
                   <Td>
                     Refreshments
-                    <Text fontSize='sm'>
-                      Coffee, tea, cookies, hot chocolate
-                    </Text>
                   </Td>
                 </Tr>
                 <Tr>
@@ -171,7 +171,7 @@ const Wedding = () => {
                   <Td>
                     Ceremony
                     <Text fontSize='sm'>
-                      Please dress appropriately for 10 to 15 minutes of sitting outdoors. Blankets, shawls, and hand warmers will be provided.
+                      Please dress appropriately for 10-15 minutes of sitting outdoors.
                     </Text>
                   </Td>
                 </Tr>
@@ -205,6 +205,33 @@ const Wedding = () => {
               </Tbody>
             </Table>
           </TableContainer>
+        </VStack>
+        <VStack paddingTop='80px' spacing='2' alignItems='flex-start'>
+          <Heading
+            as='h1'
+            textTransform='uppercase'
+            fontFamily='playfair-display, serif'
+          >
+            Wedding Party
+          </Heading>
+          <Flex wrap='wrap'>
+            <Box padding='20px'>
+              <Image
+                borderRadius='full'
+                boxSize='150px'
+                src='/wedding/jane.jpg'
+                alt='Maid of honour'
+              />
+            </Box>
+            <Box flex='1' minWidth='300px'>
+              <Text fontSize='lg' textTransform='uppercase' paddingTop='20px'>
+                Best of Honour
+              </Text>
+              <Text fontSize='md'>
+                Jane is our Maid of Honour. She is also our Best Man, Flower Girl, and Ring Bearer — a combined wedding party super-role we call Best of Honour. During our ceremony, you will find her standing squarely in front of us, holding a large bouquet of flowers, two gold rings, and a basket of petals which she will intermittently toss towards us.
+              </Text>
+            </Box>
+          </Flex>
         </VStack>
         <VStack
           paddingTop='80px'
@@ -245,13 +272,8 @@ const Wedding = () => {
             Getting there
           </Text>
           <Text fontSize='md'>
-            Canmore is on Highway 1, about an hour west of Calgary. Driving from
-            Vancouver necessitates crossing several mountain passes which
-            frequently close due to snowstorms, etc. If you are not experienced
-            with winter conditions, we recommend first flying to Calgary. From
-            the Calgary Airport (YYC), you may rent a car or take a bus/shuttle
-            to Canmore. If you have difficulty arranging transportation, please
-            contact us for assistance.{' '}
+            We recommend first flying to Calgary. From the Calgary Airport (YYC), you may rent a car or take a bus/shuttle
+            to Canmore.{' '}
           </Text>
           <Text fontSize='lg' textTransform='uppercase'>
             What to pack
