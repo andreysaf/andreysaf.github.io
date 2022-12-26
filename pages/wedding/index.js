@@ -176,7 +176,7 @@ const Wedding = () => {
                   </Td>
                 </Tr>
                 <Tr>
-                  <Td>17:00</Td>
+                  <Td>16:30</Td>
                   <Td>Cocktails</Td>
                 </Tr>
                 <Tr>
