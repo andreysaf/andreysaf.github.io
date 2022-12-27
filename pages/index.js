@@ -25,13 +25,13 @@ const Home = () => {
     <Layout>
       <Head>
         <title>
-          Andrey Safonov - Head of Product, Technical Product Manager
+          Andrey Safonov - Director of Product, Technical Product Manager
         </title>
         <link rel='icon' href='/favicon.ico' />
         <link rel='canonical' href='https://andreysafonov.com/' />
         <meta
           name='Description'
-          content='Andrey Safonov is a technical product manager and leads a team of product managers at PDFTron. BASc in Computer Engineering with minor in Business Management.'
+          content='Andrey Safonov is a product manager lead and leads a team of product managers at PDFTron. BASc in Computer Engineering with minor in Business Management.'
         />
       </Head>
       <Navbar />
