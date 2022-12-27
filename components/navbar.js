@@ -64,14 +64,14 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}
         >
-          <Link href={'https://www.linkedin.com/in/andrey-safonov1/'}>
+          <Link href={'https://www.linkedin.com/in/andreysaf/'}>
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
               color={'white'}
               bg={'green.400'}
-              href={'https://www.linkedin.com/in/andrey-safonov1/'}
+              href={'https://www.linkedin.com/in/andreysaf/'}
               _hover={{
                 bg: 'green.300',
               }}
