@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, useBreakpointValue, Link } from '@chakra-ui/react';
+import { Box, Image, Text, Heading, Divider, Card, CardBody, CardFooter, Stack, Link, Spacer } from '@chakra-ui/react';
 
 const blogCard = ({
   title,
@@ -7,38 +7,31 @@ const blogCard = ({
   date,
   imagePath,
   imageAlt,
-  readOnMedium,
   link,
 }) => {
   return (
     <Link href={link}>
-      <Box maxW={useBreakpointValue({ base: "320px", md: "sm" })} borderWidth="1px" m={2} borderRadius="lg" overflow="hidden">
-        <Image src={imagePath} alt={imageAlt} />
-
-        <Box p={useBreakpointValue({ base: 3, md: 6 })}>
-          <Box
-            mt="1"
-            fontWeight="semibold"
-            as="h4"
-            lineHeight="tight"
-            isTruncated
-          >
-            {title}
-          </Box>
-
-          <Box noOfLines={3}>
-            <Box as="span" color="gray.600" fontSize="sm">
+      <Card maxW='sm' m={2}>
+        <CardBody>
+          <Image
+            src={imagePath}
+            alt={imageAlt}
+            borderRadius='lg'
+          />
+          <Stack mt='6' spacing='3'>
+            <Heading size='md'>{title}</Heading>
+            <Text noOfLines={[1, 2, 3]}>
               {desc}
-            </Box>
+            </Text>
+          </Stack>
+        </CardBody>
+        <CardFooter>
+          <Box as="span" color="gray.600" fontSize="sm">
+            {date}
           </Box>
-
-          <Box d="flex" mt="2" alignItems="center">
-            <Box as="span" color="gray.600" fontSize="sm">
-              {date}
-            </Box>
-          </Box>
-        </Box>
-      </Box>
+        </CardFooter>
+      </Card>
+      <Spacer />
     </Link>
   );
 };

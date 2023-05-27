@@ -56,7 +56,7 @@ const Home = () => {
             <Wrap>
               <WrapItem>
                 <Heading as='h2' size={subHeadingSize} pl={4}>
-                  Director of Product @PDFTron
+                  Director of Product @Apryse
                 </Heading>
               </WrapItem>
             </Wrap>

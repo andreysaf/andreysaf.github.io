@@ -17,8 +17,9 @@ import BlogCard from '../../components/blogCard';
 
 const blogs = [
   {
+    key: 'okr-guide',
     title: `Product Manager's Guide to Writing OKRs`,
-    desc: 'I will share my tips and tricks that I use everyday when writing OKRs.',
+    desc: 'OKR is a goal setting framework. In this blog, I will share my tips and tricks that I use everyday when writing OKRs.',
     date: 'June 11th, 2022',
     imagePath: '/blog/objective.jpg',
     imageAlt: 'objective of a photo camera',
@@ -26,6 +27,7 @@ const blogs = [
     link: '/blog/product-manager-guide-to-okrs',
   },
   {
+    key: 'pm-vs-se',
     title: 'How is product management different from solution engineering?',
     desc: 'In the previous blog, we have discussed the role of a technical solution engineer as well as different career paths one can take to become one. In this blog, we will focus on one possible career path for a solutions engineer. ',
     date: 'September 6th, 2021',
@@ -35,6 +37,7 @@ const blogs = [
     link: '/blog/how-to-transition-to-product-management',
   },
   {
+    key: 'what-is-se',
     title: 'What is a technical solutions engineer?',
     desc: 'Outside of SaaS companies, a lot of people do not know what is a Solutions Engineer. The title is intriguing and mysterious. In this article, we will break down what is a Solutions Engineer, what is the role of a Solutions engineer and how to become one.',
     date: 'August 24th, 2019',
@@ -71,9 +74,9 @@ const Blog = () => {
             </BreadcrumbItem>
           </Breadcrumb>
           <Heading as="h1">Blog</Heading>
-          <Flex direction={useBreakpointValue({ base: "column", md: "row" })}>
+          <Flex>
             {blogs.map((blog) => {
-              return <BlogCard {...blog} />;
+              return <BlogCard key={blog.key} {...blog} />
             })}
           </Flex>
         </VStack>
