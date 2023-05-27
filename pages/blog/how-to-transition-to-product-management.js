@@ -31,6 +31,7 @@ const WebViewer = () => {
           name='Description'
           content='How is product management different from solution engineering? What is the day-to-day compares between a solution engineer and a product manager? How to transition into product management as a solution engineer.'
         />
+        <meta name="author" content="Andrey Safonov"></meta>
       </Head>
       <Navbar />
       <Container maxW={'7xl'} p='12'>

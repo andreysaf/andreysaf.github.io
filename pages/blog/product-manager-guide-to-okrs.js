@@ -29,8 +29,9 @@ const WebViewer = () => {
         />
         <meta
           name='Description'
-          content='I will share my tips and tricks that I use everyday when writing OKRs.'
+          content='How to write OKRs for Product Managers. A complete guide with examples.'
         />
+        <meta name="author" content="Andrey Safonov"></meta>
       </Head>
       <Navbar />
       <Container maxW={'7xl'} p='12'>
