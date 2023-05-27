@@ -11,7 +11,7 @@ const blogCard = ({
 }) => {
   return (
     <Link href={link}>
-      <Card maxW='sm' m={2}>
+      <Card maxW='sm'>
         <CardBody>
           <Image
             src={imagePath}

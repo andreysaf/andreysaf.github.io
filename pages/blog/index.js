@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import {
   Heading,
-  Flex,
+  SimpleGrid,
   useBreakpointValue,
   Container,
   VStack,
@@ -46,6 +46,16 @@ const blogs = [
     readOnMedium: true,
     link: 'https://andreysaf.medium.com/what-is-a-technical-solutions-engineer-e3d4324efec',
   },
+  {
+    key: 'meetings',
+    title: 'How to run a meeting in ten easy steps?',
+    desc: 'Have you ever dreaded going to a meeting? Does your mood drop every time the word “meeting” is mentioned? If done properly, meetings can be fun and productive. We will go over how to get there in ten easy steps.',
+    date: 'March 24th, 2019',
+    imagePath: '/blog/fist-bump.jpeg',
+    imageAlt: 'people are fist bumping',
+    readOnMedium: true,
+    link: 'https://medium.com/@andreysaf/how-to-run-a-meeting-in-ten-easy-steps-81b3323f3f7a',
+  },
 ];
 
 const Blog = () => {
@@ -73,12 +83,12 @@ const Blog = () => {
               <BreadcrumbLink href="#">Blog</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-          <Heading as="h1">Blog</Heading>
-          <Flex>
+          <Heading as="h1" paddingBottom="20px">Blog</Heading>
+          <SimpleGrid columns={[1, 2, 3]} spacing='20px'>
             {blogs.map((blog) => {
               return <BlogCard key={blog.key} {...blog} />
             })}
-          </Flex>
+          </SimpleGrid>
         </VStack>
       </Container>
       <Footer />
