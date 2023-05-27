@@ -14,7 +14,6 @@ import {
 import Layout from '../components/layout';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import { Underline } from 'grommet-icons';
 
 const Home = () => {
   const avatarSize = useBreakpointValue({ base: 'xl', md: '2xl' });
@@ -64,10 +63,7 @@ const Home = () => {
             <Wrap>
               <WrapItem>
                 <Container>
-                  I am a product leader who started my career as a software
-                  engineer then transitioned to consulting, sales engineering
-                  and then product. I manage a portfolio of products and lead a
-                  team of five talented product managers at PDFTron.
+                  I started my career as a software engineer, developing text collaboration software. Later, I worked as an implementation consultant for the Ministry of Finance, where I built an online tax portal that continues to serve 5 million taxpayers to this day. Currently, I hold the position of Director of Product, leading a team of 5 product managers. Our focus is on building UI components, and APIs for document management, used by millions of developers around the world and powering applications like DocuSign, Dropbox and thousands more.
                 </Container>
               </WrapItem>
             </Wrap>

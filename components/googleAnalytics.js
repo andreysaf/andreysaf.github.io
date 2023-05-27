@@ -1,10 +1,10 @@
-import ReactGA from "react-ga"
+import ReactGA from "react-ga4"
  
 export const initGA = () => {
-  ReactGA.initialize("UA-133668278-1")
+  ReactGA.initialize("G-MTPRRGBYGW")
 }
  
 export const logPageView = () => {
   ReactGA.set({ page: window.location.pathname })
-  ReactGA.pageview(window.location.pathname)
+  ReactGA.send({ hitType: 'pageview', page: window.location.pathname })
 }
