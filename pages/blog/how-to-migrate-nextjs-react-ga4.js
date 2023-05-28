@@ -115,8 +115,10 @@ export const logPageView = () => {
             Then create another file called `components/layout.js` in your project and paste the following:
           </Text>
           <Code display='block' whiteSpace='pre'  width='100%'>{
-            `import React, { useEffect } from "react";
-import { initGA, logPageView } from "./googleAnalytics.js";
+            `import React, { useEffect } 
+from "react";
+import { initGA, logPageView } 
+from "./googleAnalytics.js";
 
 const Layout = (props) => {
 
