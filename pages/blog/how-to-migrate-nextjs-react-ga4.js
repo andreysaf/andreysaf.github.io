@@ -70,6 +70,7 @@ const WebViewer = () => {
           </Text>
           <UnorderedList pt={3} fontSize='lg'>
             <ListItem><Link href='#get-ga4-property' style={{ textDecoration: 'underline' }}>How to get your GA4 property</Link></ListItem>
+            <ListItem><Link href='#setup-reactga4' style={{ textDecoration: 'underline' }}>How to setup react-ga4</Link></ListItem>
             <ListItem><Link href='#install-reactga4' style={{ textDecoration: 'underline' }}>How to switch react-ga to react-ga4</Link></ListItem>
             <ListItem><Link href='#add-ga4-property' style={{ textDecoration: 'underline' }}>How to add GA4 property to react-ga4</Link></ListItem>
             <ListItem><Link href='#receive-ga4-data' style={{ textDecoration: 'underline' }}>How to start receiving data in Google Analytics</Link></ListItem>
@@ -86,6 +87,69 @@ const WebViewer = () => {
           <Text as='p' fontSize='lg'>
             You will need a measurement ID that will look like this: G-XXXXXXXXXX. Save it, you will need it for the next step.
           </Text>
+          <Heading as='h3' size='md' pt={5}>
+            <a id="setup-reactga4">Setup react-ga4 in your Next.js project</a>
+          </Heading>
+          <Text as='p' fontSize='lg'>
+            If you have not set up react-ga or react-ga4, you can follow along here. First, go ahead and install react-ga4.
+          </Text>
+          <Code>npm i react-ga4</Code>
+          <Text as='p' fontSize='lg'>
+            Add a new file called `components/googleAnalytics.js` in your project and paste the following:
+          </Text>
+          <Code display='block' whiteSpace='pre' width='100%'>{
+            `import ReactGA from "react-ga4"
+ 
+export const initGA = () => {
+  ReactGA.initialize("G-XXXXXXX")
+}
+  
+export const logPageView = () => {
+  ReactGA.send({ hitType: 'pageview', page: window.location.pathname, title: window.document.title })
+}`
+          }</Code>
+          <Text as='p' fontSize='lg'>
+            Then create another file called `components/layout.js` in your project and paste the following:
+          </Text>
+          <Code display='block' whiteSpace='pre'  width='100%'>{
+            `import React, { useEffect } from "react";
+import { initGA, logPageView } from "./googleAnalytics.js";
+
+const Layout = (props) => {
+
+useEffect(() => {
+  if (!window.GA_INITIALIZED) {
+    initGA();
+    window.GA_INITIALIZED = true;
+  }
+  logPageView();
+});
+
+return (
+  <div>{props.children}</div>
+);
+
+};
+
+export default Layout;`
+          }</Code>
+          <Text as='p' fontSize='lg'>
+            Then you can wrap any page in the layout component to track it.
+          </Text>
+          <Code display='block' whiteSpace='pre' width='100%'>
+            {
+              `import Layout from '../../components/layout';
+
+export const myPage = () => {
+  return {
+    <Layout>
+      <div>Hello World<div/>
+    </Layout>
+  }
+}
+              `
+            }
+          </Code>
           <Heading as='h3' size='md' pt={5}>
             <a id="install-reactga4">Remove React-GA and Install React-GA4</a>
           </Heading>
