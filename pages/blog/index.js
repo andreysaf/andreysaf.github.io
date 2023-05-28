@@ -17,6 +17,16 @@ import BlogCard from '../../components/blogCard';
 
 const blogs = [
   {
+    key: 'react-ga-guide',
+    title: `Migrate Next.js app to GA4 using react-ga`,
+    desc: 'In this blog we will go over how to transition your Next.js web app to Google Analytics 4 using react-ga4.',
+    date: 'May 27th, 2023',
+    imagePath: '/blog/next-js-ga4.jpeg',
+    imageAlt: 'Next.js logo and Google Analytics logo from Wiki Commons',
+    readOnMedium: false,
+    link: '/blog/how-to-migrate-nextjs-react-ga4',
+  },
+  {
     key: 'okr-guide',
     title: `Product Manager's Guide to Writing OKRs`,
     desc: 'OKR is a goal setting framework. In this blog, I will share my tips and tricks that I use everyday when writing OKRs.',

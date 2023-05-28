@@ -34,7 +34,7 @@ const WebViewer = () => {
         <meta name="author" content="Andrey Safonov"></meta>
       </Head>
       <Navbar />
-      <Container maxW={'7xl'} p='12'>
+      <Container maxW={'5xl'} p='12'>
         <VStack paddingTop='40px' spacing='2' alignItems='flex-start'>
           <Breadcrumb mb={4}>
             <BreadcrumbItem>
