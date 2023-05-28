@@ -105,7 +105,10 @@ export const initGA = () => {
 }
   
 export const logPageView = () => {
-  ReactGA.send({ hitType: 'pageview', page: window.location.pathname, title: window.document.title })
+  ReactGA.send({ hitType: 'pageview', 
+  page: window.location.pathname, 
+  title: window.document.title 
+})
 }`
           }</Code>
           <Text as='p' fontSize='lg'>
