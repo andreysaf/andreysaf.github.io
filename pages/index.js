@@ -70,7 +70,7 @@ const Home = () => {
             <Wrap>
               <WrapItem>
                 <Container>
-                  Check out some of my{' '}
+                  Check out my <Link href='/portfolio' style={{ textDecoration: 'underline' }}>portfolio</Link> or read some of my product focused{' '}
                   <Link href='/blog' style={{ textDecoration: 'underline' }}>
                     blogs
                   </Link>{' '}
