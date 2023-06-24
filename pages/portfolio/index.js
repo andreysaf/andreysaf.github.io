@@ -15,6 +15,7 @@ import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import BlogCard from '../../components/blogCard';
 import VideoCard from '../../components/videoCard';
+import GitCard from '../../components/gitCard';
 
 const products = [
   {
@@ -23,7 +24,8 @@ const products = [
     desc: 'Embed viewing and annotating on PDFs, Office Documents, and images in any web app.',
     imagePath: '/cases/webviewer.png',
     imageAlt: 'WebViewer Screenshot',
-    link: '/blog/how-to-migrate-nextjs-react-ga4',
+    external: true,
+    link: 'https://showcase.apryse.com/',
   },
   {
     key: 'webviewer-docx',
@@ -31,7 +33,8 @@ const products = [
     desc: 'Create and edit DOCX documents without MS Office or any server-side dependencies.',
     imagePath: '/cases/docx-editor.png',
     imageAlt: 'WebViewer Screenshot',
-    link: '/blog/how-to-migrate-nextjs-react-ga4',
+    external: true,
+    link: 'https://khein-hosted-env.web.app/office-editor/',
   },
   {
     key: 'webviewer-video',
@@ -39,7 +42,8 @@ const products = [
     desc: 'Provide feedback on videos by annotating them frame by frame. Remove audio sections.',
     imagePath: '/cases/video.png',
     imageAlt: 'WebViewer Screenshot',
-    link: '/blog/how-to-migrate-nextjs-react-ga4',
+    external: true,
+    link: 'https://webviewer-video.web.app/',
   },
 ];
 
@@ -99,7 +103,33 @@ const blogs = [
     external: true,
     link: 'https://apryse.com/blog/webviewer/create-easy-custom-signature-workflows',
   },
-  
+];
+
+const github = [
+  {
+    key: 'pdftron-sign-app',
+    title: `DocuSign Clone`,
+    desc: 'React app with Firebase backend for requesting PDF signatures, signing documents and applying digital signatures.',
+    stars: 158,
+    external: true,
+    link: 'https://github.com/PDFTron/pdftron-sign-app',
+  },
+  {
+    key: 'node-js-api',
+    title: `Node.js Document REST API`,
+    desc: 'Convert from MS Office, image to PDF, get thumbnails for file previews, optimize files for quick rendering.',
+    stars: 71,
+    external: true,
+    link: 'https://github.com/andreysaf/nodejs-convert-file-server',
+  },
+  {
+    key: 'search-app',
+    title: `Document Indexing`,
+    desc: 'Extract and index text from documents, React front-end searching with hit highlighting and auto-scrolling to page.',
+    stars: 37,
+    external: true,
+    link: 'https://github.com/PDFTron/pdftron-document-search',
+  },
 ];
 
 const Blog = () => {
@@ -108,12 +138,12 @@ const Blog = () => {
   return (
     <Layout>
       <Head>
-        <title>Andrey's Product Management Blogs</title>
+        <title>Andrey Safonov Technical Product Management Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel='canonical' href='https://andreysafonov.com/blog' />
+        <link rel='canonical' href='https://andreysafonov.com/portfolio' />
         <meta
           name="Description"
-          content="Read Andrey's career and tech focused blogs, articles and publications."
+          content="Andrey Safonov - Technical Product Manager - portfolio showcasing products, content created and GitHub projects."
         />
       </Head>
       <Navbar />
@@ -147,8 +177,8 @@ const Blog = () => {
           </SimpleGrid>
           <Heading as="h1" paddingTop="60px" paddingBottom="20px">GitHub</Heading>
           <SimpleGrid columns={[1, 2, 3]} spacing='20px'>
-            {blogs.map((content) => {
-              return <BlogCard key={content.key} {...content} />
+            {github.map((content) => {
+              return <GitCard key={content.key} {...content} />
             })}
           </SimpleGrid>
         </VStack>

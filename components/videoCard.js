@@ -11,7 +11,7 @@ const videoCard = ({
   return (
       <Card maxW='sm'>
         <CardBody>
-        <AspectRatio maxW='331px' ratio={4 / 3}>
+        <AspectRatio maxW='331px' ratio={16 / 9}>
           <iframe
             title={videoTitle}
             src={videoEmbed}
