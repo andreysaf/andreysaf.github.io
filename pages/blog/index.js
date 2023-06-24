@@ -23,7 +23,7 @@ const blogs = [
     date: 'May 27th, 2023',
     imagePath: '/blog/next-js-ga4.jpeg',
     imageAlt: 'Next.js logo and Google Analytics logo from Wiki Commons',
-    readOnMedium: false,
+    external: false,
     link: '/blog/how-to-migrate-nextjs-react-ga4',
   },
   {
@@ -33,7 +33,7 @@ const blogs = [
     date: 'June 11th, 2022',
     imagePath: '/blog/objective.jpg',
     imageAlt: 'objective of a photo camera',
-    readOnMedium: false,
+    external: false,
     link: '/blog/product-manager-guide-to-okrs',
   },
   {
@@ -43,7 +43,7 @@ const blogs = [
     date: 'September 6th, 2021',
     imagePath: '/blog/transition-to-product.jpg',
     imageAlt: 'prototyping wireframe',
-    readOnMedium: false,
+    external: false,
     link: '/blog/how-to-transition-to-product-management',
   },
   {
@@ -53,7 +53,7 @@ const blogs = [
     date: 'August 24th, 2019',
     imagePath: '/blog/what-is-technical-solutions.jpeg',
     imageAlt: 'macbook keyboard',
-    readOnMedium: true,
+    external: true,
     link: 'https://andreysaf.medium.com/what-is-a-technical-solutions-engineer-e3d4324efec',
   },
   {
@@ -63,7 +63,7 @@ const blogs = [
     date: 'March 24th, 2019',
     imagePath: '/blog/fist-bump.jpeg',
     imageAlt: 'people are fist bumping',
-    readOnMedium: true,
+    external: true,
     link: 'https://medium.com/@andreysaf/how-to-run-a-meeting-in-ten-easy-steps-81b3323f3f7a',
   },
 ];
