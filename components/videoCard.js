@@ -1,23 +1,23 @@
 import React from 'react';
-import { Box, Image, Text, Heading, Divider, Card, CardBody, CardFooter, Stack, Link, Spacer } from '@chakra-ui/react';
+import { Text, Heading, Divider, Card, CardBody, AspectRatio, Stack, Link, Spacer } from '@chakra-ui/react';
 
-const blogCard = ({
+const videoCard = ({
   title,
   desc,
-  date,
-  imagePath,
-  imageAlt,
+  videoEmbed,
+  videoTitle,
   link,
 }) => {
   return (
-    <Link href={link}>
       <Card maxW='sm'>
         <CardBody>
-          <Image
-            src={imagePath}
-            alt={imageAlt}
-            borderRadius='lg'
+        <AspectRatio maxW='331px' ratio={4 / 3}>
+          <iframe
+            title={videoTitle}
+            src={videoEmbed}
+            allowFullScreen
           />
+          </AspectRatio>
           <Stack mt='6' spacing='3'>
             <Heading size='md'>{title}</Heading>
             <Text noOfLines={[1, 2, 3]}>
@@ -25,15 +25,8 @@ const blogCard = ({
             </Text>
           </Stack>
         </CardBody>
-        <CardFooter>
-          <Box as="span" color="gray.600" fontSize="sm">
-            {date}
-          </Box>
-        </CardFooter>
       </Card>
-      <Spacer />
-    </Link>
   );
 };
 
-export default blogCard;
+export default videoCard;

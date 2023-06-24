@@ -14,6 +14,7 @@ import Layout from '../../components/layout';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import BlogCard from '../../components/blogCard';
+import VideoCard from '../../components/videoCard';
 
 const products = [
   {
@@ -40,6 +41,31 @@ const products = [
     imageAlt: 'WebViewer Screenshot',
     link: '/blog/how-to-migrate-nextjs-react-ga4',
   },
+];
+
+const videos = [
+  {
+    key: 'docx-video',
+    title: `DOCX Editor Demo`,
+    desc: 'Demo video walking through a new product release.',
+    videoEmbed: 'https://www.youtube.com/embed/3VY1GMyL0AA',
+    videoTitle: 'DOCX Editor',
+  },
+  {
+    key: 'pdf-conference',
+    title: `Dev Week Conference`,
+    desc: 'Video for a Dev Week Conference comparing PDF SDKs.',
+    videoEmbed: 'https://www.youtube.com/embed/rGTrcN69LR8',
+    videoTitle: 'DevWeek Conference',
+  },
+  {
+    key: 'pdf-editing',
+    title: `PDF Editing Release`,
+    desc: 'Video showcasing new PDF editing capability for WebViewer.',
+    videoEmbed: 'https://www.youtube.com/embed/LG2H1qtJN4c',
+    videoTitle: 'DevWeek Conference',
+  },
+  
 ];
 
 const content = [
@@ -126,13 +152,13 @@ const Blog = () => {
               return <BlogCard key={product.key} {...product} />
             })}
           </SimpleGrid>
-          <Heading as="h1" paddingTop="60px" paddingBottom="20px">Blogs</Heading>
+          <Heading as="h1" paddingTop="60px" paddingBottom="20px">Videos</Heading>
           <SimpleGrid columns={[1, 2, 3]} spacing='20px'>
-            {content.map((content) => {
-              return <BlogCard key={content.key} {...content} />
+            {videos.map((video) => {
+              return <VideoCard key={video.key} {...video} />
             })}
           </SimpleGrid>
-          <Heading as="h1" paddingTop="60px" paddingBottom="20px">Videos</Heading>
+          <Heading as="h1" paddingTop="60px" paddingBottom="20px">Blogs</Heading>
           <SimpleGrid columns={[1, 2, 3]} spacing='20px'>
             {content.map((content) => {
               return <BlogCard key={content.key} {...content} />
