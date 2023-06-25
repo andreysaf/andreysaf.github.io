@@ -17,6 +17,26 @@ import BlogCard from '../../components/blogCard';
 
 const blogs = [
   {
+    key: 'react-pdf-viewer',
+    title: `How to build a React PDF Viewer`,
+    desc: 'Blog walking you through how to build your own React PDF Viewer.',
+    date: 'June 16th, 2023',
+    imagePath: '/blog/react-viewer-blog.png',
+    imageAlt: 'Next.js logo and Google Analytics logo from Wiki Commons',
+    external: true,
+    link: 'https://apryse.com/blog/build-custom-react-pdf-viewer',
+  },
+  {
+    key: 'docx-launch-blog',
+    title: `DOCX Editor Launch Blog`,
+    desc: 'Launch blog for DOCX editor, walking you through features and differentiators.',
+    date: 'May 29th, 2023',
+    imagePath: '/blog/docx-launch.png',
+    imageAlt: 'Next.js logo and Google Analytics logo from Wiki Commons',
+    external: true,
+    link: 'https://apryse.com/blog/webviewer/docx-editor-release',
+  },
+  {
     key: 'react-ga-guide',
     title: `Migrate Next.js app to GA4 using react-ga`,
     desc: 'In this blog we will go over how to transition your Next.js web app to Google Analytics 4 using react-ga4.',
@@ -25,6 +45,16 @@ const blogs = [
     imageAlt: 'Next.js logo and Google Analytics logo from Wiki Commons',
     external: false,
     link: '/blog/how-to-migrate-nextjs-react-ga4',
+  },
+  {
+    key: 'sign-blog',
+    title: `Digital Signatures Release`,
+    desc: 'Release blog for Digital Signature capabilities within WebViewer product.',
+    date: 'September 22nd, 2022',
+    imagePath: '/blog/signature.png',
+    imageAlt: 'Next.js logo and Google Analytics logo from Wiki Commons',
+    external: true,
+    link: 'https://apryse.com/blog/webviewer/create-easy-custom-signature-workflows',
   },
   {
     key: 'okr-guide',

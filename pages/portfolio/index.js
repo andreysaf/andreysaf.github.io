@@ -9,7 +9,9 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  Link
 } from '@chakra-ui/react';
+import { ChevronRightIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import Layout from '../../components/layout';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
@@ -69,7 +71,7 @@ const videos = [
     videoEmbed: 'https://www.youtube.com/embed/LG2H1qtJN4c',
     videoTitle: 'DevWeek Conference',
   },
-  
+
 ];
 
 const blogs = [
@@ -175,12 +177,18 @@ const Blog = () => {
               return <BlogCard key={blog.key} {...blog} />
             })}
           </SimpleGrid>
+          <Link href='/blog' paddingTop='20px'>
+            Read more <ChevronRightIcon />
+          </Link>
           <Heading as="h1" paddingTop="60px" paddingBottom="20px">GitHub</Heading>
           <SimpleGrid columns={[1, 2, 3]} spacing='20px'>
             {github.map((content) => {
               return <GitCard key={content.key} {...content} />
             })}
           </SimpleGrid>
+          <Link href='https://github.com/andreysaf' paddingTop='20px' isExternal>
+            See more on GitHub <ExternalLinkIcon />
+          </Link>
         </VStack>
       </Container>
       <Footer />

@@ -22,7 +22,7 @@ const blogCard = ({
             borderRadius='lg'
           />
           </AspectRatio>
-          <Stack mt='6' spacing='3'>
+          <Stack mt='6' spacing='3' minH={{ base: '70px', md: '130px' }}>
             <Heading size='md'>{title}{
               external
                 ? <ExternalLinkIcon mx='5px' />
@@ -31,7 +31,6 @@ const blogCard = ({
             <Text noOfLines={[1, 2, 3]}>
               {desc}
             </Text>
-            
           </Stack>
         </CardBody>
         <CardFooter>

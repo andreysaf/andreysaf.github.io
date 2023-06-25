@@ -1,6 +1,5 @@
 import {
   Box,
-  SimpleGrid,
   Container,
   Stack,
   Text,
@@ -11,7 +10,7 @@ import {
 import { Github, Linkedin, Medium, Youtube } from 'grommet-icons';
 
 const SocialButton = ({ children, label, href }) => {
-  return <Link href={href}>{children}</Link>;
+  return <Link href={href} isExternal>{children}</Link>;
 };
 
 export default function SmallWithSocial() {
