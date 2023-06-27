@@ -55,26 +55,29 @@ const Home = () => {
             </Wrap>
             <Wrap>
               <WrapItem>
-                <Heading as='h2' size={subHeadingSize} pl={4}>
-                  Director of Product @Apryse
-                </Heading>
-              </WrapItem>
-            </Wrap>
-            <Wrap>
-              <WrapItem>
                 <Container>
-                  I started my career as a software engineer, developing text collaboration software. Later, I worked as an implementation consultant for the Ministry of Finance, where I built an online tax portal that continues to serve 5 million taxpayers to this day. Currently, I hold the position of Director of Product, leading a team of 5 product managers. Our focus is on building UI components, and APIs for document management, used by millions of developers around the world and powering applications like DocuSign, Dropbox and thousands more.
+                I am Andrey, Director of Product at Apryse (previously PDFTron). With over 10 years of experience in the tech industry, I have a unique background that includes experience as a software engineer, consultant, solutions engineer, and product manager.  
                 </Container>
               </WrapItem>
             </Wrap>
             <Wrap>
               <WrapItem>
                 <Container>
-                  Check out my <Link href='/portfolio' style={{ textDecoration: 'underline' }}>portfolio</Link> or read some of my product focused{' '}
-                  <Link href='/blog' style={{ textDecoration: 'underline' }}>
-                    blogs
-                  </Link>{' '}
-                  about product management.
+                I currently lead a team of 5 PMs and also act as the PM for two products. We build Document SDKs and UI components used by millions of developers.  
+                </Container>
+              </WrapItem>
+            </Wrap>
+            <Wrap>
+              <WrapItem>
+                <Container>
+                I joined PDFTron when it was in the start-up stage and became the first PM. I built the product team from 0 and scaled the product by building several 0-1 products, adding distribution channels through marketplaces like Salesforce and Appian, and driving M&A strategy with 8 acquisitions.
+                </Container>
+              </WrapItem>
+            </Wrap>
+            <Wrap>
+              <WrapItem>
+                <Container>
+                  Check out my <Link href='/portfolio' style={{ textDecoration: 'underline' }}>portfolio</Link>.
                 </Container>
               </WrapItem>
             </Wrap>

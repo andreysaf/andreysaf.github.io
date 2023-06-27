@@ -26,8 +26,8 @@ const products = [
     desc: 'Embed viewing and annotating on PDFs, Office Documents, and images in any web app.',
     imagePath: '/cases/webviewer.png',
     imageAlt: 'WebViewer Screenshot',
-    external: true,
-    link: 'https://showcase.apryse.com/',
+    external: false,
+    link: '/portfolio/webviewer-product',
   },
   {
     key: 'webviewer-docx',
@@ -35,8 +35,8 @@ const products = [
     desc: 'Create and edit DOCX documents without MS Office or any server-side dependencies.',
     imagePath: '/cases/docx-editor.png',
     imageAlt: 'WebViewer Screenshot',
-    external: true,
-    link: 'https://khein-hosted-env.web.app/office-editor/',
+    external: false,
+    link: '/portfolio/docx-product',
   },
   {
     key: 'webviewer-video',
@@ -186,7 +186,7 @@ const Blog = () => {
               return <GitCard key={content.key} {...content} />
             })}
           </SimpleGrid>
-          <Link href='https://github.com/andreysaf' paddingTop='20px' isExternal>
+          <Link href='https://github.com/andreysaf' paddingTop='20px' paddingBottom='20px' isExternal>
             See more on GitHub <ExternalLinkIcon />
           </Link>
         </VStack>
