@@ -61,7 +61,7 @@ const WebViewer = () => {
                 Context
               </Heading>
               <Text>DOCX editor allows you to create and edit DOCX documents in a browser without any server-side dependencies or Microsoft Office licenses.</Text>
-              <Text>The editor is a zero-to-one product that I have built together with 2 product designers, 2 scrum teams, one front-end and one backend.</Text>
+              <Text>The editor is a zero-to-one product that I have built together with 2 product designers, 2 scrum teams, one frontend and one backend.</Text>
               <Heading as='h3' size='md' paddingTop='10px' paddingBottom='5px'>
                 Use Cases
               </Heading>
