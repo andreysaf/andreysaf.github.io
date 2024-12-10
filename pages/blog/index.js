@@ -17,6 +17,16 @@ import BlogCard from '../../components/blogCard';
 
 const blogs = [
   {
+    key: 'safas-blog',
+    title: `Real-Time AI-Generated Deepfakes are here`,
+    desc: 'AI-generated content has evolved to the point where deepfake tech has materialized from theory to a major threat in virtual meetings.',
+    date: 'September 23rd, 2024',
+    imagePath: '/cases/ggglitch.svg',
+    imageAlt: 'Safas Background',
+    external: true,
+    link: 'https://safas.io/blog/real-time-ai-generated-deepfakes-in-meetings',
+  },
+  {
     key: 'react-pdf-viewer',
     title: `How to build a React PDF Viewer`,
     desc: 'Blog walking you through how to build your own React PDF Viewer.',

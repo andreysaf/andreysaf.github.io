@@ -21,6 +21,15 @@ import GitCard from '../../components/gitCard';
 
 const products = [
   {
+    key: 'safas',
+    title: `Safas Secure Camera`,
+    desc: 'The encrypted camera stream for secure, deepfake-free videoconferencing.',
+    imagePath: '/cases/ggglitch.svg',
+    imageAlt: 'WebViewer Screenshot',
+    external: true,
+    link: 'https://safas.io/',
+  },
+  {
     key: 'webviewer',
     title: `PDF Viewer & Editor`,
     desc: 'Embed viewing and annotating on PDFs, Office Documents, and images in any web app.',

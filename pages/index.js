@@ -8,6 +8,7 @@ import {
   Heading,
   Stack,
   useBreakpointValue,
+  Button,
   Container,
   Link,
 } from '@chakra-ui/react';
@@ -34,9 +35,9 @@ const Home = () => {
         />
       </Head>
       <Navbar />
-      <Box w='100%' p={16}>
+      <Box w='100%' p={12}>
         <Center>
-          <Stack spacing={6}>
+          <Stack spacing={3}>
             <Wrap>
               <WrapItem pl={4}>
                 <Avatar
@@ -48,7 +49,7 @@ const Home = () => {
             </Wrap>
             <Wrap>
               <WrapItem>
-                <Heading as='h1' size={headingSize} pl={4}>
+                <Heading as='h1' size={headingSize} pl={4} pb={4}>
                   Andrey Safonov
                 </Heading>
               </WrapItem>
@@ -56,28 +57,49 @@ const Home = () => {
             <Wrap>
               <WrapItem>
                 <Container>
-                I am Andrey, Director of Product at Apryse (previously PDFTron). With over 10 years of experience in the tech industry, I have a unique background that includes experience as a software engineer, consultant, solutions engineer, and product manager.  
+                I’m Andrey, a seasoned product leader passionate about building innovative solutions that move the needle. 
                 </Container>
               </WrapItem>
             </Wrap>
             <Wrap>
               <WrapItem>
                 <Container>
-                I currently lead a team of 5 PMs and also act as the PM for two products. We build Document SDKs and UI components used by millions of developers.  
+                Currently, I’m the <b>Head of Product and Development</b> at Aspire Software, where I lead a global team of 50 product managers, designers, engineering managers, and developers across the Environment, Health & Safety, and Nuclear Energy sectors. Aspire operates as the software division of Valsoft, a holding company focused on acquiring and growing businesses for the long term. In my role, I drive product and acquisition strategy to expand product portfolios, scale product and development teams, and enhance customer satisfaction by delivering high-quality products, features, and experiences.
                 </Container>
               </WrapItem>
             </Wrap>
             <Wrap>
               <WrapItem>
                 <Container>
-                I joined PDFTron when it was in the start-up stage and became the first PM. I built the product team from 0 and scaled the product by building several 0-1 products, adding distribution channels through marketplaces like Salesforce and Appian, and driving M&A strategy with 8 acquisitions.
+                Previously, I was <b>Head of Product</b> at Apryse (formerly PDFTron), a leading document SDK trusted by Adobe, DocuSign, Microsoft, NASA, and thousands of other organizations. Joining during its early startup days, I built the product team from the ground up, growing it to include 10 product managers and 4 product designers. I played a pivotal role in scaling the product portfolio, launching multiple 0-to-1 products, expanding distribution through marketplaces like Salesforce and Appian, and spearheading strategic acquisitions. These efforts contributed to Apryse’s growth and success through two private equity exits.
                 </Container>
               </WrapItem>
             </Wrap>
             <Wrap>
               <WrapItem>
                 <Container>
-                  Check out my <Link href='/portfolio' style={{ textDecoration: 'underline' }}>portfolio</Link>.
+                I’m deeply passionate about technological innovation. I’m also building <a target="_blank" href='https://safas.io/' style={{ textDecoration: 'underline' }}>Safas.io</a>, a startup dedicated to securing video communication against deepfakes and video injection attacks.
+                </Container>
+              </WrapItem>
+            </Wrap>
+            <Wrap>
+              <WrapItem>
+                <Container>
+                  <Link href={'https://www.linkedin.com/in/andreysaf/'}>
+            <Button
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              color={'white'}
+              bg={'green.400'}
+              href={'https://www.linkedin.com/in/andreysaf/'}
+              _hover={{
+                bg: 'green.300',
+              }}
+            >
+              Get in touch
+            </Button>
+          </Link>
                 </Container>
               </WrapItem>
             </Wrap>

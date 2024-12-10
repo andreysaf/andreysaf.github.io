@@ -66,15 +66,6 @@ export default function SmallWithSocial() {
               size='medium'
             />
           </SocialButton>
-          <SocialButton
-            label={'YouTube'}
-            href={'https://www.youtube.com/c/PDFTronSDK'}
-          >
-            <Youtube
-              color={useColorModeValue('#2d3848', 'white')}
-              size='medium'
-            />
-          </SocialButton>
         </Stack>
       </Container>
     </Box>
