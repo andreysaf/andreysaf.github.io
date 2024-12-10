@@ -25,13 +25,13 @@ const Home = () => {
     <Layout>
       <Head>
         <title>
-          Andrey Safonov - Director of Product, Technical Product Manager
+          Andrey Safonov - Head of Product & Development | Expert in B2B SaaS, APIs, Developer Products & M&A
         </title>
         <link rel='icon' href='/favicon.ico' />
         <link rel='canonical' href='https://andreysafonov.com/' />
         <meta
           name='Description'
-          content='Andrey Safonov is a product manager lead and leads a team of product managers at PDFTron. BASc in Computer Engineering with minor in Business Management.'
+          content='Andrey Safonov is a seasoned Head of Product specializing in B2B SaaS, B2B2C, APIs, and developer-focused products. Technical product leader focused on delivering exceptional customer experiences, driving growth through M&A, and leading high-performing remote global teams.'
         />
       </Head>
       <Navbar />
