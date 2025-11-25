@@ -78,13 +78,6 @@ const Home = () => {
             <Wrap>
               <WrapItem>
                 <Container>
-                I’m deeply passionate about technological innovation. I’m also building <a target="_blank" href='https://safas.io/' style={{ textDecoration: 'underline' }}>Safas.io</a>, a startup dedicated to securing video communication against deepfakes and video injection attacks.
-                </Container>
-              </WrapItem>
-            </Wrap>
-            <Wrap>
-              <WrapItem>
-                <Container>
                   <Link href={'https://www.linkedin.com/in/andreysaf/'}>
             <Button
               fontSize={'sm'}
