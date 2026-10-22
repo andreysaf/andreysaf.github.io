@@ -90,7 +90,7 @@ export const TIMELINE: Role[] = [
         end: '2026-09',
         bullets: [
           'Built and improved software for marinas, car rental companies, theme parks, restaurants and safety teams, with a global team of about 50 designers, engineers and product managers.',
-          'Brought AI into everyday tools so staff spend less time on admin: answering phones, scheduling technicians, tracking inventory and preparing reports.',
+          'Led AI transformation across the portfolio as Chief Technical and Product Officer, acting as chief technology officer, chief product officer, head of product or hands-on developer, depending on what each company needed.',
           'Worked with 14 companies, learning each industry from its customers, with teams from Vancouver and Montreal to Italy, Australia, Egypt and Lebanon.',
           'Created three new products from scratch: Signiphi, BluSynq and BluMarina.',
         ],
