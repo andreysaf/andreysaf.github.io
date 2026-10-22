@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import Faq from '../../components/Faq.astro';
 import { PRODUCTS, SOLUNAR, type Product } from '../../data/site';
 import { faqNode } from '../../lib/schema';
+import TestimonialQuote from '../../components/Testimonial.astro';
+import { TESTIMONIALS } from '../../data/testimonials';
 
 type Page = {
   title: string;
@@ -47,7 +49,7 @@ const PAGES: Record<string, Page> = {
     ],
     why: [
       'I co-founded Solunar to focus my industry experience on the place where I live and the communities I’m part of. Community centres, drop-in programs and nonprofits are the organizations that hold those communities together, and they deserve modern software.',
-      'Across a portfolio of vertical software businesses at Aspire, I saw how much a focused, modern system changes the day for front-line staff. Community organizations deserve that too, at a price that works for nonprofits.',
+      'At Aspire, I worked with companies that each build software for one specific industry, and I saw how much a focused, modern system changes the day for front-line staff. Community organizations deserve that too, at a price that works for nonprofits.',
       'OpenCommunity puts memberships, attendance, kiosk sign-in, scheduling, payments and funder reporting in one place, with role-based access and encryption, because these organizations hold sensitive information about families.',
     ],
     faq: [
@@ -69,6 +71,7 @@ export function getStaticPaths() {
 interface Props { product: Product }
 const { product: p } = Astro.props;
 const page = PAGES[p.slug];
+const quotes = ['nathan-schrider', 'kareem-johnson', 'ali-hussein'].map((id) => TESTIMONIALS.find((t) => t.id === id)!);
 ---
 
 <Base
@@ -103,6 +106,13 @@ const page = PAGES[p.slug];
     <section class="section" aria-labelledby="why">
       <h2 id="why" class="section-title">Why I'm building it</h2>
       <div class="mt-3">{page.why.map((t) => <p>{t}</p>)}</div>
+    </section>
+
+    <section class="section" aria-labelledby="people">
+      <h2 id="people" class="section-title">What people say about working with me</h2>
+      <p class="mt-3">Customers and colleagues from software I've built before, in their own words.</p>
+      <div class="mt-6 space-y-8">{quotes.map((t) => <TestimonialQuote t={t} />)}</div>
+      <p class="mt-6"><a href="/about#shoutouts">Read more from customers and colleagues</a></p>
     </section>
 
     <Faq faq={page.faq} />

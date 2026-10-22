@@ -48,7 +48,7 @@ export const TIMELINE: Role[] = [
     highlights: [
       'Building OpenStrata, strata management software for British Columbia councils, owners and residents.',
       'Building OpenCommunity, member and program management for community centres, nonprofits and drop-in programs.',
-      'Full-time focus after leaving Aspire: small team, AI-native development, customers in the loop from day one.',
+      'My full-time focus: a small British Columbia team that builds with its customers, not just for them.',
     ],
     links: [
       { label: 'openstrata.ca', href: 'https://openstrata.ca' },
@@ -81,7 +81,7 @@ export const TIMELINE: Role[] = [
     org: 'Aspire Software (Valsoft)',
     orgUrl: 'https://www.aspiresoftware.com',
     context:
-      'The operating arm of Valsoft Corporation, which acquires and holds a portfolio of 165+ vertical market software companies for the long term.',
+      'Part of Valsoft Corporation. Aspire owns and runs more than 165 companies that each make software for one specific industry, such as marinas, car rental or workplace safety. This is often called vertical software.',
     location: 'Vancouver, British Columbia (remote)',
     positions: [
       {
@@ -89,17 +89,17 @@ export const TIMELINE: Role[] = [
         start: '2023-12',
         end: '2026-09',
         bullets: [
-          'Led product management and development across the Marina Management, Car Rental, Leisure & Entertainment and Health & Safety portfolios. Ran a global team of about 50 product managers, designers, engineering managers and developers.',
-          'Led AI transformation across the portfolio as Chief Technical and Product Officer, acting as chief technology officer, chief product officer, head of product or hands-on developer, depending on what each company needed.',
-          'Worked with 14 companies, with teams in Vancouver, Montreal, Texas, New York, Florida, Kansas, Colorado, Italy, Germany, the UK, Australia, Egypt and Lebanon.',
-          'Created three new AI-native companies and built teams for them: Signiphi, BluSynq and BluMarina.',
+          'Built and improved software for marinas, car rental companies, theme parks, restaurants and safety teams, with a global team of about 50 designers, engineers and product managers.',
+          'Brought AI into everyday tools so staff spend less time on admin: answering phones, scheduling technicians, tracking inventory and preparing reports.',
+          'Worked with 14 companies, learning each industry from its customers, with teams from Vancouver and Montreal to Italy, Australia, Egypt and Lebanon.',
+          'Created three new products from scratch: Signiphi, BluSynq and BluMarina.',
         ],
       },
       {
         title: 'Technical Product Manager',
         start: '2023-07',
         end: '2023-12',
-        bullets: ['Joined Aspire to own product across the environment, health and safety, and nuclear portfolio.'],
+        bullets: ['Joined Aspire to build software for environment, health and safety, and nuclear safety teams.'],
       },
     ],
     ventures: [
@@ -110,7 +110,7 @@ export const TIMELINE: Role[] = [
         role: 'Founder / Head of Product & AI',
         period: 'Jul 2025 – Sep 2026',
         story:
-          'Reimagined digital signatures for developers and AI agents, so signing becomes something software can call directly.',
+          'Simple digital signatures: send documents for signing, or add signing to your own app, with documents processed privately on your device.',
       },
       {
         name: 'BluSynq',
@@ -119,7 +119,7 @@ export const TIMELINE: Role[] = [
         role: 'Founder / Head of Product & AI',
         period: 'Mar 2026 – Sep 2026',
         story:
-          'An AI front desk for marinas and entertainment parks. It answers calls, texts and emails in five languages, books slips and services, and hands off to staff when needed. Integrated with DockMaster, BluMarina and CORE Cashless.',
+          'An AI front desk for marinas and entertainment parks, so no customer call goes unanswered. It answers calls, texts and emails in five languages, books slips and services, and hands off to staff when needed.',
       },
       {
         name: 'BluMarina',
@@ -128,7 +128,7 @@ export const TIMELINE: Role[] = [
         role: 'Founder / Head of Product & AI',
         period: 'Mar 2026 – Sep 2026',
         story:
-          'A modern, cloud-native marina management platform designed around AI agents from day one: customers, vessels, service, inventory and payments in one place.',
+          'Modern marina management that keeps customers, boats, service, inventory and payments in one place, with AI that takes on routine work.',
       },
     ],
     portfolio: [
@@ -141,7 +141,7 @@ export const TIMELINE: Role[] = [
         role: 'Chief Technology Officer',
         period: 'Jan 2025 – Sep 2026',
         story:
-          'As chief technology officer, built DockMaster Web, the cloud companion to DockMaster Desktop. It adds a marina CRM, a customer self-service portal, online payments, e-signatures, service management and an AI scheduling assistant that suggests technician assignments.',
+          'As head of technology, built DockMaster Web so marinas can run from anywhere: boaters pay and sign online through their own portal, and an AI assistant suggests which technician should take each job.',
         links: [{ label: 'DockMaster Web', href: 'https://www.dockmaster.com/products/dockmaster-web' }],
       },
       {
@@ -150,7 +150,7 @@ export const TIMELINE: Role[] = [
         industry: 'Hospitality point-of-sale software',
         context: 'An Australian hospitality point-of-sale vendor founded in 1987, part of Valsoft since 2019.',
         story:
-          'Built an AI agent that manages low-stock inventory, updates pricing and handles reporting for venues.',
+          'Built an AI assistant that watches for low stock, updates prices and prepares reports, so restaurant managers can focus on guests.',
       },
       {
         name: 'CORE Cashless',
@@ -158,7 +158,7 @@ export const TIMELINE: Role[] = [
         industry: 'Ticketing & cashless payments for attractions',
         context:
           'RFID, NFC and QR cashless payments, ticketing and access control for theme parks, waterparks, family entertainment centres and venues. Acquired by Valsoft in 2025.',
-        story: 'Led the AI transformation and reshaped the team. They have some really cool stuff cooking.',
+        story: 'Helped the team bring AI into its products and change how it works. They have some really cool stuff cooking.',
       },
       {
         name: 'RENTALL (Thermeon)',
@@ -166,13 +166,13 @@ export const TIMELINE: Role[] = [
         industry: 'Car rental software',
         context:
           'Car rental management software used by rental brands worldwide. Thermeon was combined with sister companies under the RENTALL brand.',
-        story: 'Built a mobile app that checks customers out faster at vehicle drop-off.',
+        story: 'Built a mobile app that gets renters on their way faster when they drop off a car.',
       },
       {
         name: 'Guardian',
         industry: 'Safety reporting',
         context: 'Inspection, observation and safety audit reporting.',
-        story: 'Rebuilt the product from the ground up for the web.',
+        story: 'Rebuilt the product for the web, so safety teams can report from any browser.',
       },
       {
         name: 'S&W Technologies',
@@ -180,7 +180,7 @@ export const TIMELINE: Role[] = [
         industry: 'Nuclear safety',
         context: 'Nuclear safety software from Rochester, New York, for radiological surveys, real-time radiation monitoring, inspections and compliance.',
         story:
-          'Re-architected the most mission-critical app. It takes real-time readings from technicians working in radioactive environments and recalls them when levels get too high.',
+          'Rebuilt their most critical app, which takes live readings from technicians working around radiation and calls them back to safety when levels get too high.',
       },
       {
         name: 'VisiumKMS',
@@ -191,7 +191,7 @@ export const TIMELINE: Role[] = [
         role: 'Head of Product',
         period: 'Jul 2023 – Aug 2024',
         story:
-          'Improved Net Promoter Score (NPS) by building a documentation platform, so customers knew what had shipped and how to use it.',
+          'Built a help and documentation site, so customers always knew what was new and how to use it. Customer satisfaction went up as a result.',
       },
       {
         name: 'Pimsoft & Fusion Data Hub',
@@ -199,13 +199,13 @@ export const TIMELINE: Role[] = [
         links: [{ label: 'Fusion Data Hub', href: 'https://www.fusiondatahub.com' }],
         industry: 'Process manufacturing',
         context: 'Sigmafine data reconciliation and production accounting for process industries, from Milan, Italy. Fusion Data Hub moves plant historian data to the cloud.',
-        story: 'Product and technical leadership across the process manufacturing portfolio.',
+        story: 'Helped plan and build software that keeps production data accurate in manufacturing plants.',
       },
       {
         name: 'JBL Solutions',
         industry: 'Industrial enterprise resource planning',
         context: 'Baton Rouge-based enterprise resource planning (ERP) software for gas, welding and industrial distributors.',
-        story: 'Product and technical leadership as the business joined the portfolio.',
+        story: 'Helped plan and build software for industrial gas and welding suppliers.',
       },
     ],
     testimonialEra: 'aspire',
@@ -215,7 +215,7 @@ export const TIMELINE: Role[] = [
     org: 'Apryse (formerly PDFTron)',
     orgUrl: 'https://apryse.com',
     context:
-      'Vancouver-born document SDK company trusted by Adobe, DocuSign, Microsoft, NASA and thousands of others. It grew through investments from Silversmith Capital (2019) and Thoma Bravo (2021).',
+      'A Vancouver company whose tools let other software view, edit and sign PDF and Word documents. Used by Adobe, DocuSign, Microsoft, NASA and thousands of other organizations.',
     location: 'Vancouver, British Columbia',
     positions: [
       {
@@ -223,10 +223,10 @@ export const TIMELINE: Role[] = [
         start: '2021-10',
         end: '2023-07',
         bullets: [
-          'Grew the product portfolio from $5M to $50M+ by launching new products, including an embeddable web DOCX Editor ($3M pipeline in its first quarter) and a cloud-native media collaboration platform.',
-          'Expanded distribution through vertical marketplace partnerships with Salesforce, Mendix and Appian.',
-          'Introduced consumption-based pricing, which lifted enterprise win rates from 30% to 85%.',
-          'Built and led a team of 7 product managers, 2 designers and a product marketing manager.',
+          'Launched new products, including a DOCX Editor for editing Word documents in the browser and a tool for teams to review and comment on videos.',
+          'Made the tools available inside platforms businesses already use, such as Salesforce, Appian and Mendix.',
+          'Introduced simpler, pay-for-what-you-use pricing that customers found easier to say yes to.',
+          'Built and mentored a team of 10 product managers, designers and marketers.',
         ],
       },
       {
@@ -234,10 +234,10 @@ export const TIMELINE: Role[] = [
         start: '2019-11',
         end: '2021-10',
         bullets: [
-          'Became the first product manager and built several 0→1 products, including Video Collaboration and the DOCX Editor.',
-          'Opened a low-code channel through Salesforce, Appian and Mendix that brought in $5M in annual recurring revenue (ARR) over two years.',
-          'Launched a secure video review product that reached $1M ARR in its first year.',
-          'Wrote docs, guides, samples, blogs and videos, and hosted webinars and sales enablement sessions.',
+          'Became the company’s first product manager and built new products from scratch, including Video Collaboration and the DOCX Editor.',
+          'Brought the tools to Salesforce, Appian and Mendix, so customers could add document features without writing code.',
+          'Launched a secure video review product for teams that share sensitive footage.',
+          'Wrote guides, examples, blog posts and videos, and ran webinars to help customers get started.',
         ],
       },
       {
@@ -245,8 +245,8 @@ export const TIMELINE: Role[] = [
         start: '2018-12',
         end: '2019-11',
         bullets: [
-          'Helped account executives close 25 deals worth $3.5M in total contract value (TCV) per quarter by building proofs of concept and running demos.',
-          'Worked with developers to build missing features for prospects, and supported customers before and after the sale.',
+          'Sat with customers to understand what they needed, then built demos showing exactly how the tools would work for them.',
+          'Worked with developers to build the features customers asked for, and supported them before and after they bought.',
         ],
       },
     ],

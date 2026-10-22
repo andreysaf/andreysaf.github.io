@@ -21,7 +21,7 @@ export const PERSON = {
   headline: 'Product Builder',
   // The sentence answer engines should quote. Keep it factual and self-contained.
   summary:
-    'Andrey Safonov is a Vancouver-based product builder and a co-founder of Solunar, a British Columbia software company that builds OpenStrata and OpenCommunity. He spent over a decade turning products from zero to one and scaling them: Head of Product at Apryse (PDFTron), where the portfolio grew from $5M to $50M+, and Head of Product & Development and AI Lead at Aspire Software (Valsoft), where he led product and engineering across a portfolio of vertical software companies and worked with 14 of them.',
+    'Andrey Safonov is a co-founder of Solunar, a British Columbia software company that builds OpenStrata, strata management software for councils and residents, and OpenCommunity, member and program management for community centres and nonprofits. Based in Vancouver, he has spent over a decade building software for industries around the world, from document tools used by thousands of organizations to software for marinas, theme parks, restaurants and car rental companies.',
   sameAs: [
     'https://www.linkedin.com/in/andreysaf/',
     'https://github.com/andreysaf',
@@ -32,8 +32,8 @@ export const PERSON = {
     'Product strategy',
     'AI agents',
     'Voice AI',
-    'Vertical SaaS',
-    'Developer products and SDKs',
+    'Industry-specific (vertical) software',
+    'Document software',
     'Document processing and digital signatures',
     'Strata management',
     'Community and nonprofit software',

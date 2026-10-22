@@ -33,6 +33,7 @@ export const TESTIMONIALS: Testimonial[] = [
     context: 'customer',
     era: 'aspire',
     relatesTo: 'DockMaster Software',
+    featured: true,
   },
   {
     id: 'ali-hussein',

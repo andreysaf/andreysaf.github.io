@@ -17,13 +17,6 @@ const leadership = TESTIMONIALS.filter((t) => t.context === 'leadership');
 const colleagues = TESTIMONIALS.filter((t) => t.context === 'colleague');
 const updated = new Date(SITE.profileUpdated).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
-const glance = [
-  { k: 'Now', v: 'Co-founder of Solunar, building OpenStrata and OpenCommunity' },
-  { k: 'Previously', v: 'Head of Product and Development and AI lead at Aspire Software; Head of Product at Apryse (PDFTron)' },
-  { k: 'Known for', v: 'Taking products from idea to revenue, AI transformation, and building product teams' },
-  { k: 'Based in', v: 'Vancouver, British Columbia, Canada' },
-];
-
 const faq = [
   { q: 'Who is Andrey Safonov?', a: PERSON.summary },
   {
@@ -35,59 +28,86 @@ const faq = [
     a: 'After a decade of building software for industries around the world, he wanted to focus that experience on the place where he lives and the communities he is part of. Solunar builds software for strata corporations and community organizations in British Columbia.',
   },
   {
-    q: 'What did Andrey Safonov do at Apryse (PDFTron)?',
-    a: 'He joined in 2018 as a technical solutions engineer, became the company’s first product manager in 2019, and was Head of Product from 2021 to 2023. He launched new products including the DOCX Editor and Video Collaboration, opened a low-code channel through Salesforce, Appian and Mendix, and grew the portfolio from $5M to more than $50M.',
+    q: 'What did Andrey Safonov build at Apryse (PDFTron)?',
+    a: 'From 2018 to 2023 he built document tools that let other software view, edit and sign PDF and Word files, used by thousands of organizations. He started as a solutions engineer, became the company’s first product manager, and later ran the product team. He launched new products including the DOCX Editor and Video Collaboration.',
   },
   {
-    q: 'What did Andrey Safonov do at Aspire Software?',
-    a: 'From 2023 to 2026 he was a technical product manager, then Head of Product and Development and AI lead. He worked with 14 companies, including DockMaster Software (as chief technology officer, building DockMaster Web), CORE Cashless, H&L POS, RENTALL, S&W Technologies and VisiumKMS, and created three AI products: Signiphi, BluSynq and BluMarina.',
+    q: 'What did Andrey Safonov build at Aspire Software?',
+    a: 'From 2023 to 2026 he worked with 14 companies that each make software for one industry, including marinas, theme parks, restaurants, car rental and nuclear safety. He built DockMaster Web for marinas as head of technology at DockMaster, and created three new products: Signiphi, BluSynq and BluMarina.',
   },
 ];
 ---
 
 <Base
-  title="About Andrey Safonov: Career Timeline, Work & Testimonials"
-  description="Career timeline of Andrey Safonov, co-founder of Solunar (OpenStrata, OpenCommunity): Aspire Software, DockMaster, Apryse (PDFTron) and more, with stories and testimonials."
+  title="About Andrey Safonov: My Story and What People Say"
+  description="The story of Andrey Safonov, co-founder of Solunar (OpenStrata, OpenCommunity): a decade of building software for industries worldwide, now focused on British Columbia communities."
   type="profile"
   breadcrumbs={[{ name: 'About', path: '/about' }]}
   jsonLd={[{ '@type': 'ProfilePage', dateModified: SITE.profileUpdated, mainEntity: { '@id': `${SITE.url}/#person` } }, timelineNode(), faqNode(faq)]}
 >
   <section class="pt-12" aria-labelledby="about">
     <h1 id="about" class="page-title">About Andrey</h1>
-    <p class="lede mt-6">{PERSON.summary}</p>
-    <p class="meta mt-4">Last updated <time datetime={SITE.profileUpdated}>{updated}</time>.</p>
+    <p class="lede mt-6">
+      I'm Andrey, a co-founder of <a href={SOLUNAR.url}>Solunar</a>. I live in Vancouver, and I build software that makes
+      life easier for the people who keep our communities running.
+    </p>
+    <p class="meta mt-4">
+      Jump to <a href="#story">my story</a>, <a href="#shoutouts">what people say</a> or{' '}
+      <a href="#timeline">career details</a>. Last updated <time datetime={SITE.profileUpdated}>{updated}</time>.
+    </p>
   </section>
 
-  <Section id="glance" title="At a glance">
-    <dl class="mt-6">
-      {glance.map((g) => (
-        <div class="grid gap-x-6 border-t border-rule py-3 first:border-t-0 first:pt-0 sm:grid-cols-[7rem_1fr]">
-          <dt class="font-semibold">{g.k}</dt>
-          <dd>{g.v}</dd>
-        </div>
-      ))}
-    </dl>
-    <p class="mt-6">
-      Jump to <a href="#timeline">career timeline</a>, <a href="#shoutouts">what people say</a> or{' '}
-      <a href="#faq-heading">questions and answers</a>. You can also reach me on <a href={SOCIAL.linkedin}>LinkedIn</a>.
-    </p>
-  </Section>
-
-  <Section id="story" title="The short story">
-    <p class="mt-4">
-      I started out writing compilers and real-time editors, built the British Columbia Ministry of Finance's tax portal, and
-      moved into product after closing deals as a solutions engineer. Since then I've built new products from scratch,
-      worked with teams in 13 locations around the world, and used AI to rebuild software in industries I had to learn from
-      the ground up: marinas, attraction parks, car rental, restaurants and nuclear safety.
+  <Section id="story" title="My story">
+    <h3 class="mt-6 text-lg font-bold">Learning from customers</h3>
+    <p class="mt-2">
+      I started as a software engineer in Ottawa and Victoria. One of my first big projects was the British Columbia
+      Ministry of Finance's online tax portal, which millions of British Columbians rely on. It taught me that good
+      software is something people barely notice. It simply works when they need it.
     </p>
     <p>
-      Now I want to focus that experience on the place where I live and the communities I'm part of. That's why I co-founded{' '}
-      <a href={SOLUNAR.url}>Solunar</a> and am fully focused on it, building <a href={OPENSTRATA.url}>OpenStrata</a> for
-      strata councils and residents, and <a href={OPENCOMMUNITY.url}>OpenCommunity</a> for community organizations.
+      In 2018 I joined Apryse in Vancouver as a solutions engineer. My job was to sit with customers, understand what they
+      were trying to do, and show them how our tools could help. I loved it, and it led me to become the company's first
+      product manager. Over five years we built tools that thousands of organizations, from small startups to Microsoft
+      and NASA, use to view, edit and sign documents.
+    </p>
+
+    <h3 class="mt-8 text-lg font-bold">One industry at a time</h3>
+    <p class="mt-2">
+      At Aspire Software, I worked with 14 companies, each making software for one specific industry. One week I was
+      learning how a marina books a slip, the next how a theme park reloads a wristband or how a technician logs a
+      radiation reading. I came in without assumptions and let customers teach me. That made the software better every
+      time.
+    </p>
+    <p>
+      Along the way I built DockMaster Web, so marinas can run from anywhere and boaters can pay and sign online. I also
+      created BluSynq, an AI front desk that answers every call, and brought AI into restaurant, car rental and safety
+      software so staff spend less time on admin.
+    </p>
+
+    <h3 class="mt-8 text-lg font-bold">Bringing it home</h3>
+    <p class="mt-2">
+      All that work was for customers in other places. I wanted to focus it on the place where I live and the communities
+      I'm part of. Strata councils run buildings with volunteers and an inbox. Community centres count visitors on paper
+      clipboards. They deserve software that is simple, affordable and built with them.
+    </p>
+    <p>
+      That's why I co-founded <a href={SOLUNAR.url}>Solunar</a>. We build <a href={OPENSTRATA.url}>OpenStrata</a> for
+      strata councils and residents, and <a href={OPENCOMMUNITY.url}>OpenCommunity</a> for community centres and
+      nonprofits. If that sounds like you, I'd love to <a href={SOCIAL.linkedin}>hear from you</a>.
     </p>
   </Section>
 
-  <Section id="timeline" title="Career timeline">
+  <Section id="shoutouts" title="What people say">
+    <h3 class="mt-8 text-lg font-bold">Customers</h3>
+    <div class="mt-4 space-y-8">{customers.map((t) => <TestimonialQuote t={t} size="lg" />)}</div>
+    <h3 class="mt-12 text-lg font-bold">Founders I've worked for</h3>
+    <div class="mt-4 space-y-8">{leadership.map((t) => <TestimonialQuote t={t} />)}</div>
+    <h3 class="mt-12 text-lg font-bold">Colleagues and team members</h3>
+    <div class="mt-4 space-y-8">{colleagues.map((t) => <TestimonialQuote t={t} />)}</div>
+  </Section>
+
+  <Section id="timeline" title="Career details">
+    <p class="mt-3">The full record, most recent first, for anyone who wants the details.</p>
     <div class="mt-6">
       {main.map((r) => <TimelineItem role={r} />)}
       <article class="grid gap-x-6 border-t border-rule py-8 sm:grid-cols-[7rem_1fr]" aria-labelledby="early">
@@ -100,15 +120,6 @@ const faq = [
         </div>
       </article>
     </div>
-  </Section>
-
-  <Section id="shoutouts" title="What people say">
-    <h3 class="mt-8 text-lg font-bold">Customers</h3>
-    <div class="mt-4 space-y-8">{customers.map((t) => <TestimonialQuote t={t} />)}</div>
-    <h3 class="mt-12 text-lg font-bold">Founders and leadership</h3>
-    <div class="mt-4 space-y-8">{leadership.map((t) => <TestimonialQuote t={t} />)}</div>
-    <h3 class="mt-12 text-lg font-bold">Colleagues and team members</h3>
-    <div class="mt-4 space-y-8">{colleagues.map((t) => <TestimonialQuote t={t} />)}</div>
   </Section>
 
   <Faq faq={faq} />

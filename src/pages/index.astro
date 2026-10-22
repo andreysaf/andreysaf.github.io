@@ -3,17 +3,11 @@ import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import TestimonialQuote from '../components/Testimonial.astro';
 import PostCard from '../components/PostCard.astro';
-import { SITE, PRODUCTS, SAFAS, SOLUNAR, SOCIAL } from '../data/site';
+import { SITE, PRODUCTS, SAFAS, SOLUNAR, SOCIAL, OPENSTRATA, OPENCOMMUNITY } from '../data/site';
 import { FEATURED } from '../data/testimonials';
 import { getAllCards } from '../lib/posts';
 
 const latest = (await getAllCards()).slice(0, 3);
-
-const track = [
-  { years: '2023–2026', role: 'Head of Product and Development, AI lead', org: 'Aspire Software', note: 'Led product and AI across a portfolio of vertical software companies and worked with 14 of them, including as chief technology officer of DockMaster, where I built DockMaster Web. Created Signiphi, BluSynq and BluMarina.' },
-  { years: '2018–2023', role: 'Head of Product', org: 'Apryse (PDFTron)', note: 'Started as a solutions engineer and became the first product manager. Grew the product portfolio from $5M to more than $50M.' },
-  { years: '2015–2018', role: 'Implementation consultant', org: 'Fast Enterprises', note: 'Built the British Columbia Ministry of Finance’s online tax portal.' },
-];
 ---
 
 <Base
@@ -22,65 +16,75 @@ const track = [
   type="profile"
   jsonLd={[{ '@type': 'ProfilePage', mainEntity: { '@id': `${SITE.url}/#person` } }]}
 >
-  <!-- 1. Who I am -->
+  <!-- 1. Who I am and why -->
   <section class="pt-12" aria-labelledby="intro">
     <div class="flex items-center gap-5">
       <img src="/profile.jpg" alt="Portrait of Andrey Safonov" width="80" height="80" class="size-20 shrink-0 rounded-full object-cover" fetchpriority="high" />
       <div>
         <h1 id="intro" class="page-title">Andrey Safonov</h1>
-        <p class="meta mt-1">Co-founder of Solunar · Product builder · Vancouver, British Columbia</p>
+        <p class="meta mt-1">Co-founder of Solunar · Vancouver, British Columbia</p>
       </div>
     </div>
     <p class="lede mt-8">
       I build software for the organizations communities depend on: strata councils, community centres and nonprofits.
     </p>
     <p class="mt-4">
-      Over the past decade I've led product at Apryse and Aspire Software, taking products from idea to millions in revenue
-      across industries around the world. Now I'm focusing that experience on the place where I live and the communities I'm
-      part of, building <a href={SOLUNAR.url}>Solunar</a> full time.
+      Over the past decade I've built and scaled software products for numerous industries around the world. Now I'm
+      focusing that experience on benefiting the communities I'm part of. That's why I co-founded{' '}
+      <a href={SOLUNAR.url}>Solunar</a>.
     </p>
   </section>
 
-  <!-- 2. What I'm building (primary) -->
+  <!-- 2. What I'm building -->
   <Section id="now" title="What I'm building">
     <div class="mt-6 grid gap-5 sm:grid-cols-2">
       {PRODUCTS.map((p) => (
-        <section class="panel" aria-labelledby={`p-${p.slug}`}>
+        <section class="panel flex flex-col" aria-labelledby={`p-${p.slug}`}>
           <h3 id={`p-${p.slug}`} class="text-xl font-bold">{p.name}</h3>
-          <p class="mt-2">{p.short}</p>
-          <p class="mt-5"><a class="cta" href={p.url}>Visit {p.url.replace('https://', '')}</a></p>
-          <p class="mt-3 text-[0.9rem]"><a href={`/work/${p.slug}`}>Why I'm building {p.name}</a></p>
+          <p class="mt-2 flex-1">{p.short}</p>
+          <div class="mt-5">
+            <a class="cta" href={p.url}>Visit {p.url.replace('https://', '')}</a>
+            <p class="mt-3 text-[0.9rem]"><a href={`/work/${p.slug}`}>Why I'm building {p.name}</a></p>
+          </div>
         </section>
       ))}
     </div>
-    <p class="meta mt-6">
-      Both are made by <a href={SOLUNAR.url}>Solunar</a>. I also co-founded <a href={SAFAS.url}>SAFAS</a>, which verifies
-      that live video on calls comes from real cameras.
-    </p>
   </Section>
 
-  <!-- 3. Track record -->
-  <Section id="track" title="Track record">
-    <dl class="mt-6">
-      {track.map((t) => (
-        <div class="grid gap-x-6 border-t border-rule py-4 first:border-t-0 first:pt-0 sm:grid-cols-[7rem_1fr]">
-          <dt class="meta pt-0.5">{t.years}</dt>
-          <dd>
-            <p class="font-semibold">{t.role}, {t.org}</p>
-            <p class="mt-1">{t.note}</p>
-          </dd>
-        </div>
-      ))}
-    </dl>
-    <p class="mt-4"><a href="/about#timeline">Full career timeline</a></p>
-  </Section>
-
-  <!-- 4. Proof -->
+  <!-- 3. Proof, in other people's words -->
   <Section id="words" title="What people say">
-    <div class="mt-6 space-y-8">
-      {FEATURED.map((t) => <TestimonialQuote t={t} />)}
+    <p class="mt-3">Customers and colleagues from the companies I've worked with, in their own words.</p>
+    <div class="mt-8 space-y-10">
+      {FEATURED.map((t) => <TestimonialQuote t={t} size="lg" />)}
     </div>
-    <p class="mt-6"><a href="/about#shoutouts">More from customers and colleagues</a></p>
+    <p class="mt-8"><a href="/about#shoutouts">Read more from customers and colleagues</a></p>
+  </Section>
+
+  <!-- 4. The story -->
+  <Section id="story" title="How I got here">
+    <h3 class="mt-6 text-lg font-bold">Listening first</h3>
+    <p class="mt-2">
+      Early in my career I spent my days with customers as a solutions engineer, figuring out what they needed and showing
+      them how software could help. At Apryse in Vancouver, that turned into building document tools that thousands of
+      organizations use every day to view, edit and sign their files.
+    </p>
+
+    <h3 class="mt-8 text-lg font-bold">Learning one industry at a time</h3>
+    <p class="mt-2">
+      At Aspire Software, I worked with 14 companies that each make software for one specific industry: marinas, theme
+      parks, restaurants, car rental, even nuclear safety. Every one meant learning from the people doing the work. I
+      built DockMaster Web so marinas could run from anywhere, and an AI front desk so a marina never misses a customer's
+      call.
+    </p>
+
+    <h3 class="mt-8 text-lg font-bold">Bringing it home</h3>
+    <p class="mt-2">
+      Strata councils and community organizations hold our neighbourhoods together, often with little more than email and
+      spreadsheets. With Solunar, I'm putting everything I've learned to work for them: affordable, easy software in{' '}
+      <a href={OPENSTRATA.url}>OpenStrata</a> and <a href={OPENCOMMUNITY.url}>OpenCommunity</a>.
+    </p>
+    <p class="mt-6"><a href="/about">Read my full story</a></p>
+    <p class="meta mt-4">I also co-founded <a href={SAFAS.url}>SAFAS</a>, which helps keep video calls safe from deepfakes.</p>
   </Section>
 
   <!-- 5. Writing -->
@@ -91,7 +95,12 @@ const track = [
     <p class="mt-4"><a href="/blog">All writing</a></p>
   </Section>
 
-  <p class="section">
-    Want to talk about strata or community software, or product and AI? <a href={SOCIAL.linkedin}>Message me on LinkedIn</a>.
-  </p>
+  <!-- 6. Next step for prospects -->
+  <Section id="talk" title="Let's talk">
+    <p class="mt-3">
+      Do you sit on a strata council, or run a community centre or nonprofit program? I'd love to hear what's getting in
+      your way. Book a demo at <a href={OPENSTRATA.url}>openstrata.ca</a> or <a href={OPENCOMMUNITY.url}>opencommunity.ca</a>,
+      or <a href={SOCIAL.linkedin}>message me on LinkedIn</a>.
+    </p>
+  </Section>
 </Base>
