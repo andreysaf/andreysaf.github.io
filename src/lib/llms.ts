@@ -15,7 +15,7 @@ export async function llmsIndex() {
     '',
     '## Current work',
     `- [${SOLUNAR.name}](${SOLUNAR.url}): ${SOLUNAR.description}`,
-    ...PRODUCTS.map((p) => `- [${p.name}](${p.url}): ${p.oneLiner} Founder's notes: ${abs(`/work/${p.slug}`)}`),
+    ...PRODUCTS.map((p) => `- [${p.name}](${p.url}): ${p.oneLiner} Notes from the co-founder: ${abs(`/work/${p.slug}`)}`),
     `- [${SAFAS.name}](${SAFAS.url}) (co-founder): ${SAFAS.oneLiner}`,
     '',
     '## Pages',

@@ -44,7 +44,7 @@ export const TIMELINE: Role[] = [
     context:
       'A British Columbia software company building practical tools for the organizations communities depend on.',
     location: 'Greater Vancouver, British Columbia',
-    positions: [{ title: 'Founder', start: '2026-10' }],
+    positions: [{ title: 'Co-founder', start: '2026-10' }],
     highlights: [
       'Building OpenStrata, strata management software for British Columbia councils, owners and residents.',
       'Building OpenCommunity, member and program management for community centres, nonprofits and drop-in programs.',

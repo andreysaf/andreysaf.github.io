@@ -29,7 +29,7 @@ const PAGES: Record<string, Page> = {
     ],
     faq: [
       { q: 'What is OpenStrata?', a: 'OpenStrata is web-based strata management software for British Columbia strata corporations. It gives councils a central, searchable home for documents, bylaws, minutes and AGM packages, routes resident requests, and provides self-service answers to residents.' },
-      { q: 'Who makes OpenStrata?', a: 'OpenStrata is built by Solunar, a Greater Vancouver software company founded by Andrey Safonov.' },
+      { q: 'Who makes OpenStrata?', a: 'OpenStrata is built by Solunar, a Greater Vancouver software company co-founded by Andrey Safonov.' },
       { q: 'Does OpenStrata replace a property manager?', a: 'No, it doesn’t have to. Self-managed stratas use it to run their building, and professionally managed buildings use it to cut back-and-forth between owners, council and the manager.' },
       { q: 'Do residents need to download an app?', a: 'No. OpenStrata works in any modern web browser on a phone or computer.' },
       { q: 'Can a council pilot OpenStrata first?', a: 'Yes. Councils can start with council members only and invite residents later with guided onboarding.' },
@@ -46,13 +46,13 @@ const PAGES: Record<string, Page> = {
       'The pain peaks at reporting time. Funders and boards want unique visitors, demographics and program trends, and producing them by hand takes days of reconciling.',
     ],
     why: [
-      'I founded Solunar to focus my industry experience on the place where I live and the communities I’m part of. Community centres, drop-in programs and nonprofits are the organizations that hold those communities together, and they deserve modern software.',
+      'I co-founded Solunar to focus my industry experience on the place where I live and the communities I’m part of. Community centres, drop-in programs and nonprofits are the organizations that hold those communities together, and they deserve modern software.',
       'Across a portfolio of vertical software businesses at Aspire, I saw how much a focused, modern system changes the day for front-line staff. Community organizations deserve that too, at a price that works for nonprofits.',
       'OpenCommunity puts memberships, attendance, kiosk sign-in, scheduling, payments and funder reporting in one place, with role-based access and encryption, because these organizations hold sensitive information about families.',
     ],
     faq: [
       { q: 'What is OpenCommunity?', a: 'OpenCommunity is member and program management software for community hubs, nonprofits and publicly funded organizations. It brings memberships, attendance, kiosk sign-in, scheduling, payment tracking and reporting into one system.' },
-      { q: 'Who makes OpenCommunity?', a: 'OpenCommunity is built by Solunar, a Greater Vancouver software company founded by Andrey Safonov.' },
+      { q: 'Who makes OpenCommunity?', a: 'OpenCommunity is built by Solunar, a Greater Vancouver software company co-founded by Andrey Safonov.' },
       { q: 'How does kiosk sign-in work?', a: 'Visitors sign in at a reception kiosk using a phone number or another chosen field, confirmed by a personal PIN.' },
       { q: 'Does OpenCommunity help with funder reporting?', a: 'Yes. It generates attendance summaries, demographic breakdowns, unique-family counts and program statistics for funders and boards.' },
       { q: 'Can multiple locations use one account?', a: 'Yes. Each centre gets its own programs, staff and kiosk, and reporting rolls up across all locations.' },
@@ -79,7 +79,7 @@ const page = PAGES[p.slug];
   jsonLd={[faqNode(page.faq)]}
 >
   <article class="pt-12" aria-labelledby="title">
-    <p class="meta">Founder's notes from <a href={SOLUNAR.url}>Solunar</a></p>
+    <p class="meta">Notes from a co-founder of <a href={SOLUNAR.url}>Solunar</a></p>
     <h1 id="title" class="mt-2 page-title">{p.name}</h1>
     <p class="lede mt-3 text-muted">{p.tagline}</p>
     <p class="mt-6">{p.oneLiner}</p>

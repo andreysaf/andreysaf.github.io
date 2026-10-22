@@ -18,7 +18,7 @@ const colleagues = TESTIMONIALS.filter((t) => t.context === 'colleague');
 const updated = new Date(SITE.profileUpdated).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
 const glance = [
-  { k: 'Now', v: 'Founder of Solunar, building OpenStrata and OpenCommunity' },
+  { k: 'Now', v: 'Co-founder of Solunar, building OpenStrata and OpenCommunity' },
   { k: 'Previously', v: 'Head of Product and Development and AI lead at Aspire Software; Head of Product at Apryse (PDFTron)' },
   { k: 'Known for', v: 'Taking products from idea to revenue, AI transformation, and building product teams' },
   { k: 'Based in', v: 'Vancouver, British Columbia, Canada' },
@@ -28,7 +28,7 @@ const faq = [
   { q: 'Who is Andrey Safonov?', a: PERSON.summary },
   {
     q: 'What is Andrey Safonov working on now?',
-    a: `He is the founder of Solunar, a software company in Greater Vancouver. Solunar builds OpenStrata (${OPENSTRATA.url}), strata management software for British Columbia, and OpenCommunity (${OPENCOMMUNITY.url}), member and program management for community centres, nonprofits and drop-in programs.`,
+    a: `He is a co-founder of Solunar, a software company in Greater Vancouver. Solunar builds OpenStrata (${OPENSTRATA.url}), strata management software for British Columbia, and OpenCommunity (${OPENCOMMUNITY.url}), member and program management for community centres, nonprofits and drop-in programs.`,
   },
   {
     q: 'Why did Andrey Safonov start Solunar?',
@@ -47,7 +47,7 @@ const faq = [
 
 <Base
   title="About Andrey Safonov: Career Timeline, Work & Testimonials"
-  description="Career timeline of Andrey Safonov, founder of Solunar (OpenStrata, OpenCommunity): Aspire Software, DockMaster, Apryse (PDFTron) and more, with stories and testimonials."
+  description="Career timeline of Andrey Safonov, co-founder of Solunar (OpenStrata, OpenCommunity): Aspire Software, DockMaster, Apryse (PDFTron) and more, with stories and testimonials."
   type="profile"
   breadcrumbs={[{ name: 'About', path: '/about' }]}
   jsonLd={[{ '@type': 'ProfilePage', dateModified: SITE.profileUpdated, mainEntity: { '@id': `${SITE.url}/#person` } }, timelineNode(), faqNode(faq)]}
@@ -81,7 +81,7 @@ const faq = [
       the ground up: marinas, attraction parks, car rental, restaurants and nuclear safety.
     </p>
     <p>
-      Now I want to focus that experience on the place where I live and the communities I'm part of. That's why I founded{' '}
+      Now I want to focus that experience on the place where I live and the communities I'm part of. That's why I co-founded{' '}
       <a href={SOLUNAR.url}>Solunar</a> and am fully focused on it, building <a href={OPENSTRATA.url}>OpenStrata</a> for
       strata councils and residents, and <a href={OPENCOMMUNITY.url}>OpenCommunity</a> for community organizations.
     </p>
