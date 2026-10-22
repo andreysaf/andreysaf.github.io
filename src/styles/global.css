@@ -1,101 +1,196 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/500.css';
-@import '@fontsource/inter/600.css';
-@import '@fontsource/inter/700.css';
 
-@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
-
+/*
+  Palette verified for WCAG 2.2 AAA (1.4.6, 7:1 for text) in both schemes:
+  light  ink 18.4  muted 9.7  link 8.4  visited 9.7  on #fff
+  dark   ink 16.0  muted 10.0 link 10.6 visited 10.2 on #121212
+*/
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --color-bg: var(--bg);
-  --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
-  --color-line: var(--line);
-  --color-accent: var(--accent);
-  --color-accent-ink: var(--accent-ink);
-  --color-accent-soft: var(--accent-soft);
+  --color-rule: var(--rule);
+  --color-link: var(--link);
 }
 
 :root {
-  --bg: #fbfaf7;
-  --surface: #ffffff;
-  --ink: #16181d;
-  --muted: #5b616e;
-  --line: #e6e3dc;
-  --accent: #0f766e;
-  --accent-ink: #ffffff;
-  --accent-soft: #e6f4f1;
-  color-scheme: light;
+  --bg: #ffffff;
+  --ink: #141414;
+  --muted: #444444;
+  --rule: #767676;
+  --link: #0b5751;
+  --visited: #4b3a78;
+  color-scheme: light dark;
 }
 
-:root[data-theme='dark'] {
-  --bg: #0e1013;
-  --surface: #161a1f;
-  --ink: #eceef1;
-  --muted: #9aa3b0;
-  --line: #262b33;
-  --accent: #2dd4bf;
-  --accent-ink: #0b1513;
-  --accent-soft: #10302c;
-  color-scheme: dark;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --ink: #ededed;
+    --muted: #bdbdbd;
+    --rule: #8a8a8a;
+    --link: #79d2c6;
+    --visited: #c7b6f2;
+  }
 }
 
-html {
-  background: var(--bg);
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 112.5%; /* 18px base, scales with user settings */
+    line-height: 1.65;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--bg);
+  }
+
+  a {
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+  a:visited {
+    color: var(--visited);
+  }
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Paragraph spacing at least 1.5x line spacing (WCAG 1.4.8). */
+  p + p {
+    margin-top: 1em;
+  }
 }
 
-body {
-  background: var(--bg);
-  font-family: var(--font-sans);
-}
-
-::selection {
-  background: var(--accent-soft);
-}
-
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 4px;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .prose {
   --tw-prose-body: var(--ink);
   --tw-prose-headings: var(--ink);
   --tw-prose-lead: var(--muted);
-  --tw-prose-links: var(--accent);
+  --tw-prose-links: var(--link);
   --tw-prose-bold: var(--ink);
   --tw-prose-counters: var(--muted);
   --tw-prose-bullets: var(--muted);
-  --tw-prose-hr: var(--line);
+  --tw-prose-hr: var(--rule);
   --tw-prose-quotes: var(--ink);
-  --tw-prose-quote-borders: var(--accent);
+  --tw-prose-quote-borders: var(--rule);
   --tw-prose-code: var(--ink);
-  --tw-prose-pre-bg: var(--surface);
+  --tw-prose-pre-bg: transparent;
   --tw-prose-pre-code: var(--ink);
-  --tw-prose-th-borders: var(--line);
-  --tw-prose-td-borders: var(--line);
+  --tw-prose-th-borders: var(--rule);
+  --tw-prose-td-borders: var(--rule);
+  font-size: 1rem;
+  line-height: 1.7;
 }
-
-.prose pre {
-  border: 1px solid var(--line);
-}
-
 .prose a {
-  text-underline-offset: 3px;
+  font-weight: inherit;
+}
+.prose a:visited {
+  color: var(--visited);
+}
+.prose pre {
+  border: 1px solid var(--rule);
+  border-radius: 0;
+}
+.prose blockquote {
+  font-style: normal;
+  font-weight: inherit;
+}
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+  content: none;
 }
 
-/* Shiki dual theme */
-[data-theme='dark'] .astro-code,
-[data-theme='dark'] .astro-code span {
-  color: var(--shiki-dark) !important;
-  background-color: var(--surface) !important;
+/* Shiki dual theme follows the OS scheme. */
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: transparent !important;
+  }
+}
+
+/* ---- Hierarchy primitives ---- */
+
+/* Major page section: ruled divider + clear heading. */
+.section {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.section-title {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.page-title {
+  font-size: 2.25rem;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.lede {
+  font-size: 1.2rem;
+  line-height: 1.55;
+}
+.meta {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Headings that contain links keep the ink colour; underline still marks them as links. */
+.heading-link,
+.heading-link:visited {
+  color: var(--ink);
+}
+
+/* Primary call to action. Not colour-only: bordered, bold, 44px min target (2.5.5). */
+.cta,
+.cta:visited {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.cta:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* Highlighted block (current products). */
+.panel {
+  border: 1px solid var(--rule);
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+details > summary {
+  cursor: pointer;
+  min-height: 2.75rem;
+  display: list-item;
+  padding: 0.5rem 0;
+  font-weight: 600;
 }

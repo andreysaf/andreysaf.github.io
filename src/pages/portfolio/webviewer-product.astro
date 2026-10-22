@@ -5,22 +5,25 @@ import Base from '../../layouts/Base.astro';
 <Base
   title="Apryse WebViewer: PDF Viewer & Editor"
   description="Apryse WebViewer is a JavaScript PDF viewer and editor for viewing and annotating PDFs, Office documents and images in any web app. Andrey Safonov was its product manager."
-  breadcrumbs={[{ name: 'Portfolio', path: '/portfolio' }, { name: 'WebViewer', path: '/portfolio/webviewer-product' }]}
+  breadcrumbs={[{ name: 'Work', path: '/portfolio' }, { name: 'WebViewer', path: '/portfolio/webviewer-product' }]}
 >
-  <div class="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
-    <p class="mb-3 text-sm font-medium text-accent">Portfolio · Apryse</p>
-    <h1 class="text-4xl font-bold tracking-tight">PDF Viewer & Editor (WebViewer)</h1>
-    <p class="mt-5 text-lg leading-relaxed">
-      WebViewer is an embeddable PDF viewer and editor for any web application. It lets startups and enterprises build document
-      workflows without users downloading files and editing them somewhere else. It is used by Dropbox, DocuSign, Microsoft, Smallpdf and thousands more,
-      with 100K weekly downloads. As the first product manager, I worked with two development teams to modernize the UI, expand the feature set,
+  <article class="pt-12" aria-labelledby="title">
+    <p class="meta">Work at Apryse</p>
+    <h1 id="title" class="mt-2 page-title">WebViewer, a PDF viewer and editor</h1>
+    <p class="lede mt-6">
+      WebViewer is an embeddable PDF viewer and editor for any web application. It lets startups and enterprises build
+      document workflows without users downloading files and editing them somewhere else. It is used by Dropbox, DocuSign,
+      Microsoft, Smallpdf and thousands more, with 100,000 weekly downloads.
+    </p>
+    <p>
+      As the first product manager, I worked with two development teams to modernize the interface, expand the feature set,
       reduce technical debt and add support for more file formats.
     </p>
-    <img src="/cases/webviewer.png" alt="WebViewer screenshot" class="mt-8 w-full rounded-2xl border border-line" />
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a href="https://showcase.apryse.com/" class="rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-accent-ink">Try the live demo on Apryse ↗</a>
-      <a href="https://apryse.com/blog/webviewer/create-easy-custom-signature-workflows" class="rounded-lg border border-line bg-surface px-4 py-2.5 text-sm font-medium">Digital signatures launch ↗</a>
-      <a href="/portfolio" class="rounded-lg px-4 py-2.5 text-sm font-medium text-muted">← Back to portfolio</a>
-    </div>
-  </div>
+    <img src="/cases/webviewer.png" alt="WebViewer showing a PDF with annotation tools" class="mt-8 w-full border border-rule" />
+    <ul class="mt-8 list-disc space-y-2 pl-5">
+      <li><a href="https://showcase.apryse.com/">Try the WebViewer demo on the Apryse site</a></li>
+      <li><a href="https://apryse.com/blog/webviewer/create-easy-custom-signature-workflows">Read the digital signatures launch post</a></li>
+      <li><a href="/portfolio">Back to all work</a></li>
+    </ul>
+  </article>
 </Base>

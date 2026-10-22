@@ -4,21 +4,25 @@ import Base from '../../layouts/Base.astro';
 
 <Base
   title="Apryse DOCX Editor: Edit Word Documents in the Browser"
-  description="The Apryse DOCX Editor creates and edits DOCX documents in the browser without MS Office or server-side dependencies. Andrey Safonov led it from zero to one, reaching a $3M pipeline in its first quarter."
-  breadcrumbs={[{ name: 'Portfolio', path: '/portfolio' }, { name: 'DOCX Editor', path: '/portfolio/docx-product' }]}
+  description="The Apryse DOCX Editor creates and edits DOCX documents in the browser without Microsoft Office or a server. Andrey Safonov built it from scratch; it built a $3M pipeline in its first quarter."
+  breadcrumbs={[{ name: 'Work', path: '/portfolio' }, { name: 'DOCX Editor', path: '/portfolio/docx-product' }]}
 >
-  <div class="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
-    <p class="mb-3 text-sm font-medium text-accent">Portfolio · Apryse · 0→1</p>
-    <h1 class="text-4xl font-bold tracking-tight">DOCX Editor</h1>
-    <p class="mt-5 text-lg leading-relaxed">
-      An embeddable web editor that creates and edits DOCX files entirely client-side, with no MS Office and no server.
-      It's a zero-to-one product I built with 2 product designers and 2 scrum teams (one frontend, one backend). It built a $3M pipeline in its first quarter.
+  <article class="pt-12" aria-labelledby="title">
+    <p class="meta">Work at Apryse</p>
+    <h1 id="title" class="mt-2 page-title">DOCX Editor</h1>
+    <p class="lede mt-6">
+      An embeddable web editor that creates and edits Word (DOCX) files entirely in the browser, with no Microsoft Office
+      and no server.
     </p>
-    <img src="/cases/docx-editor.png" alt="DOCX Editor screenshot" class="mt-8 w-full rounded-2xl border border-line" />
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a href="https://apryse.com/blog/webviewer/docx-editor-release" class="rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-accent-ink">Launch blog ↗</a>
-      <a href="https://www.youtube.com/watch?v=3VY1GMyL0AA" class="rounded-lg border border-line bg-surface px-4 py-2.5 text-sm font-medium">Watch the demo ↗</a>
-      <a href="/portfolio" class="rounded-lg px-4 py-2.5 text-sm font-medium text-muted">← Back to portfolio</a>
-    </div>
-  </div>
+    <p>
+      I built it from scratch with 2 product designers and 2 scrum teams, one frontend and one backend. It built a $3M sales
+      pipeline in its first quarter.
+    </p>
+    <img src="/cases/docx-editor.png" alt="DOCX Editor editing a Word document in the browser" class="mt-8 w-full border border-rule" />
+    <ul class="mt-8 list-disc space-y-2 pl-5">
+      <li><a href="https://apryse.com/blog/webviewer/docx-editor-release">Read the DOCX Editor launch post</a></li>
+      <li><a href="https://www.youtube.com/watch?v=3VY1GMyL0AA">Watch the DOCX Editor demo on YouTube</a></li>
+      <li><a href="/portfolio">Back to all work</a></li>
+    </ul>
+  </article>
 </Base>

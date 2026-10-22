@@ -2,7 +2,6 @@
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Faq from '../../components/Faq.astro';
-import PostCard from '../../components/PostCard.astro';
 import { getPosts, postUrl, ogUrl, readingMinutes, wordCount, type Post } from '../../lib/posts';
 import { SITE, OPENSTRATA, OPENCOMMUNITY } from '../../data/site';
 import { faqNode } from '../../lib/schema';
@@ -44,8 +43,6 @@ const article = {
   isPartOf: { '@id': `${SITE.url}/blog#blog` },
 };
 
-const mentionsStrata = d.tags.some((t) => ['OpenStrata', 'Solunar', 'Strata'].includes(t));
-const mentionsCommunity = d.tags.some((t) => ['OpenCommunity', 'Solunar', 'Community', 'Nonprofit'].includes(t));
 ---
 
 <Base
@@ -56,73 +53,59 @@ const mentionsCommunity = d.tags.some((t) => ['OpenCommunity', 'Solunar', 'Commu
   type="article"
   publishedTime={d.pubDate}
   modifiedTime={d.updatedDate}
-  breadcrumbs={[{ name: 'Blog', path: '/blog' }, { name: d.title, path: postUrl(post) }]}
-  jsonLd={[article, { '@type': 'Blog', '@id': `${SITE.url}/blog#blog`, name: `${SITE.name}: Blog`, url: `${SITE.url}/blog` }, ...(d.faq.length ? [faqNode(d.faq)] : [])]}
+  breadcrumbs={[{ name: 'Writing', path: '/blog' }, { name: d.title, path: postUrl(post) }]}
+  jsonLd={[article, { '@type': 'Blog', '@id': `${SITE.url}/blog#blog`, name: `${SITE.name}: Writing`, url: `${SITE.url}/blog` }, ...(d.faq.length ? [faqNode(d.faq)] : [])]}
 >
-  <article class="mx-auto max-w-3xl px-4 pt-12 sm:px-6">
-    <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted">
-      <a href="/" class="hover:text-ink">Home</a> / <a href="/blog" class="hover:text-ink">Blog</a>
+  <article class="pt-12" aria-labelledby="post-title">
+    <nav aria-label="Breadcrumb" class="text-[0.9rem]">
+      <ol class="flex gap-2 text-muted">
+        <li><a href="/">Home</a> <span aria-hidden="true">/</span></li>
+        <li><a href="/blog">Writing</a></li>
+      </ol>
     </nav>
-    <header>
-      <h1 class="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">{d.title}</h1>
-      <p class="mt-4 text-sm text-muted">
-        By <a href="/about" rel="author" class="text-ink hover:underline">Andrey Safonov</a>{' · '}
+    <header class="mt-6">
+      <h1 id="post-title" class="page-title">{d.title}</h1>
+      <p class="mt-3 text-[0.9rem] text-muted">
+        By <a href="/about" rel="author">Andrey Safonov</a>{', '}
         <time datetime={iso(d.pubDate)}>{fmt(d.pubDate)}</time>
-        {d.updatedDate && <>{' · Updated '}<time datetime={iso(d.updatedDate)}>{fmt(d.updatedDate)}</time></>}
-        {` · ${readingMinutes(post.body)} min read`}
+        {d.updatedDate && <>{', updated '}<time datetime={iso(d.updatedDate)}>{fmt(d.updatedDate)}</time></>}
+        {`. About ${readingMinutes(post.body)} minute${readingMinutes(post.body) === 1 ? '' : 's'} to read.`}
       </p>
     </header>
 
     {d.tldr && (
-      <aside class="mt-8 rounded-2xl border border-line bg-accent-soft/60 p-5" aria-label="Summary">
-        <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-accent">TL;DR</p>
-        <p class="leading-relaxed">{d.tldr}</p>
-      </aside>
+      <section class="mt-8 border-l-2 border-rule pl-5" aria-labelledby="summary">
+        <h2 id="summary" class="text-lg font-bold">Summary</h2>
+        <p class="mt-1">{d.tldr}</p>
+      </section>
     )}
 
     {d.heroImage && (
-      <img src={d.heroImage} alt={d.heroAlt ?? ''} class="mt-8 w-full rounded-2xl border border-line object-cover" width="1200" height="630" />
+      <img src={d.heroImage} alt={d.heroAlt ?? ''} class="mt-8 w-full" width="1200" height="630" />
     )}
 
-    <div class="prose prose-lg mt-8 max-w-none prose-headings:tracking-tight prose-h2:mt-12 prose-img:rounded-xl">
+    <div class="prose mt-8 max-w-none">
       <Content />
     </div>
 
     <Faq faq={d.faq} />
 
-    {(mentionsStrata || mentionsCommunity) && (
-      <aside class="mt-14 grid gap-4 sm:grid-cols-2" aria-label="Products">
-        {mentionsStrata && (
-          <a href={OPENSTRATA.url} class="rounded-2xl border border-line bg-surface p-5 hover:border-accent">
-            <p class="font-semibold">{OPENSTRATA.name} ↗</p>
-            <p class="mt-1 text-sm text-muted">{OPENSTRATA.tagline} Strata management software for BC.</p>
-          </a>
-        )}
-        {mentionsCommunity && (
-          <a href={OPENCOMMUNITY.url} class="rounded-2xl border border-line bg-surface p-5 hover:border-accent">
-            <p class="font-semibold">{OPENCOMMUNITY.name} ↗</p>
-            <p class="mt-1 text-sm text-muted">{OPENCOMMUNITY.tagline} Member and program management for community organizations.</p>
-          </a>
-        )}
-      </aside>
-    )}
-
-    <footer class="mt-14 flex items-center gap-4 rounded-2xl border border-line bg-surface p-5">
-      <img src="/profile.jpg" alt="" width="56" height="56" class="size-14 rounded-full object-cover" loading="lazy" />
-      <p class="text-sm leading-relaxed text-muted">
-        <a href="/about" class="font-semibold text-ink hover:underline">Andrey Safonov</a> is the founder of{' '}
-        <a href="https://solunar.ca" class="text-accent hover:underline">Solunar</a>, which builds{' '}
-        <a href={OPENSTRATA.url} class="text-accent hover:underline">OpenStrata</a> and{' '}
-        <a href={OPENCOMMUNITY.url} class="text-accent hover:underline">OpenCommunity</a>. He was previously Head of Product at Apryse and Head of Product & Development at Aspire Software.
+    <footer class="section">
+      <p>
+        <a href="/about">Andrey Safonov</a> is the founder of <a href="https://solunar.ca">Solunar</a>, which builds{' '}
+        <a href={OPENSTRATA.url}>OpenStrata</a>, strata management software for British Columbia, and{' '}
+        <a href={OPENCOMMUNITY.url}>OpenCommunity</a>, member and program management for community organizations.
       </p>
     </footer>
   </article>
 
   {(newer || older) && (
-    <nav class="mx-auto mt-14 grid max-w-3xl gap-5 px-4 sm:grid-cols-2 sm:px-6" aria-label="More posts">
-      {[older, newer].filter(Boolean).map((p) => (
-        <PostCard post={{ title: p!.data.title, description: p!.data.description, pubDate: p!.data.pubDate, href: postUrl(p!), tags: p!.data.tags }} />
-      ))}
+    <nav class="section" aria-label="More writing">
+      <h2 class="section-title">More writing</h2>
+      <ul class="mt-2 space-y-2">
+        {older && <li>Previous: <a href={postUrl(older)}>{older.data.title}</a></li>}
+        {newer && <li>Next: <a href={postUrl(newer)}>{newer.data.title}</a></li>}
+      </ul>
     </nav>
   )}
 </Base>

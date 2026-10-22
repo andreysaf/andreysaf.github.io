@@ -1,31 +1,16 @@
 ---
 import { SOCIAL, OPENSTRATA, OPENCOMMUNITY, SOLUNAR } from '../data/site';
-const year = new Date().getFullYear();
 ---
 
-<footer class="mt-24 border-t border-line">
-  <div class="mx-auto grid max-w-5xl gap-8 px-4 py-10 text-sm sm:grid-cols-3 sm:px-6">
-    <div class="space-y-2">
-      <p class="font-semibold">Andrey Safonov</p>
-      <p class="text-muted">
-        Founder of <a class="underline-offset-2 hover:underline" href={SOLUNAR.url}>Solunar</a>, which builds{' '}
-        <a class="underline-offset-2 hover:underline" href={OPENSTRATA.url}>OpenStrata</a> and{' '}
-        <a class="underline-offset-2 hover:underline" href={OPENCOMMUNITY.url}>OpenCommunity</a>.
-      </p>
-    </div>
-    <nav aria-label="Footer" class="grid grid-cols-2 gap-2 text-muted">
-      <a class="hover:text-ink" href="/about">About &amp; timeline</a>
-      <a class="hover:text-ink" href="/blog">Blog</a>
-      <a class="hover:text-ink" href="/work/openstrata">OpenStrata</a>
-      <a class="hover:text-ink" href="/portfolio">Portfolio</a>
-      <a class="hover:text-ink" href="/work/opencommunity">OpenCommunity</a>
-      <a class="hover:text-ink" href="/rss.xml">RSS</a>
-    </nav>
-    <div class="flex gap-4 text-muted sm:justify-end">
-      <a class="hover:text-ink" href={SOCIAL.linkedin} rel="me">LinkedIn</a>
-      <a class="hover:text-ink" href={SOCIAL.github} rel="me">GitHub</a>
-      <a class="hover:text-ink" href={SOCIAL.medium} rel="me">Medium</a>
-    </div>
-  </div>
-  <p class="pb-8 text-center text-xs text-muted">© {year} Andrey Safonov · Vancouver, BC</p>
+<footer class="mt-20 border-t border-rule py-8 text-[0.9rem] text-muted">
+  <p>
+    Andrey Safonov, founder of <a href={SOLUNAR.url}>Solunar</a>, which builds{' '}
+    <a href={OPENSTRATA.url}>OpenStrata</a> and <a href={OPENCOMMUNITY.url}>OpenCommunity</a>. Vancouver, British Columbia.
+  </p>
+  <ul class="mt-3 flex flex-wrap gap-x-5">
+    <li><a class="inline-block min-h-11 min-w-11 py-2" href={SOCIAL.linkedin} rel="me">LinkedIn</a></li>
+    <li><a class="inline-block min-h-11 min-w-11 py-2" href={SOCIAL.github} rel="me">GitHub</a></li>
+    <li><a class="inline-block min-h-11 min-w-11 py-2" href={SOCIAL.medium} rel="me">Medium</a></li>
+    <li><a class="inline-block min-h-11 min-w-11 py-2" href="/rss.xml">RSS feed</a></li>
+  </ul>
 </footer>

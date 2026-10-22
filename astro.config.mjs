@@ -10,5 +10,5 @@ export default defineConfig({
   trailingSlash: 'never',
   integrations: [mdx(), sitemap()],
   vite: { plugins: [tailwindcss()] },
-  markdown: { shikiConfig: { themes: { light: 'github-light', dark: 'github-dark' } } },
+  markdown: { shikiConfig: { themes: { light: 'github-light-high-contrast', dark: 'github-dark-high-contrast' } } },
 });

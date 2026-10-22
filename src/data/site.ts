@@ -21,7 +21,7 @@ export const PERSON = {
   headline: 'Product Builder',
   // The sentence answer engines should quote. Keep it factual and self-contained.
   summary:
-    'Andrey Safonov is a Vancouver-based product builder and the founder of Solunar, a BC software company that builds OpenStrata and OpenCommunity. He spent over a decade turning products from zero to one and scaling them: Head of Product at Apryse (PDFTron), where the portfolio grew from $5M to $50M+, and Head of Product & Development and AI Lead at Aspire Software (Valsoft), where he led product and engineering across a portfolio of vertical software companies and worked with 14 of them.',
+    'Andrey Safonov is a Vancouver-based product builder and the founder of Solunar, a British Columbia software company that builds OpenStrata and OpenCommunity. He spent over a decade turning products from zero to one and scaling them: Head of Product at Apryse (PDFTron), where the portfolio grew from $5M to $50M+, and Head of Product & Development and AI Lead at Aspire Software (Valsoft), where he led product and engineering across a portfolio of vertical software companies and worked with 14 of them.',
   sameAs: [
     'https://www.linkedin.com/in/andreysaf/',
     'https://github.com/andreysaf',
@@ -66,6 +66,7 @@ export type Product = {
   anchor: string;
   tagline: string;
   oneLiner: string;
+  short: string;
   category: string;
   audience: string[];
   features: string[];
@@ -79,10 +80,11 @@ export const OPENSTRATA: Product = {
   anchor: 'OpenStrata: strata management software for BC',
   tagline: 'Less work for strata councils. More clarity for residents.',
   oneLiner:
-    'OpenStrata is web-based strata management software for British Columbia strata corporations. It gives volunteer councils one place for documents, bylaws, minutes and AGM packages, routes resident requests, and answers routine questions, so owners get answers without chasing the council.',
+    'OpenStrata is web-based strata management software for British Columbia strata corporations. It gives volunteer councils one place for documents, bylaws, minutes and annual general meeting (AGM) packages, routes resident requests, and answers routine questions, so owners get answers without chasing the council.',
+  short: 'Strata management software for British Columbia councils and residents: documents, bylaws, meeting minutes and resident requests in one place.',
   category: 'Strata management software',
   audience: [
-    'Volunteer strata councils in BC',
+    'Volunteer strata councils in British Columbia',
     'Self-managed buildings',
     'Strata owners and residents',
     'Large complexes with professional property management',
@@ -92,7 +94,7 @@ export const OPENSTRATA: Product = {
     'Access controls: share with all residents or keep to council',
     'Request system that routes inquiries and tracks follow-ups',
     'Self-service answers that cut repetitive emails to council',
-    'AGM packages, notices and resolutions organized by year or topic',
+    'Annual general meeting packages, notices and resolutions organized by year or topic',
     'Runs in any browser. No app to install.',
     'Council-only pilot before inviting residents',
   ],
@@ -107,6 +109,7 @@ export const OPENCOMMUNITY: Product = {
   tagline: 'Your community, without the paperwork.',
   oneLiner:
     'OpenCommunity is member and program management software for community hubs, nonprofits and publicly funded organizations. It brings memberships, attendance, kiosk sign-in, scheduling, payments and funder reporting into one system, so staff spend less time on admin and more time with people.',
+  short: 'Member and program management for community centres and nonprofits: kiosk sign-in, attendance, scheduling and funder reporting.',
   category: 'Community and nonprofit program management software',
   audience: [
     'Family and community centres',

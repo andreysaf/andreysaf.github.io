@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Faq from '../../components/Faq.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
 import { PRODUCTS, SOLUNAR, type Product } from '../../data/site';
 import { faqNode } from '../../lib/schema';
 
@@ -77,46 +76,40 @@ const page = PAGES[p.slug];
   breadcrumbs={[{ name: 'Work', path: '/portfolio' }, { name: p.name, path: `/work/${p.slug}` }]}
   jsonLd={[faqNode(page.faq)]}
 >
-  <div class="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
-    <p class="mb-3 text-sm font-medium text-accent">Founder's notes · <a href={SOLUNAR.url} class="hover:underline">Solunar</a></p>
-    <h1 class="text-4xl font-bold tracking-tight">{p.name}</h1>
-    <p class="mt-3 text-xl text-muted">{p.tagline}</p>
-    <p class="mt-6 text-lg leading-relaxed">{p.oneLiner}</p>
-    <div class="mt-7 flex flex-wrap gap-3">
-      <a href={p.url} class="rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-accent-ink hover:opacity-90">Visit {p.url.replace('https://', '')} →</a>
-      <a href={page.readMore.href} class="rounded-lg border border-line bg-surface px-4 py-2.5 text-sm font-medium hover:border-accent">Read: {page.readMore.label}</a>
-    </div>
+  <article class="pt-12" aria-labelledby="title">
+    <p class="meta">Founder's notes from <a href={SOLUNAR.url}>Solunar</a></p>
+    <h1 id="title" class="mt-2 page-title">{p.name}</h1>
+    <p class="lede mt-3 text-muted">{p.tagline}</p>
+    <p class="mt-6">{p.oneLiner}</p>
+    <p class="mt-6"><a class="cta" href={p.url}>Visit {p.url.replace('https://', '')}</a></p>
 
-    <section class="mt-16" aria-labelledby="problem">
-      <SectionHeading title="The problem" id="problem" />
-      <div class="space-y-4 text-[17px] leading-relaxed">{page.problem.map((t) => <p>{t}</p>)}</div>
+    <section class="section" aria-labelledby="problem">
+      <h2 id="problem" class="section-title">The problem</h2>
+      <div class="mt-4">{page.problem.map((t) => <p>{t}</p>)}</div>
     </section>
 
-    <section class="mt-14" aria-labelledby="who">
-      <SectionHeading title={`Who ${p.name} is for`} id="who" />
-      <ul class="grid gap-3 sm:grid-cols-2">
-        {p.audience.map((a) => <li class="rounded-xl border border-line bg-surface p-4">{a}</li>)}
-      </ul>
+    <section class="section" aria-labelledby="who">
+      <h2 id="who" class="section-title">Who {p.name} is for</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5">{p.audience.map((a) => <li>{a}</li>)}</ul>
     </section>
 
-    <section class="mt-14" aria-labelledby="what">
-      <SectionHeading title={`What ${p.name} does`} id="what" />
-      <ul class="list-disc space-y-2 pl-5 text-[17px] marker:text-accent">
-        {p.features.map((f) => <li>{f}</li>)}
-      </ul>
+    <section class="section" aria-labelledby="what">
+      <h2 id="what" class="section-title">What {p.name} does</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5">{p.features.map((f) => <li>{f}</li>)}</ul>
     </section>
 
-    <section class="mt-14" aria-labelledby="why">
-      <SectionHeading title="Why I'm building it" id="why" />
-      <div class="space-y-4 text-[17px] leading-relaxed">{page.why.map((t) => <p>{t}</p>)}</div>
+    <section class="section" aria-labelledby="why">
+      <h2 id="why" class="section-title">Why I'm building it</h2>
+      <div class="mt-3">{page.why.map((t) => <p>{t}</p>)}</div>
     </section>
 
     <Faq faq={page.faq} />
 
-    <section class="mt-14 rounded-2xl border border-line bg-accent-soft/60 p-6 text-center">
-      <p class="text-lg font-semibold">See {p.name} in action</p>
-      <p class="mt-1 text-muted">Book a short demo or start a pilot.</p>
-      <a href={p.url} class="mt-4 inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink hover:opacity-90">{p.anchor} →</a>
+    <section class="section" aria-labelledby="next">
+      <h2 id="next" class="section-title">Try {p.name}</h2>
+      <p class="mt-3">Book a short demo or start a pilot.</p>
+      <p class="mt-4"><a class="cta" href={p.url}>{p.anchor}</a></p>
+      <p class="mt-6">For more background, read <a href={page.readMore.href}>{page.readMore.label}</a>.</p>
     </section>
-  </div>
+  </article>
 </Base>

@@ -26,8 +26,6 @@ export async function getAllCards(): Promise<CardPost[]> {
     description: p.data.description,
     pubDate: p.data.pubDate,
     href: postUrl(p),
-    image: p.data.heroImage ?? ogUrl(p),
-    imageAlt: p.data.heroAlt ?? '',
     tags: p.data.tags,
   }));
   const external: CardPost[] = EXTERNAL_POSTS.map((p) => ({
@@ -36,8 +34,6 @@ export async function getAllCards(): Promise<CardPost[]> {
     pubDate: p.pubDate,
     href: p.url,
     external: p.publisher,
-    image: p.heroImage,
-    imageAlt: p.heroAlt,
     tags: p.tags,
   }));
   return [...local, ...external].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());

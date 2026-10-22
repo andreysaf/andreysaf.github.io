@@ -22,13 +22,13 @@ export async function renderOg({ eyebrow, title, footer }: { eyebrow: string; ti
     'div',
     {
       width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-      padding: '72px 80px', background: '#fbfaf7', fontFamily: 'Inter', color: '#16181d',
-      borderTop: '14px solid #0f766e',
+      padding: '72px 80px', background: '#ffffff', fontFamily: 'Inter', color: '#141414',
+      borderTop: '8px solid #141414',
     },
     [
-      h('div', { fontSize: 30, color: '#0f766e', fontWeight: 700, letterSpacing: 1 }, eyebrow.toUpperCase()),
+      h('div', { fontSize: 30, color: '#444444', fontWeight: 400 }, eyebrow),
       h('div', { fontSize: title.length > 60 ? 60 : 72, fontWeight: 700, lineHeight: 1.1, letterSpacing: -1.5 }, title),
-      h('div', { display: 'flex', justifyContent: 'space-between', fontSize: 28, color: '#5b616e' }, [
+      h('div', { display: 'flex', justifyContent: 'space-between', fontSize: 28, color: '#444444' }, [
         h('div', {}, 'Andrey Safonov · andreysafonov.com'),
         h('div', {}, footer),
       ]),

@@ -1,87 +1,78 @@
 ---
 import Base from '../../layouts/Base.astro';
-import ProductCard from '../../components/ProductCard.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
 import { PRODUCTS, SAFAS, SOCIAL } from '../../data/site';
 
 const past = [
-  { name: 'SAFAS Secure Stream', desc: SAFAS.oneLiner, href: SAFAS.url, img: '/cases/ggglitch.svg', note: 'Co-founder' },
-  { name: 'BluSynq', desc: 'AI front desk for marinas and entertainment parks. It answers calls, texts and email in five languages and books work.', href: 'https://blusynq.com', note: 'Created at Aspire Software' },
-  { name: 'Signiphi', desc: 'Digital signatures reimagined for developers and AI agents.', note: 'Created at Aspire Software' },
-  { name: 'BluMarina', desc: 'Agentic marina management.', note: 'Created at Aspire Software' },
-  { name: 'PDF Viewer & Editor (WebViewer)', desc: 'Embed viewing and annotating of PDFs, Office documents and images in any web app.', href: '/portfolio/webviewer-product', img: '/cases/webviewer.png', note: 'Apryse' },
-  { name: 'DOCX Editor', desc: 'Create and edit DOCX documents in the browser without MS Office or server-side dependencies. $3M pipeline in its first quarter.', href: '/portfolio/docx-product', img: '/cases/docx-editor.png', note: 'Apryse · 0→1' },
-  { name: 'Video Annotation', desc: 'Frame-by-frame feedback on video, plus audio redaction. Reached $1M ARR in its first year.', href: 'https://webviewer-video.web.app/', img: '/cases/video.png', note: 'Apryse · 0→1' },
+  { name: 'SAFAS Secure Stream', desc: SAFAS.oneLiner, href: SAFAS.url, note: 'Co-founder' },
+  { name: 'BluSynq', desc: 'An AI front desk for marinas and entertainment parks. It answers calls, texts and email in five languages and books work.', href: 'https://blusynq.com', note: 'Created at Aspire Software' },
+  { name: 'DockMaster Web', desc: 'Cloud marina management: CRM, customer portal, online payments, e-signatures, service management and an AI scheduling assistant.', href: 'https://www.dockmaster.com/products/dockmaster-web', note: 'Built as chief technology officer of DockMaster' },
+  { name: 'Signiphi', desc: 'Digital signatures for developers and AI agents: send eSignatures or embed signing components in your app.', href: 'https://www.signiphi.ai', note: 'Created at Aspire Software' },
+  { name: 'BluMarina', desc: 'Modern, cloud-native marina management built around AI agents.', href: 'https://www.blumarina.com', note: 'Created at Aspire Software' },
+  { name: 'WebViewer, a PDF viewer and editor', desc: 'Embeds viewing and annotation of PDFs, Office documents and images in any web app.', href: '/portfolio/webviewer-product', note: 'Apryse' },
+  { name: 'DOCX Editor', desc: 'Creates and edits Word documents in the browser without Microsoft Office or a server. Built a $3M pipeline in its first quarter.', href: '/portfolio/docx-product', note: 'Apryse, built from scratch' },
+  { name: 'Video Annotation', desc: 'Frame-by-frame feedback on video, plus audio redaction. Reached $1M in annual recurring revenue in its first year.', href: 'https://webviewer-video.web.app/', note: 'Apryse, built from scratch' },
 ];
 
 const videos = [
   { title: 'DOCX Editor demo', id: '3VY1GMyL0AA' },
-  { title: 'DevWeek conference: comparing PDF SDKs', id: 'rGTrcN69LR8' },
-  { title: 'PDF editing release', id: 'LG2H1qtJN4c' },
+  { title: 'DevWeek conference talk comparing PDF software development kits', id: 'rGTrcN69LR8' },
+  { title: 'PDF editing release walkthrough', id: 'LG2H1qtJN4c' },
 ];
 
 const github = [
-  { title: 'DocuSign clone', desc: 'React + Firebase app for requesting signatures, signing documents and applying digital signatures.', href: 'https://github.com/PDFTron/pdftron-sign-app' },
-  { title: 'Node.js document REST API', desc: 'Convert Office and images to PDF, generate thumbnails, and optimize files for fast rendering.', href: 'https://github.com/andreysaf/nodejs-convert-file-server' },
-  { title: 'Document indexing & search', desc: 'Extract and index text from documents. React search UI with hit highlighting.', href: 'https://github.com/PDFTron/pdftron-document-search' },
+  { title: 'DocuSign clone', desc: 'A React and Firebase app for requesting signatures, signing documents and applying digital signatures.', href: 'https://github.com/PDFTron/pdftron-sign-app' },
+  { title: 'Node.js document REST API', desc: 'Converts Office files and images to PDF, generates thumbnails, and optimizes files for fast rendering.', href: 'https://github.com/andreysaf/nodejs-convert-file-server' },
+  { title: 'Document indexing and search', desc: 'Extracts and indexes text from documents, with a React search interface that highlights matches.', href: 'https://github.com/PDFTron/pdftron-document-search' },
 ];
 ---
 
 <Base
-  title="Portfolio: Products Built by Andrey Safonov"
-  description="Products Andrey Safonov has built and launched: OpenStrata, OpenCommunity, SAFAS, BluSynq, Signiphi, Apryse WebViewer, DOCX Editor and Video Annotation, plus talks, demos and open-source projects."
-  breadcrumbs={[{ name: 'Portfolio', path: '/portfolio' }]}
+  title="Work: Products Built by Andrey Safonov"
+  description="Products Andrey Safonov has built: OpenStrata, OpenCommunity, DockMaster Web, Signiphi, BluSynq, BluMarina, SAFAS and Apryse WebViewer and DOCX Editor."
+  breadcrumbs={[{ name: 'Work', path: '/portfolio' }]}
 >
-  <div class="mx-auto max-w-5xl px-4 pt-14 sm:px-6">
-    <p class="mb-3 text-sm font-medium text-accent">Portfolio</p>
-    <h1 class="text-4xl font-bold tracking-tight">Products I've built</h1>
+  <section class="pt-12" aria-labelledby="work">
+    <h1 id="work" class="page-title">Work</h1>
+    <p class="lede mt-6">Products I've built and launched, with talks and open-source projects along the way.</p>
+  </section>
 
-    <section class="mt-12" aria-labelledby="now">
-      <SectionHeading eyebrow="Now" title="Solunar" id="now" />
-      <div class="grid gap-5 md:grid-cols-2">{PRODUCTS.map((p) => <ProductCard product={p} />)}</div>
-    </section>
-
-    <section class="mt-16" aria-labelledby="past">
-      <SectionHeading eyebrow="Before" title="Ventures and 0→1 products" id="past" />
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {past.map((p) => (
-          <article class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface">
-            {p.img && <img src={p.img} alt={`${p.name} screenshot`} loading="lazy" class="aspect-[16/10] w-full border-b border-line object-cover" />}
-            <div class="flex flex-1 flex-col p-5">
-              <p class="text-xs text-muted">{p.note}</p>
-              <h3 class="mt-1 font-semibold">
-                {p.href ? <a href={p.href} class="after:absolute after:inset-0 hover:text-accent">{p.name}</a> : p.name}
-              </h3>
-              <p class="mt-2 text-sm leading-relaxed text-muted">{p.desc}</p>
-            </div>
-          </article>
-        ))}
+  <section class="section" aria-labelledby="now">
+    <h2 id="now" class="section-title">At Solunar</h2>
+    {PRODUCTS.map((p) => (
+      <div class="mt-5">
+        <h3 class="text-lg font-bold">{p.name}</h3>
+        <p class="mt-1">{p.short}</p>
+        <p class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2"><a class="cta" href={p.url}>Visit {p.url.replace('https://', '')}</a> <a href={`/work/${p.slug}`}>Why I'm building {p.name}</a></p>
       </div>
-    </section>
+    ))}
+  </section>
 
-    <section class="mt-16" aria-labelledby="videos">
-      <SectionHeading eyebrow="Talks & demos" title="Videos" id="videos" />
-      <div class="grid gap-5 md:grid-cols-3">
-        {videos.map((v) => (
-          <a href={`https://www.youtube.com/watch?v=${v.id}`} class="group block overflow-hidden rounded-2xl border border-line bg-surface">
-            <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" width="480" height="360" class="aspect-video w-full object-cover" />
-            <p class="p-4 text-sm font-medium group-hover:text-accent">{v.title} ↗</p>
-          </a>
-        ))}
+  <section class="section" aria-labelledby="past">
+    <h2 id="past" class="section-title">Earlier products</h2>
+    {past.map((p) => (
+      <div class="mt-5">
+        <h3 class="text-lg font-bold">{p.href ? <a href={p.href} class="heading-link">{p.name}</a> : p.name}</h3>
+        <p class="meta">{p.note}</p>
+        <p class="mt-1">{p.desc}</p>
       </div>
-    </section>
+    ))}
+  </section>
 
-    <section class="mt-16" aria-labelledby="oss">
-      <SectionHeading eyebrow="Open source" title="GitHub" id="oss" />
-      <div class="grid gap-5 md:grid-cols-3">
-        {github.map((g) => (
-          <a href={g.href} class="block rounded-2xl border border-line bg-surface p-5 hover:border-accent">
-            <p class="font-semibold">{g.title} ↗</p>
-            <p class="mt-2 text-sm text-muted">{g.desc}</p>
-          </a>
-        ))}
+  <section class="section" aria-labelledby="videos">
+    <h2 id="videos" class="section-title">Talks and demos on YouTube</h2>
+    <ul class="mt-3 list-disc space-y-2 pl-5">
+      {videos.map((v) => <li><a href={`https://www.youtube.com/watch?v=${v.id}`}>{v.title}</a></li>)}
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="oss">
+    <h2 id="oss" class="section-title">Open source</h2>
+    {github.map((g) => (
+      <div class="mt-5">
+        <h3 class="text-lg font-bold"><a href={g.href} class="heading-link">{g.title}</a></h3>
+        <p class="mt-1">{g.desc}</p>
       </div>
-      <a href={SOCIAL.github} class="mt-4 inline-block text-sm font-medium text-accent hover:underline">More on GitHub →</a>
-    </section>
-  </div>
+    ))}
+    <p class="mt-6">More projects are on <a href={SOCIAL.github}>my GitHub profile</a>.</p>
+  </section>
 </Base>

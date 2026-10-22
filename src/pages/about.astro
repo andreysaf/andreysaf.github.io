@@ -1,32 +1,42 @@
 ---
 import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
 import TimelineItem from '../components/TimelineItem.astro';
-import TestimonialCard from '../components/Testimonial.astro';
-import SectionHeading from '../components/SectionHeading.astro';
+import TestimonialQuote from '../components/Testimonial.astro';
 import Faq from '../components/Faq.astro';
 import { PERSON, SITE, OPENSTRATA, OPENCOMMUNITY, SOLUNAR, SOCIAL } from '../data/site';
 import { TIMELINE } from '../data/timeline';
 import { TESTIMONIALS } from '../data/testimonials';
 import { timelineNode, faqNode } from '../lib/schema';
 
-const full = TIMELINE.filter((r) => !r.compact || r.id === 'safas' || r.id === 'blockstream');
-const early = TIMELINE.filter((r) => r.compact && !['safas', 'blockstream'].includes(r.id));
-const aspire = TESTIMONIALS.filter((t) => t.era === 'aspire' && !t.relatesTo);
-const apryse = TESTIMONIALS.filter((t) => t.era === 'apryse');
+const EARLY = ['mgestyk', 'sidense', 'the-source'];
+const main = TIMELINE.filter((r) => !EARLY.includes(r.id));
+const early = TIMELINE.filter((r) => EARLY.includes(r.id));
+const customers = TESTIMONIALS.filter((t) => t.context === 'customer');
+const leadership = TESTIMONIALS.filter((t) => t.context === 'leadership');
+const colleagues = TESTIMONIALS.filter((t) => t.context === 'colleague');
+const updated = new Date(SITE.profileUpdated).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+const glance = [
+  { k: 'Now', v: 'Founder of Solunar, building OpenStrata and OpenCommunity' },
+  { k: 'Previously', v: 'Head of Product and Development and AI lead at Aspire Software; Head of Product at Apryse (PDFTron)' },
+  { k: 'Known for', v: 'Taking products from idea to revenue, AI transformation, and building product teams' },
+  { k: 'Based in', v: 'Vancouver, British Columbia, Canada' },
+];
 
 const faq = [
   { q: 'Who is Andrey Safonov?', a: PERSON.summary },
   {
     q: 'What is Andrey Safonov working on now?',
-    a: `He is the founder of Solunar, a Greater Vancouver software company. Solunar builds OpenStrata (${OPENSTRATA.url}), strata management software for British Columbia, and OpenCommunity (${OPENCOMMUNITY.url}), member and program management for community centres, nonprofits and drop-in programs.`,
+    a: `He is the founder of Solunar, a software company in Greater Vancouver. Solunar builds OpenStrata (${OPENSTRATA.url}), strata management software for British Columbia, and OpenCommunity (${OPENCOMMUNITY.url}), member and program management for community centres, nonprofits and drop-in programs.`,
   },
   {
     q: 'What did Andrey Safonov do at Apryse (PDFTron)?',
-    a: 'He joined in 2018 as a Technical Solutions Engineer, became the company’s first Product Manager in 2019, and was Head of Product from 2021 to 2023. He launched 0→1 products including the DOCX Editor and Video Collaboration, opened a low-code channel through Salesforce, Appian and Mendix, and grew the portfolio from $5M to $50M+.',
+    a: 'He joined in 2018 as a technical solutions engineer, became the company’s first product manager in 2019, and was Head of Product from 2021 to 2023. He launched new products including the DOCX Editor and Video Collaboration, opened a low-code channel through Salesforce, Appian and Mendix, and grew the portfolio from $5M to more than $50M.',
   },
   {
     q: 'What did Andrey Safonov do at Aspire Software?',
-    a: 'From 2023 to 2026 he was Technical Product Manager, then Head of Product & Development and AI Lead, effectively the CTPO. He worked with 14 companies, including DockMaster Software (as CTO), CORE Cashless, H&L POS, RENTALL, S&W Technologies and VisiumKMS. He also created three AI-native products: Signiphi, BluSynq and BluMarina.',
+    a: 'From 2023 to 2026 he was a technical product manager, then Head of Product and Development and AI lead. He worked with 14 companies, including DockMaster Software (as chief technology officer, building DockMaster Web), CORE Cashless, H&L POS, RENTALL, S&W Technologies and VisiumKMS, and created three AI products: Signiphi, BluSynq and BluMarina.',
   },
 ];
 ---
@@ -38,49 +48,63 @@ const faq = [
   breadcrumbs={[{ name: 'About', path: '/about' }]}
   jsonLd={[{ '@type': 'ProfilePage', dateModified: SITE.profileUpdated, mainEntity: { '@id': `${SITE.url}/#person` } }, timelineNode(), faqNode(faq)]}
 >
-  <div class="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
-    <p class="mb-3 text-sm font-medium text-accent">About</p>
-    <h1 class="text-4xl font-bold tracking-tight">Andrey Safonov</h1>
-    <p class="mt-5 text-lg leading-relaxed">{PERSON.summary}</p>
-    <p class="mt-4 leading-relaxed text-muted">
-      I started out writing compilers and real-time editors, built the BC Ministry of Finance's tax portal, and moved into
-      product after closing deals as a solutions engineer. Since then I've built 0→1 products, worked with teams in 13 locations around the world, and
-      used AI to rebuild software in industries I had to learn from scratch: marinas, attraction parks, car rental, restaurants
-      and nuclear safety. Today I'm fully focused on <a href={SOLUNAR.url} class="text-accent underline-offset-4 hover:underline">Solunar</a>,
-      building <a href={OPENSTRATA.url} class="text-accent underline-offset-4 hover:underline">{OPENSTRATA.anchor}</a> and{' '}
-      <a href={OPENCOMMUNITY.url} class="text-accent underline-offset-4 hover:underline">{OPENCOMMUNITY.anchor}</a>.
+  <section class="pt-12" aria-labelledby="about">
+    <h1 id="about" class="page-title">About Andrey</h1>
+    <p class="lede mt-6">{PERSON.summary}</p>
+    <p class="meta mt-4">Last updated <time datetime={SITE.profileUpdated}>{updated}</time>.</p>
+  </section>
+
+  <Section id="glance" title="At a glance">
+    <dl class="mt-6">
+      {glance.map((g) => (
+        <div class="grid gap-x-6 border-t border-rule py-3 first:border-t-0 first:pt-0 sm:grid-cols-[7rem_1fr]">
+          <dt class="font-semibold">{g.k}</dt>
+          <dd>{g.v}</dd>
+        </div>
+      ))}
+    </dl>
+    <p class="mt-6">
+      Jump to <a href="#timeline">career timeline</a>, <a href="#shoutouts">what people say</a> or{' '}
+      <a href="#faq-heading">questions and answers</a>. You can also reach me on <a href={SOCIAL.linkedin}>LinkedIn</a>.
     </p>
-    <p class="mt-4 text-sm text-muted">Last updated <time datetime={SITE.profileUpdated}>{new Date(SITE.profileUpdated).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time> · <a href={SOCIAL.linkedin} class="underline-offset-4 hover:underline">LinkedIn</a></p>
-  </div>
+  </Section>
 
-  <section class="mx-auto mt-16 max-w-3xl px-4 sm:px-6" aria-labelledby="timeline">
-    <SectionHeading eyebrow="Timeline" title="Where I've worked" id="timeline" />
-    <ol class="relative before:absolute before:bottom-0 before:left-5 before:top-2 before:w-px before:bg-line sm:before:left-[22px]">
-      {full.map((r) => <TimelineItem role={r} />)}
-    </ol>
-    <details class="rounded-2xl border border-line bg-surface p-5">
-      <summary class="cursor-pointer font-medium">Early career (2011–2015)</summary>
-      <ul class="mt-4 space-y-3 text-[15px]">
-        {early.map((r) => (
-          <li><span class="font-medium">{r.positions[0].title}, {r.org}</span> <span class="text-muted">({r.location}).</span> {r.highlights?.[0]}</li>
-        ))}
-      </ul>
-    </details>
-  </section>
+  <Section id="story" title="The short story">
+    <p class="mt-4">
+      I started out writing compilers and real-time editors, built the British Columbia Ministry of Finance's tax portal, and
+      moved into product after closing deals as a solutions engineer. Since then I've built new products from scratch,
+      worked with teams in 13 locations around the world, and used AI to rebuild software in industries I had to learn from
+      the ground up: marinas, attraction parks, car rental, restaurants and nuclear safety.
+    </p>
+    <p>
+      Today I'm fully focused on <a href={SOLUNAR.url}>Solunar</a>, building <a href={OPENSTRATA.url}>OpenStrata</a> for
+      strata councils and residents, and <a href={OPENCOMMUNITY.url}>OpenCommunity</a> for community organizations.
+    </p>
+  </Section>
 
-  <section class="mx-auto mt-20 max-w-5xl px-4 sm:px-6" aria-labelledby="shoutouts">
-    <SectionHeading eyebrow="Shoutouts" title="What people I've worked with say" id="shoutouts" />
-    <h3 class="mb-4 mt-8 text-lg font-semibold">Aspire Software, DockMaster & portfolio</h3>
-    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-      {aspire.map((t) => <TestimonialCard t={t} />)}
+  <Section id="timeline" title="Career timeline">
+    <div class="mt-6">
+      {main.map((r) => <TimelineItem role={r} />)}
+      <article class="grid gap-x-6 border-t border-rule py-8 sm:grid-cols-[7rem_1fr]" aria-labelledby="early">
+        <p class="meta pt-1 font-semibold">2011–2015</p>
+        <div>
+          <h3 id="early" class="text-xl font-bold">Early career</h3>
+          <ul class="mt-3 list-disc space-y-1.5 pl-5">
+            {early.map((r) => <li><span class="font-semibold">{r.positions[0].title}, {r.org}</span>. {r.highlights?.[0]}</li>)}
+          </ul>
+        </div>
+      </article>
     </div>
-    <h3 class="mb-4 mt-12 text-lg font-semibold">Apryse (PDFTron)</h3>
-    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-      {apryse.map((t) => <TestimonialCard t={t} />)}
-    </div>
-  </section>
+  </Section>
 
-  <div class="mx-auto max-w-3xl px-4 sm:px-6">
-    <Faq faq={faq} />
-  </div>
+  <Section id="shoutouts" title="What people say">
+    <h3 class="mt-8 text-lg font-bold">Customers</h3>
+    <div class="mt-4 space-y-8">{customers.map((t) => <TestimonialQuote t={t} />)}</div>
+    <h3 class="mt-12 text-lg font-bold">Founders and leadership</h3>
+    <div class="mt-4 space-y-8">{leadership.map((t) => <TestimonialQuote t={t} />)}</div>
+    <h3 class="mt-12 text-lg font-bold">Colleagues and team members</h3>
+    <div class="mt-4 space-y-8">{colleagues.map((t) => <TestimonialQuote t={t} />)}</div>
+  </Section>
+
+  <Faq faq={faq} />
 </Base>

@@ -3,9 +3,11 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Page not found" description="This page doesn't exist." noindex>
-  <div class="mx-auto max-w-xl px-4 py-24 text-center">
-    <p class="text-sm font-medium text-accent">404</p>
-    <h1 class="mt-2 text-3xl font-bold">This page doesn't exist</h1>
-    <p class="mt-4 text-muted">Try the <a href="/" class="text-accent hover:underline">homepage</a>, the <a href="/blog" class="text-accent hover:underline">blog</a>, or <a href="/about" class="text-accent hover:underline">my timeline</a>.</p>
-  </div>
+  <section class="py-16" aria-labelledby="nf">
+    <h1 id="nf" class="page-title">Page not found</h1>
+    <p class="mt-4">
+      The page you're looking for doesn't exist or has moved. Try the <a href="/">home page</a>, my{' '}
+      <a href="/blog">writing</a>, or my <a href="/about">career timeline</a>.
+    </p>
+  </section>
 </Base>

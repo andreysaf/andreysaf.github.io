@@ -46,8 +46,9 @@ export async function llmsFull() {
       p.bullets?.forEach((b) => lines.push(`- ${b}`));
     }
     r.highlights?.forEach((h) => lines.push(`- ${h}`));
-    r.ventures?.forEach((v) => lines.push(`- Venture: **${v.name}** (${v.industry}, ${v.period}): ${v.story}`));
-    r.portfolio?.forEach((c) => lines.push(`- Portfolio: **${c.name}** (${c.industry})${c.role ? `, ${c.role}` : ''}: ${c.story}`));
+    const name = (c: { name: string; url?: string }) => (c.url ? `[${c.name}](${c.url})` : c.name);
+    r.ventures?.forEach((v) => lines.push(`- Venture: **${name(v)}** (${v.industry}, ${v.period}): ${v.story}`));
+    r.portfolio?.forEach((c) => lines.push(`- Portfolio: **${name(c)}** (${c.industry})${c.role ? `, ${c.role}` : ''}: ${c.story}${c.links ? ' ' + c.links.map((l) => `${l.label}: ${l.href}`).join('; ') : ''}`));
     return lines.join('\n');
   });
   return [

@@ -1,20 +1,12 @@
 ---
 import type { Testimonial } from '../data/testimonials';
-interface Props { t: Testimonial; size?: 'sm' | 'lg' }
-const { t, size = 'sm' } = Astro.props;
-const initials = t.name.split(' ').map((n) => n[0]).join('').slice(0, 2);
-const label = { customer: 'Customer', leadership: 'Leadership', colleague: 'Colleague' }[t.context];
+interface Props { t: Testimonial }
+const { t } = Astro.props;
 ---
 
-<figure class="flex h-full flex-col rounded-2xl border border-line bg-surface p-6">
-  <blockquote class:list={['flex-1 leading-relaxed', size === 'lg' ? 'text-lg' : 'text-[15px]']}>
+<figure class="border-l-2 border-rule pl-5">
+  <blockquote>
     <p>“{t.quote}”</p>
   </blockquote>
-  <figcaption class="mt-5 flex items-center gap-3">
-    <span class="grid size-9 shrink-0 place-items-center rounded-full bg-accent-soft text-xs font-semibold text-accent" aria-hidden="true">{initials}</span>
-    <span class="min-w-0">
-      <span class="block text-sm font-semibold">{t.name}</span>
-      <span class="block text-xs text-muted">{t.title} · {label}</span>
-    </span>
-  </figcaption>
+  <figcaption class="mt-2 text-[0.9rem] text-muted">{t.name}, {t.title}</figcaption>
 </figure>
