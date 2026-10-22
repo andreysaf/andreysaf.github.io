@@ -5,26 +5,34 @@ Disallow: /wedding
 # Answer engines and AI crawlers are welcome
 User-agent: GPTBot
 Allow: /
+Disallow: /wedding
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /wedding
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /wedding
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /wedding
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /wedding
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /wedding
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /wedding
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /wedding
 
 Sitemap: https://andreysafonov.com/sitemap-index.xml

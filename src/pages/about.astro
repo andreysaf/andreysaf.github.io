@@ -36,7 +36,7 @@ const faq = [
   description="Career timeline of Andrey Safonov, founder of Solunar (OpenStrata, OpenCommunity): Aspire Software, DockMaster, Apryse (PDFTron) and more, with stories and testimonials."
   type="profile"
   breadcrumbs={[{ name: 'About', path: '/about' }]}
-  jsonLd={[{ '@type': 'ProfilePage', mainEntity: { '@id': `${SITE.url}/#person` } }, timelineNode(), faqNode(faq)]}
+  jsonLd={[{ '@type': 'ProfilePage', dateModified: SITE.profileUpdated, mainEntity: { '@id': `${SITE.url}/#person` } }, timelineNode(), faqNode(faq)]}
 >
   <div class="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
     <p class="mb-3 text-sm font-medium text-accent">About</p>
@@ -50,7 +50,7 @@ const faq = [
       building <a href={OPENSTRATA.url} class="text-accent underline-offset-4 hover:underline">{OPENSTRATA.anchor}</a> and{' '}
       <a href={OPENCOMMUNITY.url} class="text-accent underline-offset-4 hover:underline">{OPENCOMMUNITY.anchor}</a>.
     </p>
-    <p class="mt-4 text-sm text-muted">Last updated <time datetime="2026-10-21">October 21, 2026</time> · <a href={SOCIAL.linkedin} class="underline-offset-4 hover:underline">LinkedIn</a></p>
+    <p class="mt-4 text-sm text-muted">Last updated <time datetime={SITE.profileUpdated}>{new Date(SITE.profileUpdated).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time> · <a href={SOCIAL.linkedin} class="underline-offset-4 hover:underline">LinkedIn</a></p>
   </div>
 
   <section class="mx-auto mt-16 max-w-3xl px-4 sm:px-6" aria-labelledby="timeline">

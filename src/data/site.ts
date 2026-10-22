@@ -11,6 +11,8 @@ export const SITE = {
   gaId: 'G-MTPRRGBYGW',
   image: '/profile.jpg',
   location: 'Vancouver, British Columbia, Canada',
+  // Bump when the profile, timeline or testimonials change; shown on /about and used as dateModified.
+  profileUpdated: '2026-10-21',
 };
 
 export const PERSON = {

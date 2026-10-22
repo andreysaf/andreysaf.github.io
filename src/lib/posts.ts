@@ -12,8 +12,12 @@ export async function getPosts(): Promise<Post[]> {
 export const postUrl = (p: Post) => `/blog/${p.id}`;
 export const ogUrl = (p: Post) => `/og/blog/${p.id}.png`;
 
+export function wordCount(body = '') {
+  return body.split(/\s+/).filter(Boolean).length;
+}
+
 export function readingMinutes(body = '') {
-  return Math.max(1, Math.round(body.split(/\s+/).filter(Boolean).length / 230));
+  return Math.max(1, Math.round(wordCount(body) / 230));
 }
 
 export async function getAllCards(): Promise<CardPost[]> {

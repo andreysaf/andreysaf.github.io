@@ -3,7 +3,7 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Faq from '../../components/Faq.astro';
 import PostCard from '../../components/PostCard.astro';
-import { getPosts, postUrl, ogUrl, readingMinutes, type Post } from '../../lib/posts';
+import { getPosts, postUrl, ogUrl, readingMinutes, wordCount, type Post } from '../../lib/posts';
 import { SITE, OPENSTRATA, OPENCOMMUNITY } from '../../data/site';
 import { faqNode } from '../../lib/schema';
 
@@ -20,7 +20,8 @@ const { post, newer, older } = Astro.props;
 const { Content } = await render(post);
 const d = post.data;
 const url = new URL(postUrl(post), SITE.url).toString();
-const image = d.heroImage ?? ogUrl(post);
+// Social cards always use the generated 1200x630 image; heroImage is only shown in-page.
+const image = ogUrl(post);
 const fmt = (date: Date) => date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 const iso = (date: Date) => date.toISOString().slice(0, 10);
 
@@ -39,7 +40,7 @@ const article = {
   publisher: { '@id': `${SITE.url}/#person` },
   keywords: d.tags.join(', '),
   inLanguage: 'en-CA',
-  wordCount: (post.body ?? '').split(/\s+/).length,
+  wordCount: wordCount(post.body),
   isPartOf: { '@id': `${SITE.url}/blog#blog` },
 };
 
@@ -51,6 +52,7 @@ const mentionsCommunity = d.tags.some((t) => ['OpenCommunity', 'Solunar', 'Commu
   title={d.title}
   description={d.description}
   image={image}
+  canonical={d.canonical}
   type="article"
   publishedTime={d.pubDate}
   modifiedTime={d.updatedDate}

@@ -59,7 +59,8 @@ for (const abs of pages) {
   else if (!is404 && (desc.length < 50 || desc.length > 260)) fail(file, `description length ${desc.length}`);
 
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
-  if (!canonical?.startsWith(SITE)) fail(file, 'missing/foreign canonical');
+  if (is404) { if (canonical) fail(file, 'noindex page should not declare canonical'); }
+  else if (!canonical?.startsWith(SITE)) fail(file, 'missing/foreign canonical');
   else if (canonical.endsWith('.html')) fail(file, 'canonical has .html');
 
   const h1s = html.match(/<h1[\s>]/g)?.length ?? 0;

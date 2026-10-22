@@ -1,7 +1,7 @@
 // JSON-LD builders. Every entity has a stable @id so search and answer engines
 // can connect Andrey, Solunar, OpenStrata and OpenCommunity into one graph.
 import { SITE, PERSON, SOLUNAR, PRODUCTS, type Product } from '../data/site';
-import { TIMELINE } from '../data/timeline';
+import { TIMELINE, roleRange } from '../data/timeline';
 
 const abs = (path: string) => new URL(path, SITE.url).toString();
 
@@ -108,17 +108,20 @@ export function timelineNode() {
     '@type': 'ItemList',
     name: `${PERSON.name}: work history`,
     itemListOrder: 'https://schema.org/ItemListOrderDescending',
-    itemListElement: TIMELINE.filter((r) => !r.undated).map((r, i) => ({
+    itemListElement: TIMELINE.filter((r) => !r.undated).map((r, i) => {
+      const { start, end } = roleRange(r);
+      return {
       '@type': 'ListItem',
       position: i + 1,
       item: {
         '@type': 'OrganizationRole',
         roleName: r.positions[0].title,
-        startDate: r.positions.at(-1)!.start,
-        ...(r.positions[0].end ? { endDate: r.positions[0].end } : {}),
+        startDate: start,
+        ...(end ? { endDate: end } : {}),
         memberOf: { '@type': 'Organization', name: r.org, ...(r.orgUrl ? { url: r.orgUrl } : {}) },
       },
-    })),
+    };
+    }),
   };
 }
 

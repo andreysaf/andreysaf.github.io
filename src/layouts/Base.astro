@@ -16,6 +16,7 @@ interface Props {
   breadcrumbs?: { name: string; path: string }[];
   jsonLd?: object[];
   noindex?: boolean;
+  canonical?: string; // override, e.g. for cross-posted content
 }
 
 const {
@@ -28,10 +29,11 @@ const {
   breadcrumbs = [],
   jsonLd = [],
   noindex = false,
+  canonical: canonicalOverride,
 } = Astro.props;
 
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
-const canonical = new URL(path === '/' ? '/' : path.replace(/\/$/, ''), SITE.url).toString();
+const canonical = canonicalOverride ?? new URL(path === '/' ? '/' : path.replace(/\/$/, ''), SITE.url).toString();
 const ogImage = new URL(image, SITE.url).toString();
 const fullTitle = title === SITE.title ? title : `${title} | ${SITE.name}`;
 
@@ -53,8 +55,7 @@ const ld = graph(
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content={SITE.name} />
-    <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex" />}
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
     <link rel="icon" href="/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title={`${SITE.name}: Blog`} href="/rss.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -79,7 +80,7 @@ const ld = graph(
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+    <script type="application/ld+json" set:html={JSON.stringify(ld).replace(/</g, "\\u003c")} />
 
     <script is:inline>
       (function () {

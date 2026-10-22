@@ -40,9 +40,9 @@ export async function llmsFull() {
   const posts = await getPosts();
   const timeline = TIMELINE.map((r) => {
     const { start, end } = roleRange(r);
-    const lines = [`### ${r.org} (${fmtMonth(start)} – ${fmtMonth(end)})`, r.context, ''];
+    const lines = [r.undated ? `### ${r.org}` : `### ${r.org} (${fmtMonth(start)} – ${fmtMonth(end)})`, r.context, ''];
     for (const p of r.positions) {
-      lines.push(`**${p.title}** (${fmtMonth(p.start)} – ${fmtMonth(p.end)})`);
+      lines.push(r.undated ? `**${p.title}**` : `**${p.title}** (${fmtMonth(p.start)} – ${fmtMonth(p.end)})`);
       p.bullets?.forEach((b) => lines.push(`- ${b}`));
     }
     r.highlights?.forEach((h) => lines.push(`- ${h}`));
