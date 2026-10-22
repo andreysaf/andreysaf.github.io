@@ -1,0 +1,24 @@
+---
+import type { Product } from '../data/site';
+interface Props { product: Product; headingLevel?: 'h2' | 'h3' }
+const { product: p, headingLevel = 'h3' } = Astro.props;
+const H = headingLevel;
+---
+
+<article class="group flex flex-col rounded-2xl border border-line bg-surface p-6 transition-shadow hover:shadow-md">
+  <div class="mb-4 flex items-center gap-3">
+    <span class="grid size-10 place-items-center rounded-xl bg-accent-soft text-sm font-bold text-accent" aria-hidden="true">{p.logoText}</span>
+    <div>
+      <H class="text-lg font-semibold leading-tight">{p.name}</H>
+      <p class="text-xs uppercase tracking-wide text-muted">{p.category}</p>
+    </div>
+  </div>
+  <p class="mb-5 text-[15px] leading-relaxed text-muted">{p.oneLiner}</p>
+  <div class="mt-auto flex flex-wrap items-center gap-3 text-sm">
+    <a href={p.url} class="inline-flex items-center gap-1.5 rounded-lg bg-accent px-3.5 py-2 font-medium text-accent-ink hover:opacity-90">
+      Visit {p.url.replace('https://', '')}
+      <span aria-hidden="true">→</span>
+    </a>
+    <a href={`/work/${p.slug}`} class="text-muted underline-offset-4 hover:text-ink hover:underline">Founder's notes</a>
+  </div>
+</article>

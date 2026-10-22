@@ -1,0 +1,122 @@
+---
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { PRODUCTS, SOLUNAR, type Product } from '../../data/site';
+import { faqNode } from '../../lib/schema';
+
+type Page = {
+  title: string;
+  description: string;
+  problem: string[];
+  why: string[];
+  faq: { q: string; a: string }[];
+  readMore: { href: string; label: string };
+};
+
+const PAGES: Record<string, Page> = {
+  openstrata: {
+    title: 'OpenStrata: Strata Management Software for BC, by Founder Andrey Safonov',
+    description:
+      'OpenStrata is strata management software for BC councils and residents, covering documents, bylaws, minutes, AGMs and requests. Founder Andrey Safonov on why it exists.',
+    problem: [
+      'Strata councils in British Columbia are made up of volunteers who govern buildings worth millions of dollars, often with nothing more than an inbox, a shared drive and a binder handed down from the last council.',
+      'Residents can’t find bylaws or minutes, so they email the council. The same questions repeat every month, and when council members change, knowledge walks out the door with them.',
+    ],
+    why: [
+      'At Apryse, I spent years building document software used by thousands of organizations. At Aspire, I learned industry after industry by sitting with the people doing the work. OpenStrata combines both: a document-first platform shaped around how BC strata councils actually operate.',
+      'It runs in any browser, needs no app, and starts with a council-only pilot. That way a cautious council can try it before involving every owner in the building.',
+    ],
+    faq: [
+      { q: 'What is OpenStrata?', a: 'OpenStrata is web-based strata management software for British Columbia strata corporations. It gives councils a central, searchable home for documents, bylaws, minutes and AGM packages, routes resident requests, and provides self-service answers to residents.' },
+      { q: 'Who makes OpenStrata?', a: 'OpenStrata is built by Solunar, a Greater Vancouver software company founded by Andrey Safonov.' },
+      { q: 'Does OpenStrata replace a property manager?', a: 'No, it doesn’t have to. Self-managed stratas use it to run their building, and professionally managed buildings use it to cut back-and-forth between owners, council and the manager.' },
+      { q: 'Do residents need to download an app?', a: 'No. OpenStrata works in any modern web browser on a phone or computer.' },
+      { q: 'Can a council pilot OpenStrata first?', a: 'Yes. Councils can start with council members only and invite residents later with guided onboarding.' },
+      { q: 'Is OpenStrata available outside BC?', a: 'OpenStrata is designed for British Columbia strata corporations. Visit openstrata.ca for current availability.' },
+    ],
+    readMore: { href: '/blog/what-bc-strata-councils-need-from-software', label: 'What BC strata councils actually need from software' },
+  },
+  opencommunity: {
+    title: 'OpenCommunity: Member & Program Management for Community Organizations',
+    description:
+      'OpenCommunity is member and program software for community centres and nonprofits: kiosk sign-in, attendance, scheduling and funder reporting. Founder Andrey Safonov on why.',
+    problem: [
+      'Community hubs, family centres and nonprofit programs serve whole neighbourhoods, yet many still run on paper sign-in sheets, copied spreadsheets and staff memory.',
+      'The pain peaks at reporting time. Funders and boards want unique visitors, demographics and program trends, and producing them by hand takes days of reconciling.',
+    ],
+    why: [
+      'Across a portfolio of vertical software businesses at Aspire, I saw how much a focused, modern system changes the day for front-line staff. Community organizations deserve that too, at a price that works for nonprofits.',
+      'OpenCommunity puts memberships, attendance, kiosk sign-in, scheduling, payments and funder reporting in one place, with role-based access and encryption, because these organizations hold sensitive information about families.',
+    ],
+    faq: [
+      { q: 'What is OpenCommunity?', a: 'OpenCommunity is member and program management software for community hubs, nonprofits and publicly funded organizations. It brings memberships, attendance, kiosk sign-in, scheduling, payment tracking and reporting into one system.' },
+      { q: 'Who makes OpenCommunity?', a: 'OpenCommunity is built by Solunar, a Greater Vancouver software company founded by Andrey Safonov.' },
+      { q: 'How does kiosk sign-in work?', a: 'Visitors sign in at a reception kiosk using a phone number or another chosen field, confirmed by a personal PIN.' },
+      { q: 'Does OpenCommunity help with funder reporting?', a: 'Yes. It generates attendance summaries, demographic breakdowns, unique-family counts and program statistics for funders and boards.' },
+      { q: 'Can multiple locations use one account?', a: 'Yes. Each centre gets its own programs, staff and kiosk, and reporting rolls up across all locations.' },
+      { q: 'Do families need to download an app?', a: 'No. The family portal runs in a web browser.' },
+    ],
+    readMore: { href: '/blog/community-centre-software-spreadsheets', label: 'Running a community centre on spreadsheets: what breaks first' },
+  },
+};
+
+export function getStaticPaths() {
+  return PRODUCTS.map((product) => ({ params: { slug: product.slug }, props: { product } }));
+}
+
+interface Props { product: Product }
+const { product: p } = Astro.props;
+const page = PAGES[p.slug];
+---
+
+<Base
+  title={page.title}
+  description={page.description}
+  image={`/og/${p.slug}.png`}
+  breadcrumbs={[{ name: 'Work', path: '/portfolio' }, { name: p.name, path: `/work/${p.slug}` }]}
+  jsonLd={[faqNode(page.faq)]}
+>
+  <div class="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
+    <p class="mb-3 text-sm font-medium text-accent">Founder's notes · <a href={SOLUNAR.url} class="hover:underline">Solunar</a></p>
+    <h1 class="text-4xl font-bold tracking-tight">{p.name}</h1>
+    <p class="mt-3 text-xl text-muted">{p.tagline}</p>
+    <p class="mt-6 text-lg leading-relaxed">{p.oneLiner}</p>
+    <div class="mt-7 flex flex-wrap gap-3">
+      <a href={p.url} class="rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-accent-ink hover:opacity-90">Visit {p.url.replace('https://', '')} →</a>
+      <a href={page.readMore.href} class="rounded-lg border border-line bg-surface px-4 py-2.5 text-sm font-medium hover:border-accent">Read: {page.readMore.label}</a>
+    </div>
+
+    <section class="mt-16" aria-labelledby="problem">
+      <SectionHeading title="The problem" id="problem" />
+      <div class="space-y-4 text-[17px] leading-relaxed">{page.problem.map((t) => <p>{t}</p>)}</div>
+    </section>
+
+    <section class="mt-14" aria-labelledby="who">
+      <SectionHeading title={`Who ${p.name} is for`} id="who" />
+      <ul class="grid gap-3 sm:grid-cols-2">
+        {p.audience.map((a) => <li class="rounded-xl border border-line bg-surface p-4">{a}</li>)}
+      </ul>
+    </section>
+
+    <section class="mt-14" aria-labelledby="what">
+      <SectionHeading title={`What ${p.name} does`} id="what" />
+      <ul class="list-disc space-y-2 pl-5 text-[17px] marker:text-accent">
+        {p.features.map((f) => <li>{f}</li>)}
+      </ul>
+    </section>
+
+    <section class="mt-14" aria-labelledby="why">
+      <SectionHeading title="Why I'm building it" id="why" />
+      <div class="space-y-4 text-[17px] leading-relaxed">{page.why.map((t) => <p>{t}</p>)}</div>
+    </section>
+
+    <Faq faq={page.faq} />
+
+    <section class="mt-14 rounded-2xl border border-line bg-accent-soft/60 p-6 text-center">
+      <p class="text-lg font-semibold">See {p.name} in action</p>
+      <p class="mt-1 text-muted">Book a short demo or start a pilot.</p>
+      <a href={p.url} class="mt-4 inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink hover:opacity-90">{p.anchor} →</a>
+    </section>
+  </div>
+</Base>

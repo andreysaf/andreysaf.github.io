@@ -1,0 +1,125 @@
+---
+title: Migrate a Next.js App to GA4 Using react-ga4
+description: How to move a Next.js or React app from Google Universal Analytics to Google Analytics 4 by swapping react-ga for react-ga4.
+tldr: "To move a Next.js app from Universal Analytics to GA4, create a GA4 property to get a G- measurement ID, uninstall react-ga, install react-ga4, initialize it with the new ID, and replace pageview calls with ReactGA.send() using hitType: 'pageview'. Data appears in Google Analytics within minutes."
+pubDate: 2023-05-27
+heroImage: /blog/next-js-ga4.jpeg
+heroAlt: Next.js logo and Google Analytics logo
+tags: [Engineering, Analytics]
+faq:
+  - q: Is react-ga4 a drop-in replacement for react-ga?
+    a: "Mostly. Initialize it with a GA4 measurement ID (G-XXXXXXXXXX) and replace the set and pageview calls with ReactGA.send() using hitType: 'pageview', page and title. Note that react-ga4 has different authors and an MIT license, while react-ga uses Apache 2.0."
+  - q: Why is GA4 not showing any data?
+    a: Make sure your browser is not blocking Google Analytics scripts. Brave shields, for example, block GA by default.
+---
+
+In this post, we go over how to migrate your Next.js web app from Google Universal Analytics to Google Analytics 4 if you use [react-ga](https://www.npmjs.com/package/react-ga). Google UA stops working on July 1st, 2023, so it's a good idea to migrate beforehand. react-ga is a popular package that makes Google Analytics a breeze in React apps. [react-ga4](https://www.npmjs.com/package/react-ga4) adds support for GA4. It's worth mentioning that react-ga4 wasn't written by the creators of react-ga. The license also changes: react-ga is distributed under Apache 2.0, while react-ga4 uses MIT.
+
+In this guide, you will learn:
+
+- [How to get your GA4 property](#get-ga4-property)
+- [How to set up react-ga4](#set-up-react-ga4-in-your-nextjs-project)
+- [How to switch from react-ga to react-ga4](#remove-react-ga-and-install-react-ga4)
+- [How to add your GA4 property to react-ga4](#add-your-ga4-property-to-react-ga4)
+- [How to start receiving data in Google Analytics](#start-receiving-data-in-google-analytics)
+
+I'll assume you already have a Next.js app with react-ga configured. The guide also applies to a plain React app.
+
+## Get GA4 property
+
+To get your GA4 property, log in to [Google Analytics](https://analytics.google.com/analytics/web/). If you haven't set up GA4, you'll see plenty of warnings, banners and popups asking you to. Any of them will take you to the setup assistant. If none show up, follow the [official guide by Google](https://support.google.com/analytics/answer/9744165).
+
+You'll need a measurement ID that looks like this: `G-XXXXXXXXXX`. Save it for the next step.
+
+## Set up react-ga4 in your Next.js project
+
+If you haven't set up react-ga or react-ga4 before, follow along here. First, install react-ga4:
+
+```bash
+npm i react-ga4
+```
+
+Add a new file called `components/googleAnalytics.js` to your project and paste the following:
+
+```js
+import ReactGA from "react-ga4"
+
+export const initGA = () => {
+  ReactGA.initialize("G-XXXXXXX")
+}
+
+export const logPageView = () => {
+  ReactGA.send({ hitType: 'pageview', page: window.location.pathname, title: window.document.title })
+}
+```
+
+Then create another file called `components/layout.js` and paste the following:
+
+```jsx
+import React, { useEffect } from "react";
+import { initGA, logPageView } from "./googleAnalytics.js";
+
+const Layout = (props) => {
+  useEffect(() => {
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+    logPageView();
+  });
+
+  return <div>{props.children}</div>;
+};
+
+export default Layout;
+```
+
+You can then wrap any page in the layout component to track it:
+
+```jsx
+import Layout from '../../components/layout';
+
+export const MyPage = () => (
+  <Layout>
+    <div>Hello World</div>
+  </Layout>
+);
+```
+
+## Remove react-ga and install react-ga4
+
+Run the following command to remove react-ga:
+
+```bash
+npm uninstall react-ga
+```
+
+Then install react-ga4:
+
+```bash
+npm install react-ga4
+```
+
+## Add your GA4 property to react-ga4
+
+Open the file where you initialized react-ga. In my case, it's a separate file called `googleAnalytics.js`. In that file, replace the UA property in the `initialize` call with the new measurement ID:
+
+```js
+ReactGA.initialize("G-XXXXXXX")
+```
+
+Then, wherever you track the page view event, remove the `set` and `pageview` calls and replace them with the `send` function:
+
+```js
+ReactGA.send({ hitType: 'pageview', page: window.location.pathname, title: window.document.title })
+```
+
+## Start receiving data in Google Analytics
+
+Refresh the page a couple of times, and you should start seeing data in [Google Analytics](https://analytics.google.com/analytics/web/).
+
+Also make sure GA scripts aren't being blocked. I was using Brave, which blocks GA scripts automatically, and didn't see any data until I turned off the shields.
+
+## Next steps
+
+I hope you enjoyed this post. If you have questions, reach out on [LinkedIn](https://www.linkedin.com/in/andreysaf/).

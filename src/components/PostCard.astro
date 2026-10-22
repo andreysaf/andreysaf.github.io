@@ -1,0 +1,35 @@
+---
+export type CardPost = {
+  title: string;
+  description: string;
+  pubDate: Date;
+  href: string;
+  external?: string; // publisher name when hosted elsewhere
+  image?: string;
+  imageAlt?: string;
+  tags: string[];
+};
+interface Props { post: CardPost; headingLevel?: 'h2' | 'h3' }
+const { post, headingLevel = 'h3' } = Astro.props;
+const H = headingLevel;
+const date = post.pubDate.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+
+<article class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-shadow hover:shadow-md" data-tags={post.tags.join('|')}>
+  {post.image && (
+    <img src={post.image} alt={post.imageAlt ?? ''} loading="lazy" decoding="async" width="600" height="315" class="aspect-[1200/630] w-full border-b border-line object-cover" />
+  )}
+  <div class="flex flex-1 flex-col p-5">
+    <p class="mb-2 text-xs text-muted">
+      <time datetime={post.pubDate.toISOString().slice(0, 10)}>{date}</time>
+      {post.external && <span> · on {post.external}</span>}
+    </p>
+    <H class="mb-2 font-semibold leading-snug">
+      <a href={post.href} class="after:absolute after:inset-0 group-hover:text-accent">
+        {post.title}{post.external && <span class="sr-only"> (opens on {post.external})</span>}
+        {post.external && <span aria-hidden="true"> ↗</span>}
+      </a>
+    </H>
+    <p class="line-clamp-3 text-sm leading-relaxed text-muted">{post.description}</p>
+  </div>
+</article>

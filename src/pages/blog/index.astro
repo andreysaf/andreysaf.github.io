@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getAllCards } from '../../lib/posts';
+import { SITE } from '../../data/site';
+
+const cards = await getAllCards();
+const tags = [...new Set(cards.flatMap((c) => c.tags))].sort();
+---
+
+<Base
+  title="Blog: Product, AI and Building Software for Communities"
+  description="Writing by Andrey Safonov on product management, OKRs, AI agents, strata and community software, and lessons from Apryse, Aspire Software and Solunar."
+  breadcrumbs={[{ name: 'Blog', path: '/blog' }]}
+  jsonLd={[{
+    '@type': 'Blog',
+    '@id': `${SITE.url}/blog#blog`,
+    name: `${SITE.name}: Blog`,
+    url: `${SITE.url}/blog`,
+    author: { '@id': `${SITE.url}/#person` },
+  }]}
+>
+  <div class="mx-auto max-w-5xl px-4 pt-14 sm:px-6">
+    <p class="mb-3 text-sm font-medium text-accent">Blog</p>
+    <h1 class="text-4xl font-bold tracking-tight">Writing</h1>
+    <p class="mt-4 max-w-2xl text-lg text-muted">
+      Notes on product management, AI, and building software for the organizations communities depend on.{' '}
+      <a href="/rss.xml" class="text-accent underline-offset-4 hover:underline">Subscribe via RSS</a>.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter by topic" id="tag-filter">
+      <button type="button" data-tag="" aria-pressed="true" class="rounded-full border border-line px-3 py-1 text-sm aria-pressed:border-accent aria-pressed:bg-accent-soft aria-pressed:text-accent">All</button>
+      {tags.map((t) => (
+        <button type="button" data-tag={t} aria-pressed="false" class="rounded-full border border-line px-3 py-1 text-sm aria-pressed:border-accent aria-pressed:bg-accent-soft aria-pressed:text-accent">{t}</button>
+      ))}
+    </div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" id="posts">
+      {cards.map((c) => <PostCard post={c} headingLevel="h2" />)}
+    </div>
+  </div>
+</Base>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('#tag-filter button');
+  const posts = document.querySelectorAll<HTMLElement>('#posts > article');
+  buttons.forEach((b) =>
+    b.addEventListener('click', () => {
+      const tag = b.dataset.tag ?? '';
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      posts.forEach((p) => {
+        p.hidden = !!tag && !(p.dataset.tags ?? '').split('|').includes(tag);
+      });
+    }),
+  );
+</script>

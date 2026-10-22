@@ -1,0 +1,56 @@
+---
+const links = [
+  { href: '/about', label: 'About' },
+  { href: '/work/openstrata', label: 'OpenStrata' },
+  { href: '/work/opencommunity', label: 'OpenCommunity' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/portfolio', label: 'Portfolio' },
+];
+const here = Astro.url.pathname.replace(/\.html$/, '');
+---
+
+<header class="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3 sm:px-6" aria-label="Main">
+    <a href="/" class="flex items-center gap-2.5 font-semibold tracking-tight">
+      <img src="/profile.jpg" alt="" width="32" height="32" class="size-8 rounded-full object-cover" />
+      <span>Andrey Safonov</span>
+    </a>
+    <div class="flex items-center gap-1">
+      <ul class="hidden items-center gap-1 text-sm md:flex">
+        {links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class:list={[
+                'rounded-md px-3 py-2 transition-colors hover:text-ink',
+                here.startsWith(l.href) ? 'text-ink font-medium' : 'text-muted',
+              ]}
+              aria-current={here.startsWith(l.href) ? 'page' : undefined}
+            >{l.label}</a>
+          </li>
+        ))}
+      </ul>
+      <button id="theme-toggle" type="button" class="rounded-md p-2 text-muted hover:text-ink" aria-label="Toggle dark mode">
+        <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <details class="relative md:hidden">
+        <summary class="list-none rounded-md p-2 text-muted hover:text-ink [&::-webkit-details-marker]:hidden" aria-label="Menu">
+          <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </summary>
+        <ul class="absolute right-0 mt-2 w-56 rounded-xl border border-line bg-surface p-2 shadow-lg">
+          {links.map((l) => (
+            <li><a href={l.href} class="block rounded-md px-3 py-2 text-sm hover:bg-accent-soft">{l.label}</a></li>
+          ))}
+        </ul>
+      </details>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch {}
+  });
+</script>

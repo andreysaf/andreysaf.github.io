@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import TestimonialCard from '../components/Testimonial.astro';
+import PostCard from '../components/PostCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { SITE, PERSON, PRODUCTS, SAFAS, SOLUNAR, SOCIAL, OPENSTRATA, OPENCOMMUNITY } from '../data/site';
+import { TIMELINE, fmtMonth, roleRange } from '../data/timeline';
+import { FEATURED } from '../data/testimonials';
+import { getAllCards } from '../lib/posts';
+
+const latest = (await getAllCards()).slice(0, 3);
+const career = TIMELINE.filter((r) => !r.compact).slice(0, 4);
+const stats = [
+  { value: '$5M → $50M+', label: 'Apryse product portfolio growth as Head of Product' },
+  { value: '14', label: 'software companies worked with at Aspire' },
+  { value: '30% → 85%', label: 'enterprise win rate after consumption pricing' },
+  { value: '3', label: 'AI-native products launched inside Aspire' },
+];
+---
+
+<Base
+  title={SITE.title}
+  description={SITE.description}
+  type="profile"
+  jsonLd={[{ '@type': 'ProfilePage', mainEntity: { '@id': `${SITE.url}/#person` } }]}
+>
+  <section class="mx-auto max-w-5xl px-4 pb-16 pt-14 sm:px-6 sm:pt-20">
+    <div class="flex flex-col-reverse gap-10 sm:flex-row sm:items-center">
+      <div class="flex-1">
+        <p class="mb-3 text-sm font-medium text-accent">{PERSON.headline} · Vancouver, BC</p>
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+          Hi, I'm Andrey. I build software for the organizations communities depend on.
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+          I'm the founder of <a href={SOLUNAR.url} class="font-medium text-ink underline decoration-accent decoration-2 underline-offset-4">Solunar</a>, where I build{' '}
+          <a href={OPENSTRATA.url} class="font-medium text-ink underline decoration-accent decoration-2 underline-offset-4">OpenStrata</a>, strata management software for BC, and{' '}
+          <a href={OPENCOMMUNITY.url} class="font-medium text-ink underline decoration-accent decoration-2 underline-offset-4">OpenCommunity</a>, member and program management for community organizations.
+          Before that, I led product and AI across 14 companies at Aspire Software and was Head of Product at Apryse (PDFTron).
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href={OPENSTRATA.url} class="rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-accent-ink hover:opacity-90">Explore OpenStrata</a>
+          <a href={OPENCOMMUNITY.url} class="rounded-lg border border-line bg-surface px-4 py-2.5 text-sm font-medium hover:border-accent">Explore OpenCommunity</a>
+          <a href={SOCIAL.linkedin} class="rounded-lg px-4 py-2.5 text-sm font-medium text-muted hover:text-ink">Get in touch →</a>
+        </div>
+      </div>
+      <img src="/profile.jpg" alt="Andrey Safonov" width="176" height="176" class="size-32 rounded-full object-cover ring-4 ring-surface sm:size-44" fetchpriority="high" />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 sm:px-6" aria-labelledby="now">
+    <SectionHeading eyebrow="Now" title="What I'm building at Solunar" id="now">
+      <p class="mt-2 max-w-2xl text-muted">{SOLUNAR.description}</p>
+    </SectionHeading>
+    <div class="grid gap-5 md:grid-cols-2">
+      {PRODUCTS.map((p) => <ProductCard product={p} />)}
+    </div>
+    <p class="mt-5 text-sm text-muted">
+      I also co-founded <a href={SAFAS.url} class="text-accent underline-offset-4 hover:underline">SAFAS</a>. {SAFAS.oneLiner}
+    </p>
+  </section>
+
+  <section class="mx-auto mt-20 max-w-5xl px-4 sm:px-6" aria-label="Highlights">
+    <dl class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+      {stats.map((s) => (
+        <div class="flex flex-col bg-surface p-5">
+          <dt class="order-2 mt-1 text-xs leading-snug text-muted">{s.label}</dt>
+          <dd class="order-1 text-2xl font-semibold tracking-tight">{s.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="mx-auto mt-20 max-w-5xl px-4 sm:px-6" aria-labelledby="career">
+    <SectionHeading eyebrow="Career" title="From solutions engineer to founder" id="career" />
+    <ol class="divide-y divide-line rounded-2xl border border-line bg-surface">
+      {career.map((r) => {
+        const { start, end } = roleRange(r);
+        return (
+          <li class="grid gap-1 p-5 sm:grid-cols-[160px_1fr] sm:gap-6">
+            <p class="text-sm text-muted">{fmtMonth(start).split(' ')[1]} – {end ? fmtMonth(end).split(' ')[1] : 'now'}</p>
+            <div>
+              <p class="font-semibold">{r.positions[0].title}, {r.org}</p>
+              <p class="text-[15px] text-muted">{r.highlights?.[0] ?? r.positions[0].bullets?.[0]}</p>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+    <a href="/about" class="mt-4 inline-block text-sm font-medium text-accent underline-offset-4 hover:underline">See the full timeline and stories →</a>
+  </section>
+
+  <section class="mx-auto mt-20 max-w-5xl px-4 sm:px-6" aria-labelledby="kind-words">
+    <SectionHeading eyebrow="Kind words" title="From customers and colleagues" id="kind-words" />
+    <div class="grid gap-5 md:grid-cols-3">
+      {FEATURED.map((t) => <TestimonialCard t={t} />)}
+    </div>
+  </section>
+
+  <section class="mx-auto mt-20 max-w-5xl px-4 sm:px-6" aria-labelledby="writing">
+    <SectionHeading eyebrow="Writing" title="Latest posts" id="writing" />
+    <div class="grid gap-5 md:grid-cols-3">
+      {latest.map((p) => <PostCard post={p} />)}
+    </div>
+    <a href="/blog" class="mt-4 inline-block text-sm font-medium text-accent underline-offset-4 hover:underline">All posts →</a>
+  </section>
+</Base>

@@ -1,0 +1,126 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts, postUrl, ogUrl, readingMinutes, type Post } from '../../lib/posts';
+import { SITE, OPENSTRATA, OPENCOMMUNITY } from '../../data/site';
+import { faqNode } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, newer: posts[i - 1], older: posts[i + 1] },
+  }));
+}
+
+interface Props { post: Post; newer?: Post; older?: Post }
+const { post, newer, older } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const url = new URL(postUrl(post), SITE.url).toString();
+const image = d.heroImage ?? ogUrl(post);
+const fmt = (date: Date) => date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const iso = (date: Date) => date.toISOString().slice(0, 10);
+
+const article = {
+  '@type': 'BlogPosting',
+  '@id': `${url}#article`,
+  headline: d.title,
+  description: d.description,
+  abstract: d.tldr,
+  url,
+  mainEntityOfPage: url,
+  image: new URL(image, SITE.url).toString(),
+  datePublished: iso(d.pubDate),
+  dateModified: iso(d.updatedDate ?? d.pubDate),
+  author: { '@id': `${SITE.url}/#person` },
+  publisher: { '@id': `${SITE.url}/#person` },
+  keywords: d.tags.join(', '),
+  inLanguage: 'en-CA',
+  wordCount: (post.body ?? '').split(/\s+/).length,
+  isPartOf: { '@id': `${SITE.url}/blog#blog` },
+};
+
+const mentionsStrata = d.tags.some((t) => ['OpenStrata', 'Solunar', 'Strata'].includes(t));
+const mentionsCommunity = d.tags.some((t) => ['OpenCommunity', 'Solunar', 'Community', 'Nonprofit'].includes(t));
+---
+
+<Base
+  title={d.title}
+  description={d.description}
+  image={image}
+  type="article"
+  publishedTime={d.pubDate}
+  modifiedTime={d.updatedDate}
+  breadcrumbs={[{ name: 'Blog', path: '/blog' }, { name: d.title, path: postUrl(post) }]}
+  jsonLd={[article, { '@type': 'Blog', '@id': `${SITE.url}/blog#blog`, name: `${SITE.name}: Blog`, url: `${SITE.url}/blog` }, ...(d.faq.length ? [faqNode(d.faq)] : [])]}
+>
+  <article class="mx-auto max-w-3xl px-4 pt-12 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted">
+      <a href="/" class="hover:text-ink">Home</a> / <a href="/blog" class="hover:text-ink">Blog</a>
+    </nav>
+    <header>
+      <h1 class="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">{d.title}</h1>
+      <p class="mt-4 text-sm text-muted">
+        By <a href="/about" rel="author" class="text-ink hover:underline">Andrey Safonov</a>{' · '}
+        <time datetime={iso(d.pubDate)}>{fmt(d.pubDate)}</time>
+        {d.updatedDate && <>{' · Updated '}<time datetime={iso(d.updatedDate)}>{fmt(d.updatedDate)}</time></>}
+        {` · ${readingMinutes(post.body)} min read`}
+      </p>
+    </header>
+
+    {d.tldr && (
+      <aside class="mt-8 rounded-2xl border border-line bg-accent-soft/60 p-5" aria-label="Summary">
+        <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-accent">TL;DR</p>
+        <p class="leading-relaxed">{d.tldr}</p>
+      </aside>
+    )}
+
+    {d.heroImage && (
+      <img src={d.heroImage} alt={d.heroAlt ?? ''} class="mt-8 w-full rounded-2xl border border-line object-cover" width="1200" height="630" />
+    )}
+
+    <div class="prose prose-lg mt-8 max-w-none prose-headings:tracking-tight prose-h2:mt-12 prose-img:rounded-xl">
+      <Content />
+    </div>
+
+    <Faq faq={d.faq} />
+
+    {(mentionsStrata || mentionsCommunity) && (
+      <aside class="mt-14 grid gap-4 sm:grid-cols-2" aria-label="Products">
+        {mentionsStrata && (
+          <a href={OPENSTRATA.url} class="rounded-2xl border border-line bg-surface p-5 hover:border-accent">
+            <p class="font-semibold">{OPENSTRATA.name} ↗</p>
+            <p class="mt-1 text-sm text-muted">{OPENSTRATA.tagline} Strata management software for BC.</p>
+          </a>
+        )}
+        {mentionsCommunity && (
+          <a href={OPENCOMMUNITY.url} class="rounded-2xl border border-line bg-surface p-5 hover:border-accent">
+            <p class="font-semibold">{OPENCOMMUNITY.name} ↗</p>
+            <p class="mt-1 text-sm text-muted">{OPENCOMMUNITY.tagline} Member and program management for community organizations.</p>
+          </a>
+        )}
+      </aside>
+    )}
+
+    <footer class="mt-14 flex items-center gap-4 rounded-2xl border border-line bg-surface p-5">
+      <img src="/profile.jpg" alt="" width="56" height="56" class="size-14 rounded-full object-cover" loading="lazy" />
+      <p class="text-sm leading-relaxed text-muted">
+        <a href="/about" class="font-semibold text-ink hover:underline">Andrey Safonov</a> is the founder of{' '}
+        <a href="https://solunar.ca" class="text-accent hover:underline">Solunar</a>, which builds{' '}
+        <a href={OPENSTRATA.url} class="text-accent hover:underline">OpenStrata</a> and{' '}
+        <a href={OPENCOMMUNITY.url} class="text-accent hover:underline">OpenCommunity</a>. He was previously Head of Product at Apryse and Head of Product & Development at Aspire Software.
+      </p>
+    </footer>
+  </article>
+
+  {(newer || older) && (
+    <nav class="mx-auto mt-14 grid max-w-3xl gap-5 px-4 sm:grid-cols-2 sm:px-6" aria-label="More posts">
+      {[older, newer].filter(Boolean).map((p) => (
+        <PostCard post={{ title: p!.data.title, description: p!.data.description, pubDate: p!.data.pubDate, href: postUrl(p!), tags: p!.data.tags }} />
+      ))}
+    </nav>
+  )}
+</Base>

@@ -1,0 +1,87 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { PRODUCTS, SAFAS, SOCIAL } from '../../data/site';
+
+const past = [
+  { name: 'SAFAS Secure Stream', desc: SAFAS.oneLiner, href: SAFAS.url, img: '/cases/ggglitch.svg', note: 'Co-founder' },
+  { name: 'BluSynq', desc: 'AI front desk for marinas and entertainment parks. It answers calls, texts and email in five languages and books work.', href: 'https://blusynq.com', note: 'Created at Aspire Software' },
+  { name: 'Signiphi', desc: 'Digital signatures reimagined for developers and AI agents.', note: 'Created at Aspire Software' },
+  { name: 'BluMarina', desc: 'Agentic marina management.', note: 'Created at Aspire Software' },
+  { name: 'PDF Viewer & Editor (WebViewer)', desc: 'Embed viewing and annotating of PDFs, Office documents and images in any web app.', href: '/portfolio/webviewer-product', img: '/cases/webviewer.png', note: 'Apryse' },
+  { name: 'DOCX Editor', desc: 'Create and edit DOCX documents in the browser without MS Office or server-side dependencies. $3M pipeline in its first quarter.', href: '/portfolio/docx-product', img: '/cases/docx-editor.png', note: 'Apryse · 0→1' },
+  { name: 'Video Annotation', desc: 'Frame-by-frame feedback on video, plus audio redaction. Reached $1M ARR in its first year.', href: 'https://webviewer-video.web.app/', img: '/cases/video.png', note: 'Apryse · 0→1' },
+];
+
+const videos = [
+  { title: 'DOCX Editor demo', id: '3VY1GMyL0AA' },
+  { title: 'DevWeek conference: comparing PDF SDKs', id: 'rGTrcN69LR8' },
+  { title: 'PDF editing release', id: 'LG2H1qtJN4c' },
+];
+
+const github = [
+  { title: 'DocuSign clone', desc: 'React + Firebase app for requesting signatures, signing documents and applying digital signatures.', href: 'https://github.com/PDFTron/pdftron-sign-app' },
+  { title: 'Node.js document REST API', desc: 'Convert Office and images to PDF, generate thumbnails, and optimize files for fast rendering.', href: 'https://github.com/andreysaf/nodejs-convert-file-server' },
+  { title: 'Document indexing & search', desc: 'Extract and index text from documents. React search UI with hit highlighting.', href: 'https://github.com/PDFTron/pdftron-document-search' },
+];
+---
+
+<Base
+  title="Portfolio: Products Built by Andrey Safonov"
+  description="Products Andrey Safonov has built and launched: OpenStrata, OpenCommunity, SAFAS, BluSynq, Signiphi, Apryse WebViewer, DOCX Editor and Video Annotation, plus talks, demos and open-source projects."
+  breadcrumbs={[{ name: 'Portfolio', path: '/portfolio' }]}
+>
+  <div class="mx-auto max-w-5xl px-4 pt-14 sm:px-6">
+    <p class="mb-3 text-sm font-medium text-accent">Portfolio</p>
+    <h1 class="text-4xl font-bold tracking-tight">Products I've built</h1>
+
+    <section class="mt-12" aria-labelledby="now">
+      <SectionHeading eyebrow="Now" title="Solunar" id="now" />
+      <div class="grid gap-5 md:grid-cols-2">{PRODUCTS.map((p) => <ProductCard product={p} />)}</div>
+    </section>
+
+    <section class="mt-16" aria-labelledby="past">
+      <SectionHeading eyebrow="Before" title="Ventures and 0→1 products" id="past" />
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {past.map((p) => (
+          <article class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface">
+            {p.img && <img src={p.img} alt={`${p.name} screenshot`} loading="lazy" class="aspect-[16/10] w-full border-b border-line object-cover" />}
+            <div class="flex flex-1 flex-col p-5">
+              <p class="text-xs text-muted">{p.note}</p>
+              <h3 class="mt-1 font-semibold">
+                {p.href ? <a href={p.href} class="after:absolute after:inset-0 hover:text-accent">{p.name}</a> : p.name}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{p.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-16" aria-labelledby="videos">
+      <SectionHeading eyebrow="Talks & demos" title="Videos" id="videos" />
+      <div class="grid gap-5 md:grid-cols-3">
+        {videos.map((v) => (
+          <a href={`https://www.youtube.com/watch?v=${v.id}`} class="group block overflow-hidden rounded-2xl border border-line bg-surface">
+            <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" width="480" height="360" class="aspect-video w-full object-cover" />
+            <p class="p-4 text-sm font-medium group-hover:text-accent">{v.title} ↗</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-16" aria-labelledby="oss">
+      <SectionHeading eyebrow="Open source" title="GitHub" id="oss" />
+      <div class="grid gap-5 md:grid-cols-3">
+        {github.map((g) => (
+          <a href={g.href} class="block rounded-2xl border border-line bg-surface p-5 hover:border-accent">
+            <p class="font-semibold">{g.title} ↗</p>
+            <p class="mt-2 text-sm text-muted">{g.desc}</p>
+          </a>
+        ))}
+      </div>
+      <a href={SOCIAL.github} class="mt-4 inline-block text-sm font-medium text-accent hover:underline">More on GitHub →</a>
+    </section>
+  </div>
+</Base>
